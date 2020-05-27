@@ -28,13 +28,22 @@ function download() {
         let a = {};
         let count = 0;
         let globalObject = json.result;
+        let time = new Date();
+        let currentTime= time.getTime();
 
         for (let zaznam of globalObject) {
             let lon = zaznam.Position[1];
             if (lon >= 20.4595161) {
-                delete zaznam.Trasa;
-                array.push(zaznam);
                 count++
+                delete zaznam.Trasa;
+                res= zaznam.Popis.split("->")
+                zaznam.From = res[0].split(")")[1];
+                zaznam.To = res[1].split("(")[0];
+                zaznam.CurrentTime=currentTime;
+                zaznam.Type="Train";
+                zaznam.Id= count;
+                console.log(zaznam);
+                array.push(zaznam);               
             }
         }
         console.log(" ")
