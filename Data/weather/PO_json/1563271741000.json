@@ -1,0 +1,40 @@
+{
+    "coord": {
+        "lon": 21.25,
+        "lat": 49.17
+    },
+    "weather": [{
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01d"
+    }],
+    "base": "stations",
+    "main": {
+        "temp": 22.39,
+        "pressure": 1012,
+        "humidity": 33,
+        "temp_min": 20.56,
+        "temp_max": 23.89
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 2.1
+    },
+    "clouds": {
+        "all": 0
+    },
+    "dt": 1563271696,
+    "sys": {
+        "type": 1,
+        "id": 7049,
+        "message": 0.0063,
+        "country": "SK",
+        "sunrise": 1563245198,
+        "sunset": 1563302098
+    },
+    "timezone": 7200,
+    "id": 865085,
+    "name": "Prešovský Kraj",
+    "cod": 200
+}

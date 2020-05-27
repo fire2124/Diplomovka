@@ -1,0 +1,221 @@
+{
+  "error": null,
+  "busses": [
+    {
+      "number": "1",
+      "direction": 0,
+      "lat": 48.97888,
+      "lng": 21.27197,
+      "departure": "11:35",
+      "delay": -302,
+      "vehicle": 732
+    },
+    {
+      "number": "45",
+      "direction": 0,
+      "lat": 49.04131,
+      "lng": 21.18962,
+      "departure": "12:00",
+      "delay": -105,
+      "vehicle": 375
+    },
+    {
+      "number": "1",
+      "direction": 0,
+      "lat": 49.01056,
+      "lng": 21.2568,
+      "departure": "11:55",
+      "delay": -129,
+      "vehicle": 735
+    },
+    {
+      "number": "1",
+      "direction": 1,
+      "lat": 49.01053,
+      "lng": 21.25737,
+      "departure": "11:45",
+      "delay": 89,
+      "vehicle": 736
+    },
+    {
+      "number": "39",
+      "direction": 0,
+      "lat": 48.98571,
+      "lng": 21.24914,
+      "departure": "11:45",
+      "delay": 16,
+      "vehicle": 397
+    },
+    {
+      "number": "38",
+      "direction": 0,
+      "lat": 49.00395,
+      "lng": 21.22088,
+      "departure": "11:55",
+      "delay": -87,
+      "vehicle": 356
+    },
+    {
+      "number": "10",
+      "direction": 0,
+      "lat": 48.99749,
+      "lng": 21.24844,
+      "departure": "11:59",
+      "delay": -13,
+      "vehicle": 391
+    },
+    {
+      "number": "21",
+      "direction": 1,
+      "lat": 49.05596,
+      "lng": 21.28271,
+      "departure": "11:18",
+      "delay": -292,
+      "vehicle": 398
+    },
+    {
+      "number": "X",
+      "direction": 1,
+      "lat": 49.00053,
+      "lng": 21.23107,
+      "departure": "11:50",
+      "delay": -159,
+      "vehicle": 381
+    },
+    {
+      "number": "4",
+      "direction": 1,
+      "lat": 48.99579,
+      "lng": 21.24207,
+      "departure": "11:46",
+      "delay": -67,
+      "vehicle": 727
+    },
+    {
+      "number": "8",
+      "direction": 1,
+      "lat": 48.97885,
+      "lng": 21.26376,
+      "departure": "11:55",
+      "delay": -15,
+      "vehicle": 730
+    },
+    {
+      "number": "15",
+      "direction": 0,
+      "lat": 49.00138,
+      "lng": 21.23922,
+      "departure": "11:47",
+      "delay": -127,
+      "vehicle": 379
+    },
+    {
+      "number": "22",
+      "direction": 0,
+      "lat": 48.99682,
+      "lng": 21.28713,
+      "departure": "12:02",
+      "delay": -6,
+      "vehicle": 395
+    },
+    {
+      "number": "8",
+      "direction": 0,
+      "lat": 48.98433,
+      "lng": 21.24966,
+      "departure": "11:44",
+      "delay": -192,
+      "vehicle": 723
+    },
+    {
+      "number": "20",
+      "direction": 1,
+      "lat": 48.99693,
+      "lng": 21.24116,
+      "departure": "12:00",
+      "delay": -39,
+      "vehicle": 372
+    },
+    {
+      "number": "38",
+      "direction": 0,
+      "lat": 48.98425,
+      "lng": 21.26385,
+      "departure": "11:35",
+      "delay": -298,
+      "vehicle": 345
+    },
+    {
+      "number": "12",
+      "direction": 0,
+      "lat": 48.99741,
+      "lng": 21.26993,
+      "departure": "11:15",
+      "delay": -254,
+      "vehicle": 388
+    },
+    {
+      "number": "18",
+      "direction": 1,
+      "lat": 48.98735,
+      "lng": 21.17609,
+      "departure": "11:40",
+      "delay": -190,
+      "vehicle": 380
+    },
+    {
+      "number": "X",
+      "direction": 0,
+      "lat": 49.00699,
+      "lng": 21.22144,
+      "departure": "11:57",
+      "delay": -7,
+      "vehicle": 336
+    },
+    {
+      "number": "4",
+      "direction": 0,
+      "lat": 49.00579,
+      "lng": 21.23831,
+      "departure": "11:54",
+      "delay": -207,
+      "vehicle": 725
+    },
+    {
+      "number": "38",
+      "direction": 1,
+      "lat": 48.98854,
+      "lng": 21.24753,
+      "departure": "11:48",
+      "delay": -118,
+      "vehicle": 383
+    },
+    {
+      "number": "4",
+      "direction": 0,
+      "lat": 48.99153,
+      "lng": 21.27083,
+      "departure": "11:34",
+      "delay": -268,
+      "vehicle": 726
+    },
+    {
+      "number": "28",
+      "direction": 1,
+      "lat": 48.99264,
+      "lng": 21.24447,
+      "departure": "11:50",
+      "delay": 75,
+      "vehicle": 346
+    },
+    {
+      "number": "12",
+      "direction": 1,
+      "lat": 48.99213,
+      "lng": 21.22467,
+      "departure": "11:30",
+      "delay": -193,
+      "vehicle": 360
+    }
+  ]
+}

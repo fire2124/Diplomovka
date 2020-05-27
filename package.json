@@ -1,0 +1,29 @@
+{
+  "name": "uloha",
+  "version": "1.0.0",
+  "description": "",
+  "main": "MhdPO.js",
+  "scripts": {
+    "MhdPO": "node ./Download.js/MhdPO.js",
+    "SadPO": "node ./Download.js/SadPO.js",
+    "Trains": "node ./Download.js/Trains.js",
+    "weather": "node ./Download.js/weather.js",
+    "trafficSituation": "node ./Download.js/trafficSituation.js",
+    "sizeOF": "node ./sizeOF.js",
+    "down": "node ./down.js",
+    "mCSV": "node ./Download.js/mCSV.js",
+    "t": "node ./trafficSituation.js",
+
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "csvfromurltojson": "0.0.3",
+    "csvtojson": "^2.0.10",
+    "jsonpath": "^1.0.2",
+    "node-fetch": "^2.2.0",
+    "request": "^2.88.0",
+    "start": "^5.1.0"
+  }
+}

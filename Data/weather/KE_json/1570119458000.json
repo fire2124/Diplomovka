@@ -1,0 +1,41 @@
+{
+    "coord": {
+        "lon": 21.33,
+        "lat": 48.67
+    },
+    "weather": [{
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01n"
+    }],
+    "base": "stations",
+    "main": {
+        "temp": 10.26,
+        "pressure": 1012,
+        "humidity": 66,
+        "temp_min": 10,
+        "temp_max": 11
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 2.6,
+        "deg": 20
+    },
+    "clouds": {
+        "all": 0
+    },
+    "dt": 1570119455,
+    "sys": {
+        "type": 1,
+        "id": 7049,
+        "message": 0.0071,
+        "country": "SK",
+        "sunrise": 1570077369,
+        "sunset": 1570119082
+    },
+    "timezone": 7200,
+    "id": 865084,
+    "name": "Košický Kraj",
+    "cod": 200
+}

@@ -1,0 +1,45 @@
+[{
+    "Line": "701402",
+    "Trip": 67,
+    "Delay": 353,
+    "Lat": 49.27014,
+    "Lng": 21.45542,
+    "Dir": 1,
+    "TripTime": 1230,
+    "From": "Bardejov",
+    "Via": "Beloveža - Hažlín - Ortuťová",
+    "To": "Lipová"
+}, {
+    "Line": "701404",
+    "Trip": 17,
+    "Delay": 28,
+    "Lat": 49.11271,
+    "Lng": 21.51467,
+    "Dir": 1,
+    "TripTime": 1215,
+    "From": "Bardejov",
+    "Via": "Kožany",
+    "To": "Giraltovce"
+}, {
+    "Line": "701419",
+    "Trip": 115,
+    "Delay": 728,
+    "Lat": 49.30581,
+    "Lng": 21.05518,
+    "Dir": 1,
+    "TripTime": 1220,
+    "From": "Bardejov",
+    "Via": "Snakov - Hrabské - Livov",
+    "To": "Livovská Huta"
+}, {
+    "Line": "707410",
+    "Trip": 61,
+    "Delay": 57,
+    "Lat": 48.98153,
+    "Lng": 21.25079,
+    "Dir": 1,
+    "TripTime": 1260,
+    "From": "Prešov",
+    "Via": "Lemešany",
+    "To": "Košice"
+}]
