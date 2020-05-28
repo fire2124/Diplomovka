@@ -9,7 +9,8 @@
     "weather": "node ./Download/weather.js",
     "trafficSituation": "node ./Download/trafficSituation.js",
     "sizeOF": "node ./sizeOF.js",
-    "down": "node ./down.js"
+    "down": "node ./down.js",
+    "zas": "node ./zas.js"
   },
   "author": "",
   "license": "ISC",

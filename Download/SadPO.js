@@ -12,7 +12,8 @@ function downloadSadPO() {
 
   let options = {
     method: 'POST',
-    url: 'https://test.dispecing.info/TDWebAPI/api/GetOnlineData',
+   // https://www.dispecing.info/TDWebAPI/api/GetOnlineData
+    url: 'https://www.dispecing.info/TDWebAPI/api/GetOnlineData',
     headers: {
       'content-type': 'application/json'
     },
@@ -549,12 +550,21 @@ function downloadSadPO() {
           break;
       }
     }
+    let time = new Date();
+    let currentTime= time.getTime();
+    let count2 = 0;
+    let array2 = [];   
+     for (let zaznam of array) {
+       zaznam.Id = ++count2;
+       zaznam.Type="SAD";
+       zaznam.CurrentTime=currentTime;
+       array2.push(zaznam);               
+     }
 
 
 
 
-
-    fs.writeFileSync(`./Data/SadPO_json/${imageDate}.json`, JSON.stringify(array));
+    fs.writeFileSync(`./Data/SadPO_json/${imageDate}.json`, JSON.stringify(array2));
     //console.log(array);
 
     //fs.writeFileSync(`./Data/SadPO_json/${imageDate}.json`, JSON.stringify(body));
