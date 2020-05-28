@@ -52,14 +52,14 @@ async function download() {
                 zaznam.Id= count;
                 delete zaznam.Popis;
                 delete zaznam.MeskaColor;
-                console.log(zaznam);
+                //console.log(zaznam);
                 array.push(zaznam);               
             }
         }
-        console.log(" ")
+        //console.log(" ")
         //console.log(JSON.stringify(array))
         fs.writeFileSync(`./Data/Trains_json/${imageDate}.json`, JSON.stringify(array));
-        console.log(count)
+        //console.log(count)
     });
 }
 setInterval(download, 15000)

@@ -28,19 +28,16 @@ async function downloadMhdPO() {
      let count = 0;
 
 
-      console.log(globalObject);
+     // console.log(globalObject);
       for (let zaznam of globalObject) {
         zaznam.Id = ++count;
         zaznam.Type="MHD";
         zaznam.CurrentTime=currentTime;
         array.push(zaznam);               
       }
-      console.log(array);
+      //console.log(array);
       
-      // for (let zaznam of globalObject) {
-      //   console.log(zaznam);
-        
-      // }
+    
       fs.writeFileSync(`./Data/MhdPO_json/${imageDate}.json`,JSON.stringify(array));
   });
   

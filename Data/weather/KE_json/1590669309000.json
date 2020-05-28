@@ -1,0 +1,40 @@
+[
+  {
+    "coord": { "lon": 21.26, "lat": 48.71 },
+    "weather": [
+      {
+        "id": 804,
+        "main": "Clouds",
+        "description": "overcast clouds",
+        "icon": "04d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 16.82,
+      "feels_like": 8.64,
+      "temp_min": 16.67,
+      "temp_max": 17,
+      "pressure": 1020,
+      "humidity": 48
+    },
+    "visibility": 10000,
+    "wind": { "speed": 10.3, "deg": 360 },
+    "clouds": { "all": 92 },
+    "dt": 1590669309,
+    "sys": {
+      "type": 1,
+      "id": 7049,
+      "country": "SK",
+      "sunrise": 1590633576,
+      "sunset": 1590690317
+    },
+    "timezone": 7200,
+    "id": 724443,
+    "name": "Košice",
+    "cod": 200,
+    "Id": 1,
+    "Type": "WeatherKE",
+    "CurrentTime": 1590669309300
+  }
+]
