@@ -49,6 +49,7 @@ function downloadTrafficSituation() {
           element.category_Name = element.category.name;
           element.status_Code = element.status.code;
           element.status_Name = element.status.name;
+          element.location = 
           delete element.photosInfo;
           delete element.id;
           delete element.guid;
