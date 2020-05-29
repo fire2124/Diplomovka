@@ -7,7 +7,7 @@ if (!fs.existsSync("./Data/SadPO_json")) {
   fs.mkdirSync("./Data/SadPO_json");
 }
 
-function downloadSadPO() {
+async function downloadSadPO() {
   let request = require("request");
 
   let options = {
@@ -24,9 +24,8 @@ function downloadSadPO() {
     json: true
   };
 
-  request(options, function (error, response, body) {
+ await request(options, function (error, response, body) {
     if (error) throw new Error(error);
-    console.log(" ")
 
     Object.size = function (obj) {
       let size = 0,
@@ -41,9 +40,6 @@ function downloadSadPO() {
     let size = Object.size(body);
 
     for (let zaznam of body) {
-        // count++;
-        // zaznam.Type="SadPO";
-        // zaznam.Id= count;
         switch (true) {
         case zaznam.Line == 701402:
           zaznam.From = "Bardejov";

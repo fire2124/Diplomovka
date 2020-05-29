@@ -17,7 +17,7 @@ async function downloadMhdPO() {
     'headers': {
     }
   };
-  request(options, function (error, response, body) { 
+ await request(options, function (error, response, body) { 
     if (error) throw new Error(error);
       
      let array = [];   

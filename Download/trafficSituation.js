@@ -5,7 +5,7 @@ if (!fs.existsSync("./Data/TrafficSituation")) {
   fs.mkdirSync("./Data/TrafficSituation");
 }
 
-function downloadTrafficSituation() {
+async function downloadTrafficSituation() {
   var request = require("request");
   var options = {
     method: "GET",
@@ -16,7 +16,7 @@ function downloadTrafficSituation() {
     },
   };
 
-  request(options, function (error, response, body) {
+ await request(options, function (error, response, body) {
     if (error) throw new Error(error);
     const date = new Date();
     const imageDate = Date.parse(date);
