@@ -62,6 +62,9 @@ async function downloadTrafficSituation() {
           element.district_AreaLevel = element.district.areaLevel;
           element.district_Parent_ID = element.district.parent.id;
           element.district_Parent_Name = element.district.parent.name;
+
+
+        //district_Parent_Extent -------------------------------------------------------------
           if (element.district.parent.extent) {
             let parentExtent = JSON.parse(element.district.parent.extent);
             element.district_Parent_Extent_XMIN = parentExtent.XMIN;
@@ -71,59 +74,103 @@ async function downloadTrafficSituation() {
             element.district_Parent_Extent_SpatialReference_Wkid =
               parentExtent.spatialReference.wkid;
           }
-          if (element.alternateRoute) {
-            let alternate_route = JSON.parse(element.alternateRoute);
-            const iterator = alternate_route.lines.values();
+        //alternateRoute -------------------------------------------------------------
+          // if (element.alternateRoute) {
+          //   let alternate_route = JSON.parse(element.alternateRoute);
+          //   const iterator = alternate_route.lines.values();
 
-            for (const value of iterator) {
-              const iterator2 = value.geometry.paths.values();
-              for (const value2 of iterator2) {
-                element.Alternate_Route_Lines_Geometry_paths = value2;
-              }
-            }
-            const iterator3 = alternate_route.points.values();
-            for (const value3 of iterator3) {
-              element.Alternate_Route_Points_Geometry_X = value3.geometry.x;
-              element.Alternate_Route_Points_Geometry_Y = value3.geometry.y;
-            }
-          }
+          //   for (const value of iterator) {
+          //     const iterator2 = value.geometry.paths.values();
+          //     for (const value2 of iterator2) {
+          //       element.Alternate_Route_Lines_Geometry_paths = value2;
+          //     }
+          //   }
+          //   const iterator3 = alternate_route.points.values();
+          //   for (const value3 of iterator3) {
+          //     element.Alternate_Route_Points_Geometry_X = value3.geometry.x;
+          //     element.Alternate_Route_Points_Geometry_Y = value3.geometry.y;
+          //   }
+          // }
+
           element.category_Code = element.category.code;
           element.category_Name = element.category.name;
           element.status_Code = element.status.code;
           element.status_Name = element.status.name;
+
+          //Location -------------------------------------------------------------
           if (element.location) {
             let loc = JSON.parse(element.location);
-            console.log(loc);
 
             //polygons
             if (loc.polygons) {
-              const iterator6 = loc.poly.values();
-              console.log(iterator6);              
-              for (const value6 of iterator6) {
-                element.Location_Polygons_Paths = value6.geometry;
+              const iterator4 = loc.polygons.values();
+              //console.log("polygon" + " " + iterator4);
+              for (const value4 of iterator4) {
+                const iterator5 = value4.geometry.rings.values();
+                for (const value5 of iterator5) {
+                  element.Location_Polygons_Paths_Rings = value5;
+                }
               }
             }
 
             //lines
             if (loc.lines) {
-              const iterator5 = loc.lines.values();
-              console.log(iterator5);
-              for (const value5 of iterator5) {
-                element.Location_Lines_Paths = value5.geometry.paths;
+              const iterator6 = loc.lines.values();
+              for (const value7 of iterator6) {
+                const iterator8 = value7.geometry.paths.values();
+                for (const value8 of iterator8) {
+                  element.Location_Lines_Paths = value8;
+                }
               }
             }
 
             //points
             if (loc.points) {
-              const iterator4 = loc.points.values();
-              console.log(iterator4);             
-              for (const value4 of iterator4) {
-                element.Location_Poins_Geometry_X = value4.geometry.x;
-                element.Location_Poins_Geometry_Y = value4.geometry.y;
+              const iterator9 = loc.points.values();
+              for (const value10 of iterator9) {
+                element.Location_Points_Geometry_X = value10.geometry.x;
+                element.Location_Points_Geometry_Y = value10.geometry.y;
               }
             }
           }
 
+         //AlternateRoute -------------------------------------------------------------
+          if (element.alternateRoute) {
+            let alt = JSON.parse(element.alternateRoute);
+
+            //polygons
+            if (alt.polygons) {
+              const iterator10 = alt.polygons.values();
+              for (const value11 of iterator10) {
+                const iterator12 = value11.geometry.rings.values();
+                for (const value12 of iterator12) {
+                  element.AlternateRoute_Polygons_Geometry_Paths_Rings = value12;
+                }
+              }
+            }
+
+            //lines
+            if (alt.lines) {
+              const iterator13 = alt.lines.values();
+              for (const value13 of iterator13) {
+                const iterator14 = value13.geometry.paths.values();
+                for (const value14 of iterator14) {
+                  element.AlternateRoute_Lines_Geometry_Paths = value14;
+                }
+              }
+            }
+
+            //points
+            if (alt.points) {
+              const iterator15 = alt.points.values();
+              for (const value15 of iterator15) {
+                element.AlternateRoute_Points_Geometry_X = value15.geometry.x;
+                element.AlternateRoute_Points_Geometry_Y = value15.geometry.y;
+              }
+            }
+          }
+
+        //Delete unused -------------------------------------------------------------
           delete element.alternateRoute;
           delete element.location;
           delete element.photosInfo;
