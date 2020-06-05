@@ -554,18 +554,20 @@ async function downloadSadPO() {
        zaznam.Id = ++count2;
        zaznam.Type="SAD";
        zaznam.CurrentTime=currentTime;
-       array2.push(zaznam);               
+       await axios.post("http://localhost:3000/api/currentSadPoBusses/", zaznam);
+
+       //array2.push(zaznam);               
      }
 
 
 
 
-    fs.writeFileSync(`./Data/SadPO_json/${imageDate}.json`, JSON.stringify(array2));
+   // fs.writeFileSync(`./Data/SadPO_json/${imageDate}.json`, JSON.stringify(array2));
     //console.log(array);
 
     //fs.writeFileSync(`./Data/SadPO_json/${imageDate}.json`, JSON.stringify(body));
     // console.log(body);
   });
 }
-setInterval(downloadSadPO, 5000)
+setInterval(downloadSadPO, 15000)
 

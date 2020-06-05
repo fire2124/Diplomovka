@@ -193,12 +193,14 @@ async function downloadTrafficSituation() {
     for (let zaznam of array) {
       zaznam.OrderInJsonId = ++count2;
       //  console.log(count2);
-      array2.push(zaznam);
+      await axios.post("http://localhost:3000/api/currentTrafficSituation/", zaznam);
+
+      //array2.push(zaznam);
     }
-    fs.writeFileSync(
-      `./Data/TrafficSituation/${imageDate}.json`,
-      JSON.stringify(array2)
-    );
+    // fs.writeFileSync(
+    //   `./Data/TrafficSituation/${imageDate}.json`,
+    //   JSON.stringify(array2)
+    // );
   });
 }
 

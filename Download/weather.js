@@ -60,13 +60,14 @@ async function downloadPO() {
       globalObject.Rain_1h = globalObject.rain["1h"];
       delete globalObject.rain;
     } catch (error) {}
-    array.push(globalObject);
+    //array.push(globalObject);
     console.log(array);
+    await axios.post("http://localhost:3000/api/currentWeatherPo/", globalObject);
 
-    fs.writeFileSync(
-      `./Data/weather/PO_json/${imageDate}.json`,
-      JSON.stringify(array)
-    );
+    // fs.writeFileSync(
+    //   `./Data/weather/PO_json/${imageDate}.json`,
+    //   JSON.stringify(array)
+    // );
   });
 }
 
@@ -133,12 +134,14 @@ async function downloadKe() {
       globalObject.Rain_1h = globalObject.rain["1h"];
       delete globalObject.rain;
     } catch (error) {}
-    array.push(globalObject);
+    //array.push(globalObject);
     //console.log(array);
-    fs.writeFileSync(
-      `./Data/weather/KE_json/${imageDate}.json`,
-      JSON.stringify(array)
-    );
+    await axios.post("http://localhost:3000/api/currentWeatherPo/", globalObject);
+
+    // fs.writeFileSync(
+    //   `./Data/weather/KE_json/${imageDate}.json`,
+    //   JSON.stringify(array)
+    // );
   });
 }
 setInterval(downloadKe, 15000);

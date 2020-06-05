@@ -53,12 +53,14 @@ async function download() {
                 delete zaznam.Popis;
                 delete zaznam.MeskaColor;
                 //console.log(zaznam);
-                array.push(zaznam);               
+                await axios.post("http://localhost:3000/api/currentTrains/", zaznam);
+
+               // array.push(zaznam);               
             }
         }
         //console.log(" ")
         //console.log(JSON.stringify(array))
-        fs.writeFileSync(`./Data/Trains_json/${imageDate}.json`, JSON.stringify(array));
+       // fs.writeFileSync(`./Data/Trains_json/${imageDate}.json`, JSON.stringify(array));
         //console.log(count)
     });
 }

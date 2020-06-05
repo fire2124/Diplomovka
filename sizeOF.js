@@ -3,12 +3,11 @@
  
 // size of MHD PO 
  function sizeOfDataMHDPO(){
-    let size = 4 //+ "kb"
+    let size = 11 //+ "kb"
     size=size*4// " do minuty"
     size=size *60 //" do hodiny"
     size=size * 24 // "do dna"
     size =size* 365 // "do roka"
-    size =size* 2 // " dva roky"
     console.log("--------------------")
     console.log("sizeOfDataMHDPO")
     console.log("--------------------")
@@ -27,7 +26,6 @@
     size=size *60 //" do hodiny"
     size=size * 24 // "do dna"
     size =size* 365 // "do roka"
-    size =size* 2 // " dva roky"
     console.log("--------------------")
     console.log("sizeOfDataTrains")
     console.log("--------------------")
@@ -40,12 +38,11 @@
   }
 // size of SadPO 
  function sizeOfDataSadPO(){
-    let size = 7 //+ "kb"
+    let size = 22 //+ "kb"
     size=size*4// " do minuty"
     size=size *60 //" do hodiny"
     size=size * 24 // "do dna"
     size =size* 365 // "do roka"
-    size =size* 2 // " dva roky"
     console.log("--------------------")
     console.log("sizeOfDataSadPO")
     console.log("--------------------")
@@ -58,11 +55,11 @@
   }
    // size of Traffic 
  function sizeOfDataTraffic(){
-    let size = 65 //+ "kb"
-    size=size *4 //" do hodiny"
+    let size = 85 //+ "kb"
+    size=size *4 //" do minuty"
+    size=size *60 //" do hodiny"
     size=size * 24 // "do dna"
     size =size* 365 // "do roka"
-    size =size* 2 // " dva roky"
     console.log("--------------------")
     console.log("sizeOfDataTraffic")
     console.log("--------------------")
@@ -76,10 +73,10 @@
 
   function sizeOfDataWeatherKE(){
     let size = 1 //+ "kb"
-    size=size *4 //" do hodiny"
+    size=size *4 //" do minuty"
+    size=size *60 //" do hodiny"
     size=size * 24 // "do dna"
     size =size* 365 // "do roka"
-    size =size* 2 // " dva roky"
     console.log("--------------------")
     console.log("sizeOfDataWeatherKE")
     console.log("--------------------")
@@ -93,10 +90,10 @@
 
   function sizeOfDataWeatherPO(){
     let size = 1 //+ "kb"
-    size=size *4 //" do hodiny"
+    size=size *4 //" do minuty"
+    size=size *60 //" do hodiny"
     size=size * 24 // "do dna"
     size =size* 365 // "do roka"
-    size =size* 2 // " dva roky"
     console.log("--------------------")
     console.log("sizeOfDataWeatherPO")
     console.log("--------------------")
