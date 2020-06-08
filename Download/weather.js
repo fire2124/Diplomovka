@@ -1,7 +1,12 @@
 // weather Prešov
 async function downloadPO() {
+
   const fs = require("fs");
   const fetch = require("node-fetch");
+  const date = new Date();
+  const axios = require("axios");
+  const imageDate = Date.parse(date);
+
   if (!fs.existsSync("./Data/weather/PO_json")) {
     fs.mkdirSync("./Data/weather/PO_json");
   }
@@ -12,7 +17,7 @@ async function downloadPO() {
       "https://openweathermap.org/data/2.5/weather?id=723819&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02\n",
     headers: {},
   };
-  await request(options, function (error, response, body) {
+  await request(options, async function (error, response, body) {
     if (error) throw new Error(error);
     const date = new Date();
     const imageDate = Date.parse(date);
@@ -77,6 +82,9 @@ setInterval(downloadPO, 15000);
 async function downloadKe() {
   const fs = require("fs");
   const fetch = require("node-fetch");
+  const date = new Date();
+  const axios = require("axios");
+  const imageDate = Date.parse(date);
   if (!fs.existsSync("./Data/weather/KE_json")) {
     fs.mkdirSync("./Data/weather/KE_json");
   }
@@ -88,7 +96,7 @@ async function downloadKe() {
     headers: {},
   };
 
-  await request(options, function (error, response, body) {
+  await request(options, async function (error, response, body) {
     if (error) throw new Error(error);
     const date = new Date();
     const imageDate = Date.parse(date);

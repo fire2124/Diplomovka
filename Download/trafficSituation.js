@@ -1,5 +1,8 @@
 const fs = require("fs");
 const fetch = require("node-fetch");
+const date = new Date();
+const axios = require("axios");
+const imageDate = Date.parse(date);
 
 if (!fs.existsSync("./Data/TrafficSituation")) {
   fs.mkdirSync("./Data/TrafficSituation");
@@ -16,7 +19,7 @@ async function downloadTrafficSituation() {
     },
   };
 
-  await request(options, function (error, response, body) {
+  await request(options,async function (error, response, body) {
     if (error) throw new Error(error);
     const date = new Date();
     const imageDate = Date.parse(date);
@@ -34,26 +37,24 @@ async function downloadTrafficSituation() {
     // );
     let er = 0;
 
-    bodyFinal.forEach((element) => {
-      try {
-        if (element.region.id === 7 || element.region.id === 8) {
-          arrayBefore.push(element);
-        }
-      } catch (error) {}
-    });
+    // bodyFinal.forEach((element) => {
+    //   try {
+    //     if (element.region.id === 7 || element.region.id === 8) {
+    //       arrayBefore.push(element);
+    //     }
+    //   } catch (error) {}
+    // });
 
-    fs.writeFileSync(
-      `./Data/TrafficSituation/${imageDate}_before.json`,
-      JSON.stringify(arrayBefore)
-    );
+    // fs.writeFileSync(
+    //   `./Data/TrafficSituation/${imageDate}_before.json`,
+    //   JSON.stringify(arrayBefore)
+    // );
 
     bodyFinal.forEach((element) => {
       try {
         if (
           element.region.id === 7 ||
           element.region.id === 8
-          // element.region.name === "Košický kraj" ||
-          // element.region.name === "Prešovský kraj"
         ) {
           element.Type = "Traffic";
           element.Current_Time = currentTime;
@@ -74,23 +75,6 @@ async function downloadTrafficSituation() {
             element.district_Parent_Extent_SpatialReference_Wkid =
               parentExtent.spatialReference.wkid;
           }
-        //alternateRoute -------------------------------------------------------------
-          // if (element.alternateRoute) {
-          //   let alternate_route = JSON.parse(element.alternateRoute);
-          //   const iterator = alternate_route.lines.values();
-
-          //   for (const value of iterator) {
-          //     const iterator2 = value.geometry.paths.values();
-          //     for (const value2 of iterator2) {
-          //       element.Alternate_Route_Lines_Geometry_paths = value2;
-          //     }
-          //   }
-          //   const iterator3 = alternate_route.points.values();
-          //   for (const value3 of iterator3) {
-          //     element.Alternate_Route_Points_Geometry_X = value3.geometry.x;
-          //     element.Alternate_Route_Points_Geometry_Y = value3.geometry.y;
-          //   }
-          // }
 
           element.category_Code = element.category.code;
           element.category_Name = element.category.name;
@@ -190,13 +174,13 @@ async function downloadTrafficSituation() {
 
     let count2 = 0;
     let array2 = [];
-    for (let zaznam of array) {
+    array.forEach(async (zaznam) => {
       zaznam.OrderInJsonId = ++count2;
       //  console.log(count2);
-      await axios.post("http://localhost:3000/api/currentTrafficSituation/", zaznam);
+      await axios.post("http://localhost:3000/api/currentTraffic/", zaznam);
 
       //array2.push(zaznam);
-    }
+    })
     // fs.writeFileSync(
     //   `./Data/TrafficSituation/${imageDate}.json`,
     //   JSON.stringify(array2)

@@ -26,14 +26,23 @@ async function downloadMhdPO() {
     let count = 0;
 
     // console.log(globalObject);
-    for (let zaznam of globalObject) {
-      zaznam.Id = ++count;
+    // for (let zaznam of globalObject) {
+    //   zaznam.Id = ++count;
+    //   zaznam.Type = "MHD";
+    //   zaznam.CurrentTime = currentTime;
+    //   console.log(zaznam) 
+    //   await axios.post("http://localhost:3000/api/currentBusses/", zaznam);
+    //   //array.push(zaznam);
+    // }
+
+    globalObject.forEach(async (zaznam) => {
+      zaznam.OrderInJsonId = ++count;
       zaznam.Type = "MHD";
       zaznam.CurrentTime = currentTime;
       console.log(zaznam) 
-      await axios.post("http://localhost:3000/api/currentBusses/", zaznam);
-      //array.push(zaznam);
-    }
+      await axios.post("http://localhost:3000/api/currentMhdPoBusses/", zaznam);
+    });
+
     //console.log(array);
 
     // fs.writeFileSync(`./Data/MhdPO_json/${imageDate}.json`,JSON.stringify(array));

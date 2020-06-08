@@ -1,5 +1,5 @@
 {
-  "name": "uloha",
+  "name": "downloadData",
   "version": "1.0.0",
   "main": "MhdPO.js",
   "scripts": {
@@ -7,7 +7,7 @@
     "Trains": "node ./Download/Trains.js",
     "SadPO": "node ./Download/SadPo.js",
     "weather": "node ./Download/weather.js",
-    "trafficSituation": "node ./Download/trafficSituation.js",
+    "traffic": "node ./Download/trafficSituation.js",
     "sizeOF": "node ./sizeOF.js",
     "down": "node ./down.js",
     "zas": "node ./zas.js"
