@@ -60,7 +60,7 @@ async function download() {
                 delete zaznam.Popis;
                 delete zaznam.MeskaColor;
                 console.log(zaznam);
-                await axios.post("http://localhost:3000/api/currentTrains/", zaznam);
+                await axios.post("http://localhost:3000/api/v1/currentTrains/", zaznam);
 
                 //array.push(zaznam);               
             }

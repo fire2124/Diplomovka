@@ -40,7 +40,7 @@ async function downloadMhdPO() {
       zaznam.Type = "MHD";
       zaznam.CurrentTime = currentTime;
       console.log(zaznam) 
-      await axios.post("http://localhost:3000/api/currentMhdPoBusses/", zaznam);
+      await axios.post("http://localhost:3000/api/v1/currentMhdPoBusses/", zaznam);
     });
 
     //console.log(array);

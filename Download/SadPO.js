@@ -484,7 +484,7 @@ async function downloadSadPO() {
         zaznam.Type = "SAD";
         zaznam.CurrentTime = currentTime;
         await axios.post(
-          "http://localhost:3000/api/currentSadPoBusses/",
+          "http://localhost:3000/api/v1/currentSadPoBusses/",
           zaznam
         );
        

@@ -177,7 +177,7 @@ async function downloadTrafficSituation() {
     array.forEach(async (zaznam) => {
       zaznam.OrderInJsonId = ++count2;
       //  console.log(count2);
-      await axios.post("http://localhost:3000/api/currentTraffic/", zaznam);
+      await axios.post("http://localhost:3000/api/v1/currentTraffic/", zaznam);
 
       //array2.push(zaznam);
     })
