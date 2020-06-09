@@ -8,7 +8,7 @@ if (!fs.existsSync("./Data/Trains_json")) {
     fs.mkdirSync("./Data/Trains_json");
 }
 
-async function download() {
+async function downloadTrains() {
     let request = require("request");
     let options = {
         method: 'POST',
@@ -22,7 +22,7 @@ async function download() {
         json: true
     };
 
-  await request(options, async function (error, response, body) {
+    return new Promise( await request(options, async function (error, response, body) {
         if (error) throw new Error(error);
         let json = body;
         let array = [];
@@ -31,7 +31,7 @@ async function download() {
         let globalObject = json.result;
         let time = new Date();
         let currentTime= time.getTime();
-        fs.writeFileSync(`./Data/Trains_json/${imageDate}.json`, JSON.stringify(body));
+        //fs.writeFileSync(`./Data/Trains_json/${imageDate}.json`, JSON.stringify(body));
 
         globalObject.forEach(async (zaznam) => {
             let lon = zaznam.Position[1];
@@ -59,7 +59,7 @@ async function download() {
               
                 delete zaznam.Popis;
                 delete zaznam.MeskaColor;
-                console.log(zaznam);
+                //console.log(zaznam);
                 await axios.post("http://localhost:3000/api/v1/currentTrains/", zaznam);
 
                 //array.push(zaznam);               
@@ -69,9 +69,11 @@ async function download() {
         //console.log(JSON.stringify(array))
         //fs.writeFileSync(`./Data/Trains_json/${imageDate}.json`, JSON.stringify(array));
         //console.log(count)
-    });
+    }));
 }
-setInterval(download, 15000)
+//setInterval(downloadTrains, 15000)
 
-
+module.exports = {
+    downloadTrains
+  }
 

@@ -1,12 +1,21 @@
-const mhdPO = require('./Download.js/MhdPO.js');
-const trafficSituation = require('./Download.js/trafficSituation.js')
-const trains = require('./Download.js/trains.js')
-const weatherKE = require('./Download.js/weather.js')
-const weatherPO = require('./Download.js/weather.js')
+const MhdPO = require("./Download/MhdPO");
+const SadPO = require("./Download/SadPO");
+const Trains = require("./Download/Trains");
+const TrafficSituation = require("./Download/trafficSituation");
+const WeatherPO = require("./Download/weatherPO");
+const WeatherKE = require("./Download/weatherKE");
 
-
-setInterval(weatherPO.require, 15000);
-// weatherKE.downloadKE()
-// trains.download()
-// mhdPO.start()
-// trafficSituation.downloadTrafficSituation()
+async function downloadAll() {
+    return new Promise(resolve => {
+        setInterval(() =>{
+            MhdPO.downloadMhdPO(),
+            SadPO.downloadSadPO(),
+            Trains.downloadTrains(),
+            TrafficSituation.downloadTrafficSituation(),
+            WeatherPO.downloadWeatherPO(),
+            WeatherKE.downloadWeatherKE()
+        },15000
+    )})
+}
+downloadAll()
+// setInterval(downloadAll(), 15000);

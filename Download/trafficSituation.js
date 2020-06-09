@@ -19,7 +19,7 @@ async function downloadTrafficSituation() {
     },
   };
 
-  await request(options,async function (error, response, body) {
+  return new Promise( await request(options,async function (error, response, body) {
     if (error) throw new Error(error);
     const date = new Date();
     const imageDate = Date.parse(date);
@@ -185,7 +185,11 @@ async function downloadTrafficSituation() {
     //   `./Data/TrafficSituation/${imageDate}.json`,
     //   JSON.stringify(array2)
     // );
-  });
+  }));
 }
 
-setInterval(downloadTrafficSituation, 15000);
+//setInterval(downloadTrafficSituation, 15000);
+
+module.exports = {
+  downloadTrafficSituation
+}

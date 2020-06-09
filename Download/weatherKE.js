@@ -1,5 +1,5 @@
 // weather Kosice
-async function downloadKE() {
+async function downloadWeatherKE() {
     const fs = require("fs");
     const fetch = require("node-fetch");
     const date = new Date();
@@ -17,7 +17,7 @@ async function downloadKE() {
       headers: {},
     };
   
-    await request(options, async function (error, response, body) {
+  return new Promise( await request(options, async function (error, response, body) {
       if (error) throw new Error(error);
       const date = new Date();
       const imageDate = Date.parse(date);
@@ -66,7 +66,7 @@ async function downloadKE() {
       } catch (error) {}
       //array.push(globalObject);
       //console.log(array);
-      console.log(globalObject);
+     // console.log(globalObject);
       
       await axios.post("http://localhost:3000/api/v1/currentWeatherKe/", globalObject);
   
@@ -74,7 +74,10 @@ async function downloadKE() {
       //   `./Data/weather/KE_json/${imageDate}.json`,
       //   JSON.stringify(array)
       // );
-    });
+    }));
   }
-  setInterval(downloadKE, 15000);
+  //setInterval(downloadWeatherKE, 15000);
   
+  module.exports = {
+    downloadWeatherKE
+  }

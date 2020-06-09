@@ -15,7 +15,7 @@ async function downloadMhdPO() {
     url: "https://mhdpresov.sk/getGPSBusses",
     headers: {},
   };
-  await request(options, async function (error, response, body) {
+ return new Promise( await request(options, async function (error, response, body) {
     if (error) throw new Error(error);
 
     let array = [];
@@ -35,18 +35,22 @@ async function downloadMhdPO() {
     //   //array.push(zaznam);
     // }
 
-    globalObject.forEach(async (zaznam) => {
+   globalObject.forEach(async (zaznam) => {
       zaznam.OrderInJsonId = ++count;
       zaznam.Type = "MHD";
       zaznam.CurrentTime = currentTime;
-      console.log(zaznam) 
-      await axios.post("http://localhost:3000/api/v1/currentMhdPoBusses/", zaznam);
+      //console.log(zaznam) 
+     await axios.post("http://localhost:3000/api/v1/currentMhdPoBusses/", zaznam);
     });
 
     //console.log(array);
-
     // fs.writeFileSync(`./Data/MhdPO_json/${imageDate}.json`,JSON.stringify(array));
-  });
+  }));
+ 
 }
 
-setInterval(downloadMhdPO, 15000);
+//setInterval(downloadMhdPO, 15000);
+//downloadMhdPO()
+module.exports = {
+  downloadMhdPO
+}

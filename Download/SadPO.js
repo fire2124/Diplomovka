@@ -8,7 +8,7 @@ if (!fs.existsSync("./Data/SadPO_json")) {
   fs.mkdirSync("./Data/SadPO_json");
 }
 
-async function downloadSadPO() {
+async function downloadSadPO () {
   let request = require("request");
 
   let options = {
@@ -25,7 +25,7 @@ async function downloadSadPO() {
     json: true,
   };
 
-  await request(options, async function (error, response, body) {
+  return new Promise( await request(options, async function (error, response, body) {
     if (error) throw new Error(error);
     let array = [];
 
@@ -487,17 +487,17 @@ async function downloadSadPO() {
           "http://localhost:3000/api/v1/currentSadPoBusses/",
           zaznam
         );
-       
-          
         //array2.push(zaznam);
       });
-
       // fs.writeFileSync(`./Data/SadPO_json/${imageDate}.json`, JSON.stringify(array2));
       //console.log(array);
-
       //fs.writeFileSync(`./Data/SadPO_json/${imageDate}.json`, JSON.stringify(body));
       // console.log(body);
     
-  });
+  }));
 }
-setInterval(downloadSadPO, 15000);
+//setInterval(downloadSadPO, 15000);
+
+module.exports = {
+  downloadSadPO
+}

@@ -1,5 +1,5 @@
 // weather Prešov
-async function downloadPO() {
+async function downloadWeatherPO() {
   const fs = require("fs");
   const fetch = require("node-fetch");
   const date = new Date();
@@ -16,7 +16,7 @@ async function downloadPO() {
       "https://openweathermap.org/data/2.5/weather?id=723819&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02\n",
     headers: {},
   };
-  await request(options, async function (error, response, body) {
+  return new Promise( await request(options, async function (error, response, body) {
     if (error) throw new Error(error);
     const date = new Date();
     const imageDate = Date.parse(date);
@@ -71,8 +71,11 @@ async function downloadPO() {
     //   `./Data/weather/PO_json/${imageDate}.json`,
     //   JSON.stringify(array)
     // );
-  });
+  }));
 }
 
-setInterval(downloadPO, 15000);
+//setInterval(downloadWeatherPO, 15000);
 
+module.exports = {
+  downloadWeatherPO
+}
