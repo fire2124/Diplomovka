@@ -59,10 +59,10 @@ async function downloadTrains() {
               
                 delete zaznam.Popis;
                 delete zaznam.MeskaColor;
-                //console.log(zaznam);
+                console.log(zaznam);
                 await axios.post("http://localhost:3000/api/v1/currentTrains/", zaznam);
 
-                //array.push(zaznam);               
+                array.push(zaznam);               
             }
         })
         //console.log(" ")
@@ -71,7 +71,7 @@ async function downloadTrains() {
         //console.log(count)
     }));
 }
-//setInterval(downloadTrains, 15000)
+setInterval(downloadTrains, 15000)
 
 module.exports = {
     downloadTrains

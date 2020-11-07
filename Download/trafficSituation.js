@@ -153,8 +153,13 @@ async function downloadTrafficSituation() {
               }
             }
           }
-
+          if(element.houseNo){
+            const split = element.houseNo.split('/')
+            element.houseNoFirst = split[0]
+            element.houseNoSecond = split[1]
+          }
         //Delete unused -------------------------------------------------------------
+          delete element.houseNo;
           delete element.alternateRoute;
           delete element.location;
           delete element.photosInfo;
@@ -177,6 +182,7 @@ async function downloadTrafficSituation() {
     array.forEach(async (zaznam) => {
       zaznam.OrderInJsonId = ++count2;
       //  console.log(count2);
+      console.log(zaznam)
       await axios.post("http://localhost:3000/api/v1/currentTraffic/", zaznam);
 
       //array2.push(zaznam);
@@ -188,7 +194,7 @@ async function downloadTrafficSituation() {
   }));
 }
 
-//setInterval(downloadTrafficSituation, 15000);
+setInterval(downloadTrafficSituation, 15000);
 
 module.exports = {
   downloadTrafficSituation

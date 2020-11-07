@@ -55,7 +55,7 @@
   }
    // size of Traffic 
  function sizeOfDataTraffic(){
-    let size = 85 //+ "kb"
+    let size = 100 //+ "kb"
     size=size *4 //" do minuty"
     size=size *60 //" do hodiny"
     size=size * 24 // "do dna"

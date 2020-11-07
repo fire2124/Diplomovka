@@ -18,7 +18,6 @@ async function downloadMhdPO() {
  return new Promise( await request(options, async function (error, response, body) {
     if (error) throw new Error(error);
 
-    let array = [];
     let globalObject = JSON.parse(body);
     globalObject = globalObject.busses;
     let time = new Date();

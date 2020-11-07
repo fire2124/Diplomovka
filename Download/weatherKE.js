@@ -66,7 +66,7 @@ async function downloadWeatherKE() {
       } catch (error) {}
       //array.push(globalObject);
       //console.log(array);
-     // console.log(globalObject);
+      //console.log(globalObject);
       
       await axios.post("http://localhost:3000/api/v1/currentWeatherKe/", globalObject);
   
@@ -76,7 +76,7 @@ async function downloadWeatherKE() {
       // );
     }));
   }
-  //setInterval(downloadWeatherKE, 15000);
+  setInterval(downloadWeatherKE, 15000);
   
   module.exports = {
     downloadWeatherKE

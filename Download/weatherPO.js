@@ -26,7 +26,7 @@ async function downloadWeatherPO() {
     let currentTime = time.getTime();
     let count = 0;
 
-    //console.log(globalObject);
+    console.log(globalObject);
     delete globalObject.id;
     globalObject.Id = ++count;
     globalObject.Type = "WeatherPO";
@@ -64,7 +64,7 @@ async function downloadWeatherPO() {
       delete globalObject.rain;
     } catch (error) {}
     //array.push(globalObject);
-    //console.log(array);
+    console.log(globalObject);
     await axios.post("http://localhost:3000/api/v1/currentWeatherPo/", globalObject);
 
     // fs.writeFileSync(
@@ -74,7 +74,7 @@ async function downloadWeatherPO() {
   }));
 }
 
-//setInterval(downloadWeatherPO, 15000);
+setInterval(downloadWeatherPO, 5000);
 
 module.exports = {
   downloadWeatherPO
