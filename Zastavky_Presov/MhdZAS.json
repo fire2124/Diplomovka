@@ -1,0 +1,5209 @@
+[
+  {
+    "stopID": 1,
+    "stopName": "Pod Táborom",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9914,
+        "longitude": 21.2515,
+        "tooltip": "Pod Táborom"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9914,
+        "longitude": 21.2515,
+        "tooltip": "Pod Táborom"
+      }
+    ],
+    "ezLines": ["12", "22"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 2,
+    "stopName": "Plzenská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9913,
+        "longitude": 21.2487,
+        "tooltip": "Plzenská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9913,
+        "longitude": 21.2487,
+        "tooltip": "Plzenská"
+      }
+    ],
+    "ezLines": ["11", "22"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 3,
+    "stopName": "Čierny most",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9893,
+        "longitude": 21.2471,
+        "tooltip": "Čierny most"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9893,
+        "longitude": 21.2471,
+        "tooltip": "Čierny most"
+      }
+    ],
+    "ezLines": [
+      "1",
+      "10",
+      "13",
+      "14",
+      "19",
+      "2",
+      "24",
+      "26",
+      "27",
+      "28",
+      "32",
+      "32A",
+      "36",
+      "39",
+      "4",
+      "42",
+      "44",
+      "45",
+      "46",
+      "5",
+      "7",
+      "8",
+      "N2"
+    ],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 4,
+    "stopName": "Lesík delostrelcov",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9925,
+        "longitude": 21.2496,
+        "tooltip": "Lesík delostrelcov"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9925,
+        "longitude": 21.2496,
+        "tooltip": "Lesík delostrelcov"
+      }
+    ],
+    "ezLines": ["11", "12", "22", "35"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 5,
+    "stopName": "Kpt. Nálepku",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9926,
+        "longitude": 21.2469,
+        "tooltip": "Kpt. Nálepku"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9926,
+        "longitude": 21.2469,
+        "tooltip": "Kpt. Nálepku"
+      }
+    ],
+    "ezLines": ["11", "13", "14", "21", "22", "24", "42", "43", "44", "46"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 6,
+    "stopName": "Veľká pošta",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9915,
+        "longitude": 21.2453,
+        "tooltip": "Veľká pošta"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9915,
+        "longitude": 21.2453,
+        "tooltip": "Veľká pošta"
+      }
+    ],
+    "ezLines": [
+      "1",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "18",
+      "19",
+      "2",
+      "22",
+      "24",
+      "26",
+      "27",
+      "28",
+      "32",
+      "36",
+      "39",
+      "4",
+      "41",
+      "42",
+      "44",
+      "45",
+      "46",
+      "5",
+      "7",
+      "8",
+      "N2"
+    ],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 7,
+    "stopName": "Grešova",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9932,
+        "longitude": 21.2456,
+        "tooltip": "Grešova"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9932,
+        "longitude": 21.2456,
+        "tooltip": "Grešova"
+      }
+    ],
+    "ezLines": ["10", "15", "19", "21", "29"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 8,
+    "stopName": "Východná",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.984793,
+        "longitude": 21.25243,
+        "tooltip": "Východná"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.984793,
+        "longitude": 21.25243,
+        "tooltip": "Východná"
+      }
+    ],
+    "ezLines": ["11"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 9,
+    "stopName": "Moyzesova",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9952,
+        "longitude": 21.2503,
+        "tooltip": "Moyzesova"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9952,
+        "longitude": 21.2503,
+        "tooltip": "Moyzesova"
+      }
+    ],
+    "ezLines": ["10", "15", "19", "29"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 10,
+    "stopName": "Divadlo Jonáša Záborského",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9933,
+        "longitude": 21.244,
+        "tooltip": "Divadlo Jonáša Záborského"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9933,
+        "longitude": 21.244,
+        "tooltip": "Divadlo Jonáša Záborského"
+      }
+    ],
+    "ezLines": [
+      "1",
+      "11",
+      "12",
+      "14",
+      "15",
+      "18",
+      "2",
+      "21",
+      "22",
+      "24",
+      "27",
+      "28",
+      "29",
+      "32",
+      "36",
+      "39",
+      "4",
+      "41",
+      "45",
+      "5",
+      "7",
+      "8",
+      "N2"
+    ],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 11,
+    "stopName": "Pavl. námestie",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9902,
+        "longitude": 21.241,
+        "tooltip": "Pavl. námestie"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9902,
+        "longitude": 21.241,
+        "tooltip": "Pavl. námestie"
+      }
+    ],
+    "ezLines": ["12"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 12,
+    "stopName": "Nižné lúky",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.993,
+        "longitude": 21.2586,
+        "tooltip": "Nižné lúky"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.993,
+        "longitude": 21.2586,
+        "tooltip": "Nižné lúky"
+      }
+    ],
+    "ezLines": ["12", "22"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 13,
+    "stopName": "Žel. stanica",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9832,
+        "longitude": 21.2499,
+        "tooltip": "Žel. stanica"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9832,
+        "longitude": 21.2499,
+        "tooltip": "Žel. stanica"
+      }
+    ],
+    "ezLines": [
+      "1",
+      "10",
+      "14",
+      "19",
+      "24",
+      "26",
+      "28",
+      "30",
+      "37",
+      "38",
+      "39",
+      "4",
+      "42",
+      "43",
+      "45",
+      "46",
+      "8",
+      "N1",
+      "N2"
+    ],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 14,
+    "stopName": "Škultétyho",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9865,
+        "longitude": 21.2416,
+        "tooltip": "Škultétyho"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9865,
+        "longitude": 21.2416,
+        "tooltip": "Škultétyho"
+      }
+    ],
+    "ezLines": ["2", "27", "34", "38", "43", "5", "N1"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 15,
+    "stopName": "Štúrova",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9853,
+        "longitude": 21.2429,
+        "tooltip": "Štúrova"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9853,
+        "longitude": 21.2429,
+        "tooltip": "Štúrova"
+      }
+    ],
+    "ezLines": ["2", "30", "34", "42", "5", "7"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 16,
+    "stopName": "Hollého",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9964,
+        "longitude": 21.2526,
+        "tooltip": "Hollého"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9964,
+        "longitude": 21.2526,
+        "tooltip": "Hollého"
+      }
+    ],
+    "ezLines": ["10", "12", "15", "19", "21", "29", "35", "43"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 17,
+    "stopName": "Okružná",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9931,
+        "longitude": 21.2403,
+        "tooltip": "Okružná"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9931,
+        "longitude": 21.2403,
+        "tooltip": "Okružná"
+      }
+    ],
+    "ezLines": ["32", "32A"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 18,
+    "stopName": "Sládkovičova",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9975,
+        "longitude": 21.2485,
+        "tooltip": "Sládkovičova"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9975,
+        "longitude": 21.2485,
+        "tooltip": "Sládkovičova"
+      }
+    ],
+    "ezLines": ["10", "15", "19", "29"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 19,
+    "stopName": "Hobby park",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.991382,
+        "longitude": 21.262302,
+        "tooltip": "Hobby park"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.991382,
+        "longitude": 21.262302,
+        "tooltip": "Hobby park"
+      }
+    ],
+    "ezLines": ["13", "32", "35", "44"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 20,
+    "stopName": "Na Hlavnej",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9957,
+        "longitude": 21.2421,
+        "tooltip": "Na Hlavnej"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9957,
+        "longitude": 21.2421,
+        "tooltip": "Na Hlavnej"
+      }
+    ],
+    "ezLines": [
+      "1",
+      "11",
+      "12",
+      "14",
+      "15",
+      "18",
+      "2",
+      "21",
+      "22",
+      "24",
+      "27",
+      "28",
+      "29",
+      "32",
+      "36",
+      "39",
+      "4",
+      "41",
+      "45",
+      "5",
+      "7",
+      "8",
+      "N2"
+    ],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 21,
+    "stopName": "Kúpeľná",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9917,
+        "longitude": 21.2384,
+        "tooltip": "Kúpeľná"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9917,
+        "longitude": 21.2384,
+        "tooltip": "Kúpeľná"
+      }
+    ],
+    "ezLines": ["12"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 22,
+    "stopName": "Rusínska",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9912,
+        "longitude": 21.2628,
+        "tooltip": "Rusínska"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9912,
+        "longitude": 21.2628,
+        "tooltip": "Rusínska"
+      }
+    ],
+    "ezLines": ["13", "32", "32A", "35", "36", "44"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 23,
+    "stopName": "Priemyselné centrum",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9828,
+        "longitude": 21.2434,
+        "tooltip": "Priemyselné centrum"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9828,
+        "longitude": 21.2434,
+        "tooltip": "Priemyselné centrum"
+      }
+    ],
+    "ezLines": ["2", "30", "34", "42", "5", "7"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 24,
+    "stopName": "Nemocnica",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9986,
+        "longitude": 21.2509,
+        "tooltip": "Nemocnica"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9986,
+        "longitude": 21.2509,
+        "tooltip": "Nemocnica"
+      }
+    ],
+    "ezLines": ["10", "12", "15", "19", "21", "29", "35", "43"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 25,
+    "stopName": "Škára",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9813,
+        "longitude": 21.2567,
+        "tooltip": "Škára"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9813,
+        "longitude": 21.2567,
+        "tooltip": "Škára"
+      }
+    ],
+    "ezLines": ["1", "11", "28", "37", "38", "39", "4", "45", "46", "8"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 26,
+    "stopName": "Martina Benku",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9872,
+        "longitude": 21.2647,
+        "tooltip": "Martina Benku"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9872,
+        "longitude": 21.2647,
+        "tooltip": "Martina Benku"
+      }
+    ],
+    "ezLines": ["10", "19", "33", "34", "35", "37", "38", "4", "8", "N1", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 27,
+    "stopName": "Vysokoškol. areál",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9904,
+        "longitude": 21.2354,
+        "tooltip": "Vysokoškol. areál"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9904,
+        "longitude": 21.2354,
+        "tooltip": "Vysokoškol. areál"
+      }
+    ],
+    "ezLines": ["2", "34", "38", "5", "N1"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 28,
+    "stopName": "Dilongova",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9996,
+        "longitude": 21.248,
+        "tooltip": "Dilongova"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9996,
+        "longitude": 21.248,
+        "tooltip": "Dilongova"
+      }
+    ],
+    "ezLines": ["10", "12", "15", "19", "29"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 29,
+    "stopName": "Vyšné lúky",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9931,
+        "longitude": 21.2648,
+        "tooltip": "Vyšné lúky"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9931,
+        "longitude": 21.2648,
+        "tooltip": "Vyšné lúky"
+      }
+    ],
+    "ezLines": ["22"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 30,
+    "stopName": "Mestská hala",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9844,
+        "longitude": 21.2366,
+        "tooltip": "Mestská hala"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9844,
+        "longitude": 21.2366,
+        "tooltip": "Mestská hala"
+      }
+    ],
+    "ezLines": ["27", "43"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 31,
+    "stopName": "Pavla Horova",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9838,
+        "longitude": 21.2639,
+        "tooltip": "Pavla Horova"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9838,
+        "longitude": 21.2639,
+        "tooltip": "Pavla Horova"
+      }
+    ],
+    "ezLines": ["10", "19", "33", "34", "35", "37", "38", "4", "8", "N1", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 32,
+    "stopName": "L. Novomeského",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9902,
+        "longitude": 21.2669,
+        "tooltip": "L. Novomeského"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9902,
+        "longitude": 21.2669,
+        "tooltip": "L. Novomeského"
+      }
+    ],
+    "ezLines": ["12", "19", "22", "34", "36", "4", "44", "N1", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 33,
+    "stopName": "Nový Solivar",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9788,
+        "longitude": 21.251,
+        "tooltip": "Nový Solivar"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9788,
+        "longitude": 21.251,
+        "tooltip": "Nový Solivar"
+      }
+    ],
+    "ezLines": [
+      "10",
+      "14",
+      "19",
+      "24",
+      "26",
+      "30",
+      "37",
+      "39",
+      "42",
+      "N1",
+      "N2"
+    ],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 34,
+    "stopName": "Gym. sv. Moniky",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9953,
+        "longitude": 21.2351,
+        "tooltip": "Gym. sv. Moniky"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9953,
+        "longitude": 21.2351,
+        "tooltip": "Gym. sv. Moniky"
+      }
+    ],
+    "ezLines": ["12"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 35,
+    "stopName": "Spinea - Záturecká",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.980796,
+        "longitude": 21.261692,
+        "tooltip": "Spinea - Záturecká"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.980796,
+        "longitude": 21.261692,
+        "tooltip": "Spinea - Záturecká"
+      }
+    ],
+    "ezLines": ["26"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 36,
+    "stopName": "Pekárne",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9789,
+        "longitude": 21.2441,
+        "tooltip": "Pekárne"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9789,
+        "longitude": 21.2441,
+        "tooltip": "Pekárne"
+      }
+    ],
+    "ezLines": ["2", "30", "34", "42", "5", "7"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 37,
+    "stopName": "Floriánova",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 2,
+        "latitude": 48.9972,
+        "longitude": 21.2361,
+        "tooltip": "Floriánova"
+      }
+    ],
+    "ezLines": ["32"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 38,
+    "stopName": "Duchnovičovo n.",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9938,
+        "longitude": 21.2325,
+        "tooltip": "Duchnovičovo n."
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9938,
+        "longitude": 21.2325,
+        "tooltip": "Duchnovičovo n."
+      }
+    ],
+    "ezLines": ["2", "34", "38", "5", "N1"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 39,
+    "stopName": "Pod K. baňou",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9835,
+        "longitude": 21.2339,
+        "tooltip": "Pod K. baňou"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9835,
+        "longitude": 21.2339,
+        "tooltip": "Pod K. baňou"
+      }
+    ],
+    "ezLines": ["27", "43"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 40,
+    "stopName": "Jurkovičova",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9944,
+        "longitude": 21.2683,
+        "tooltip": "Jurkovičova"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9944,
+        "longitude": 21.2683,
+        "tooltip": "Jurkovičova"
+      }
+    ],
+    "ezLines": [
+      "10",
+      "12",
+      "13",
+      "32",
+      "32A",
+      "33",
+      "34",
+      "37",
+      "38",
+      "8",
+      "N2"
+    ],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 41,
+    "stopName": "Vodárenská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0024,
+        "longitude": 21.2494,
+        "tooltip": "Vodárenská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0024,
+        "longitude": 21.2494,
+        "tooltip": "Vodárenská"
+      }
+    ],
+    "ezLines": ["27"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 42,
+    "stopName": "Trojica",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0002,
+        "longitude": 21.2393,
+        "tooltip": "Trojica"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0002,
+        "longitude": 21.2393,
+        "tooltip": "Trojica"
+      }
+    ],
+    "ezLines": [
+      "1",
+      "11",
+      "12",
+      "14",
+      "15",
+      "18",
+      "2",
+      "21",
+      "22",
+      "24",
+      "27",
+      "28",
+      "29",
+      "32",
+      "36",
+      "39",
+      "4",
+      "41",
+      "45",
+      "5",
+      "7",
+      "8",
+      "N2"
+    ],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 43,
+    "stopName": "Hviezdna",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0025,
+        "longitude": 21.2523,
+        "tooltip": "Hviezdna"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0025,
+        "longitude": 21.2523,
+        "tooltip": "Hviezdna"
+      }
+    ],
+    "ezLines": ["27"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 44,
+    "stopName": "Vajanského",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 2,
+        "latitude": 49.002,
+        "longitude": 21.2429,
+        "tooltip": "Vajanského"
+      }
+    ],
+    "ezLines": ["12", "27"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 45,
+    "stopName": "Ostrovček",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9934,
+        "longitude": 21.2305,
+        "tooltip": "Ostrovček"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9934,
+        "longitude": 21.2305,
+        "tooltip": "Ostrovček"
+      }
+    ],
+    "ezLines": ["15"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 46,
+    "stopName": "Lesnícka",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9794,
+        "longitude": 21.264,
+        "tooltip": "Lesnícka"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9794,
+        "longitude": 21.264,
+        "tooltip": "Lesnícka"
+      }
+    ],
+    "ezLines": ["10", "19", "33", "34", "35", "37", "38", "4", "8", "N1", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 47,
+    "stopName": "Pod Kalváriou",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.991,
+        "longitude": 21.2296,
+        "tooltip": "Pod Kalváriou"
+      }
+    ],
+    "ezLines": ["15", "43"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 48,
+    "stopName": "Vansovej",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.992,
+        "longitude": 21.2711,
+        "tooltip": "Vansovej"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.992,
+        "longitude": 21.2711,
+        "tooltip": "Vansovej"
+      }
+    ],
+    "ezLines": ["12", "22", "34", "36", "4", "N1", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 49,
+    "stopName": "Budovateľská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9766,
+        "longitude": 21.2444,
+        "tooltip": "Budovateľská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9766,
+        "longitude": 21.2444,
+        "tooltip": "Budovateľská"
+      }
+    ],
+    "ezLines": ["2", "30", "34", "42", "5", "7"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 50,
+    "stopName": "Jilemnického",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9763,
+        "longitude": 21.2455,
+        "tooltip": "Jilemnického"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9763,
+        "longitude": 21.2455,
+        "tooltip": "Jilemnického"
+      }
+    ],
+    "ezLines": ["30", "34", "42"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 51,
+    "stopName": "Zimný štadión",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9878,
+        "longitude": 21.2292,
+        "tooltip": "Zimný štadión"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9878,
+        "longitude": 21.2292,
+        "tooltip": "Zimný štadión"
+      }
+    ],
+    "ezLines": ["15", "43"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 52,
+    "stopName": "Duklianska",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0028,
+        "longitude": 21.2416,
+        "tooltip": "Duklianska"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0028,
+        "longitude": 21.2416,
+        "tooltip": "Duklianska"
+      }
+    ],
+    "ezLines": ["1", "12", "17", "21", "27", "28", "41", "43", "7"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 53,
+    "stopName": "Str. lesníc. škola",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9928,
+        "longitude": 21.229,
+        "tooltip": "Str. lesníc. škola"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9928,
+        "longitude": 21.229,
+        "tooltip": "Str. lesníc. škola"
+      }
+    ],
+    "ezLines": ["12", "15", "24", "43"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 54,
+    "stopName": "Poliklinika",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0009,
+        "longitude": 21.2361,
+        "tooltip": "Poliklinika"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0009,
+        "longitude": 21.2361,
+        "tooltip": "Poliklinika"
+      }
+    ],
+    "ezLines": [
+      "11",
+      "15",
+      "17",
+      "18",
+      "2",
+      "21",
+      "24",
+      "29",
+      "32",
+      "4",
+      "5",
+      "8",
+      "N2"
+    ],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 55,
+    "stopName": "Šafárikova",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0043,
+        "longitude": 21.2465,
+        "tooltip": "Šafárikova"
+      }
+    ],
+    "ezLines": ["12", "21", "27", "43"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 56,
+    "stopName": "Nám. mládeže",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9955,
+        "longitude": 21.2295,
+        "tooltip": "Nám. mládeže"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9955,
+        "longitude": 21.2295,
+        "tooltip": "Nám. mládeže"
+      }
+    ],
+    "ezLines": ["15", "2", "34", "38", "N1"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 57,
+    "stopName": "Karpatská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9973,
+        "longitude": 21.27,
+        "tooltip": "Karpatská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9973,
+        "longitude": 21.27,
+        "tooltip": "Karpatská"
+      }
+    ],
+    "ezLines": [
+      "10",
+      "12",
+      "13",
+      "32",
+      "32A",
+      "33",
+      "34",
+      "37",
+      "38",
+      "8",
+      "N2"
+    ],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 58,
+    "stopName": "Kysucká",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9846,
+        "longitude": 21.273,
+        "tooltip": "Kysucká"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9846,
+        "longitude": 21.273,
+        "tooltip": "Kysucká"
+      }
+    ],
+    "ezLines": ["19", "44"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 59,
+    "stopName": "Slávičia",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9863,
+        "longitude": 21.227,
+        "tooltip": "Slávičia"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9863,
+        "longitude": 21.227,
+        "tooltip": "Slávičia"
+      }
+    ],
+    "ezLines": ["27"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 60,
+    "stopName": "Košická",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9738,
+        "longitude": 21.2523,
+        "tooltip": "Košická"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9738,
+        "longitude": 21.2523,
+        "tooltip": "Košická"
+      }
+    ],
+    "ezLines": ["10", "14", "19", "24", "26", "34", "37", "39", "N1", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 61,
+    "stopName": "Solivarská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9774,
+        "longitude": 21.2665,
+        "tooltip": "Solivarská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9774,
+        "longitude": 21.2665,
+        "tooltip": "Solivarská"
+      }
+    ],
+    "ezLines": ["1", "46", "N1"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 62,
+    "stopName": "Horárska",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9861,
+        "longitude": 21.2262,
+        "tooltip": "Horárska"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9861,
+        "longitude": 21.2262,
+        "tooltip": "Horárska"
+      }
+    ],
+    "ezLines": ["15"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 63,
+    "stopName": "Obr. mieru",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9981,
+        "longitude": 21.2281,
+        "tooltip": "Obr. mieru"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9981,
+        "longitude": 21.2281,
+        "tooltip": "Obr. mieru"
+      }
+    ],
+    "ezLines": ["15", "2", "24", "34", "38", "5", "N1"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 64,
+    "stopName": "Pod Šalgovíkom",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9936,
+        "longitude": 21.2756,
+        "tooltip": "Pod Šalgovíkom"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9936,
+        "longitude": 21.2756,
+        "tooltip": "Pod Šalgovíkom"
+      }
+    ],
+    "ezLines": ["12", "22", "34", "36", "4", "N1", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 65,
+    "stopName": "Ku Brezinám",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9872,
+        "longitude": 21.2248,
+        "tooltip": "Ku Brezinám"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9872,
+        "longitude": 21.2248,
+        "tooltip": "Ku Brezinám"
+      }
+    ],
+    "ezLines": ["27"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 66,
+    "stopName": "Kollárova",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9921,
+        "longitude": 21.2247,
+        "tooltip": "Kollárova"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9921,
+        "longitude": 21.2247,
+        "tooltip": "Kollárova"
+      }
+    ],
+    "ezLines": ["12", "15", "24", "43"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 67,
+    "stopName": "Suvorovova",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.976296,
+        "longitude": 21.266275,
+        "tooltip": "Suvorovova"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.976296,
+        "longitude": 21.266275,
+        "tooltip": "Suvorovova"
+      }
+    ],
+    "ezLines": ["11"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 68,
+    "stopName": "Centrál",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9981,
+        "longitude": 21.2272,
+        "tooltip": "Centrál"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9981,
+        "longitude": 21.2272,
+        "tooltip": "Centrál"
+      }
+    ],
+    "ezLines": ["15"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 69,
+    "stopName": "Lomnická",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9741,
+        "longitude": 21.2617,
+        "tooltip": "Lomnická"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9741,
+        "longitude": 21.2617,
+        "tooltip": "Lomnická"
+      }
+    ],
+    "ezLines": [
+      "10",
+      "19",
+      "28",
+      "33",
+      "34",
+      "35",
+      "37",
+      "39",
+      "45",
+      "N1",
+      "N2"
+    ],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 70,
+    "stopName": "Prameň",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9788,
+        "longitude": 21.2712,
+        "tooltip": "Prameň"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9788,
+        "longitude": 21.2712,
+        "tooltip": "Prameň"
+      }
+    ],
+    "ezLines": ["1", "46", "N1"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 71,
+    "stopName": "Kukučínova",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9814,
+        "longitude": 21.2743,
+        "tooltip": "Kukučínova"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9814,
+        "longitude": 21.2743,
+        "tooltip": "Kukučínova"
+      }
+    ],
+    "ezLines": ["19", "44"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 72,
+    "stopName": "Sibírska",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0008,
+        "longitude": 21.272,
+        "tooltip": "Sibírska"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0008,
+        "longitude": 21.272,
+        "tooltip": "Sibírska"
+      }
+    ],
+    "ezLines": ["10", "12", "13", "32", "32A", "34", "38", "8", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 73,
+    "stopName": "Sázavského",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9943,
+        "longitude": 21.2234,
+        "tooltip": "Sázavského"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9943,
+        "longitude": 21.2234,
+        "tooltip": "Sázavského"
+      }
+    ],
+    "ezLines": ["12", "15", "24", "43"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 74,
+    "stopName": "Pod Wilec. hôrkou",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9718,
+        "longitude": 21.2438,
+        "tooltip": "Pod Wilec. hôrkou"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9718,
+        "longitude": 21.2438,
+        "tooltip": "Pod Wilec. hôrkou"
+      }
+    ],
+    "ezLines": ["42"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 75,
+    "stopName": "Björnsonova",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 2,
+        "latitude": 49.0062,
+        "longitude": 21.2371,
+        "tooltip": "Björnsonova"
+      }
+    ],
+    "ezLines": ["39"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 76,
+    "stopName": "Sabinovská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0066,
+        "longitude": 21.2383,
+        "tooltip": "Sabinovská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0066,
+        "longitude": 21.2383,
+        "tooltip": "Sabinovská"
+      }
+    ],
+    "ezLines": ["14", "2", "22", "39", "43", "45", "5", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 77,
+    "stopName": "Rázc. Kúty",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0084,
+        "longitude": 21.2501,
+        "tooltip": "Rázc. Kúty"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0084,
+        "longitude": 21.2501,
+        "tooltip": "Rázc. Kúty"
+      }
+    ],
+    "ezLines": ["1", "17", "21", "28", "35", "7"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 78,
+    "stopName": "Súľovská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9884,
+        "longitude": 21.2221,
+        "tooltip": "Súľovská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9884,
+        "longitude": 21.2221,
+        "tooltip": "Súľovská"
+      }
+    ],
+    "ezLines": ["27"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 79,
+    "stopName": "K Surdoku",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0086,
+        "longitude": 21.2482,
+        "tooltip": "K Surdoku"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0086,
+        "longitude": 21.2482,
+        "tooltip": "K Surdoku"
+      }
+    ],
+    "ezLines": ["41"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 80,
+    "stopName": "Múzeum Solivar",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9796,
+        "longitude": 21.2749,
+        "tooltip": "Múzeum Solivar"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9796,
+        "longitude": 21.2749,
+        "tooltip": "Múzeum Solivar"
+      }
+    ],
+    "ezLines": ["1", "46", "N1"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 81,
+    "stopName": "Švábska",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9713,
+        "longitude": 21.2585,
+        "tooltip": "Švábska"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9713,
+        "longitude": 21.2585,
+        "tooltip": "Švábska"
+      }
+    ],
+    "ezLines": [
+      "10",
+      "19",
+      "28",
+      "33",
+      "34",
+      "35",
+      "37",
+      "39",
+      "45",
+      "N1",
+      "N2"
+    ],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 82,
+    "stopName": "Októbrová",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 2,
+        "latitude": 48.9971,
+        "longitude": 21.2229,
+        "tooltip": "Októbrová"
+      }
+    ],
+    "ezLines": ["15"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 83,
+    "stopName": "Cintorín - Solivar",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.974493,
+        "longitude": 21.268871,
+        "tooltip": "Cintorín - Solivar"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.974493,
+        "longitude": 21.268871,
+        "tooltip": "Cintorín - Solivar"
+      }
+    ],
+    "ezLines": ["11"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 84,
+    "stopName": "Chalupkova",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9705,
+        "longitude": 21.2552,
+        "tooltip": "Chalupkova"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9705,
+        "longitude": 21.2552,
+        "tooltip": "Chalupkova"
+      }
+    ],
+    "ezLines": ["10", "19", "34", "37", "39", "N1", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 85,
+    "stopName": "Záhrad. osada",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9857,
+        "longitude": 21.2211,
+        "tooltip": "Záhrad. osada"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9857,
+        "longitude": 21.2211,
+        "tooltip": "Záhrad. osada"
+      }
+    ],
+    "ezLines": ["15"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 86,
+    "stopName": "Jazdecká",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0087,
+        "longitude": 21.2333,
+        "tooltip": "Jazdecká"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0087,
+        "longitude": 21.2333,
+        "tooltip": "Jazdecká"
+      }
+    ],
+    "ezLines": ["39"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 87,
+    "stopName": "Clementisova",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0016,
+        "longitude": 21.2244,
+        "tooltip": "Clementisova"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0016,
+        "longitude": 21.2244,
+        "tooltip": "Clementisova"
+      }
+    ],
+    "ezLines": ["38", "4", "8", "N1", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 88,
+    "stopName": "Levočská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0005,
+        "longitude": 21.2242,
+        "tooltip": "Levočská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0005,
+        "longitude": 21.2242,
+        "tooltip": "Levočská"
+      }
+    ],
+    "ezLines": ["11", "17", "18", "21", "24", "29", "34"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 89,
+    "stopName": "Mičurinova",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0118,
+        "longitude": 21.2369,
+        "tooltip": "Mičurinova"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0118,
+        "longitude": 21.2369,
+        "tooltip": "Mičurinova"
+      }
+    ],
+    "ezLines": ["14", "2", "22", "43", "45", "5", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 90,
+    "stopName": "Pod Šibeňou",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0108,
+        "longitude": 21.2474,
+        "tooltip": "Pod Šibeňou"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0108,
+        "longitude": 21.2474,
+        "tooltip": "Pod Šibeňou"
+      }
+    ],
+    "ezLines": ["41"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 91,
+    "stopName": "Volgogradská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0041,
+        "longitude": 21.221,
+        "tooltip": "Volgogradská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0041,
+        "longitude": 21.221,
+        "tooltip": "Volgogradská"
+      }
+    ],
+    "ezLines": ["12", "17", "29", "34", "38", "4", "43", "8", "N1", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 92,
+    "stopName": "Odborárska",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9971,
+        "longitude": 21.2219,
+        "tooltip": "Odborárska"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9971,
+        "longitude": 21.2219,
+        "tooltip": "Odborárska"
+      }
+    ],
+    "ezLines": ["12", "15", "24", "43"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 93,
+    "stopName": "ZŠ Odborárska",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9971,
+        "longitude": 21.2219,
+        "tooltip": "ZŠ Odborárska"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9971,
+        "longitude": 21.2219,
+        "tooltip": "ZŠ Odborárska"
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 94,
+    "stopName": "Mukačevská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.011,
+        "longitude": 21.2263,
+        "tooltip": "Mukačevská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.011,
+        "longitude": 21.2263,
+        "tooltip": "Mukačevská"
+      }
+    ],
+    "ezLines": ["39"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 95,
+    "stopName": "M. Čulena",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9997,
+        "longitude": 21.2205,
+        "tooltip": "M. Čulena"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9997,
+        "longitude": 21.2205,
+        "tooltip": "M. Čulena"
+      }
+    ],
+    "ezLines": ["12", "24", "43"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 96,
+    "stopName": "N. Kráľ. pokoja",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0066,
+        "longitude": 21.2214,
+        "tooltip": "N. Kráľ. pokoja"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0066,
+        "longitude": 21.2214,
+        "tooltip": "N. Kráľ. pokoja"
+      }
+    ],
+    "ezLines": ["12", "17", "29", "34", "38", "4", "43", "8", "N1", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 97,
+    "stopName": "Pod Skalkou",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0155,
+        "longitude": 21.2366,
+        "tooltip": "Pod Skalkou"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0155,
+        "longitude": 21.2366,
+        "tooltip": "Pod Skalkou"
+      }
+    ],
+    "ezLines": ["14", "2", "22", "43", "45", "5", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 98,
+    "stopName": "Koryto",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0147,
+        "longitude": 21.248,
+        "tooltip": "Koryto"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0147,
+        "longitude": 21.248,
+        "tooltip": "Koryto"
+      }
+    ],
+    "ezLines": ["41"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 99,
+    "stopName": "VUKOV",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0106,
+        "longitude": 21.2222,
+        "tooltip": "VUKOV"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0106,
+        "longitude": 21.2222,
+        "tooltip": "VUKOV"
+      }
+    ],
+    "ezLines": ["12", "17", "29", "34", "38", "39", "4", "43", "8", "N1", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 100,
+    "stopName": "Dopravný podnik",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0106,
+        "longitude": 21.257,
+        "tooltip": "Dopravný podnik"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0106,
+        "longitude": 21.257,
+        "tooltip": "Dopravný podnik"
+      }
+    ],
+    "ezLines": ["1", "17", "21", "28", "35", "7"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 101,
+    "stopName": "Rázc. Rúrky",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0035,
+        "longitude": 21.2162,
+        "tooltip": "Rázc. Rúrky"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0035,
+        "longitude": 21.2162,
+        "tooltip": "Rázc. Rúrky"
+      }
+    ],
+    "ezLines": ["11", "21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 102,
+    "stopName": "Mýto",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0024,
+        "longitude": 21.2154,
+        "tooltip": "Mýto"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0024,
+        "longitude": 21.2154,
+        "tooltip": "Mýto"
+      }
+    ],
+    "ezLines": ["18", "21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 103,
+    "stopName": "Jána Béreša",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0052,
+        "longitude": 21.2145,
+        "tooltip": "Jána Béreša"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0052,
+        "longitude": 21.2145,
+        "tooltip": "Jána Béreša"
+      }
+    ],
+    "ezLines": ["11", "21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 104,
+    "stopName": "Centrum",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0171,
+        "longitude": 21.2235,
+        "tooltip": "Centrum"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0171,
+        "longitude": 21.2235,
+        "tooltip": "Centrum"
+      }
+    ],
+    "ezLines": ["12", "17", "29", "34", "38", "39", "4", "43", "8", "N1", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 105,
+    "stopName": "Rázc. Šidlovec",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0207,
+        "longitude": 21.2358,
+        "tooltip": "Rázc. Šidlovec"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0207,
+        "longitude": 21.2358,
+        "tooltip": "Rázc. Šidlovec"
+      }
+    ],
+    "ezLines": ["14", "2", "22", "43", "45", "5", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 106,
+    "stopName": "Rybníčky",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0195,
+        "longitude": 21.2503,
+        "tooltip": "Rybníčky"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0195,
+        "longitude": 21.2503,
+        "tooltip": "Rybníčky"
+      }
+    ],
+    "ezLines": ["41"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 107,
+    "stopName": "Na Rúrkach",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0078,
+        "longitude": 21.2115,
+        "tooltip": "Na Rúrkach"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0078,
+        "longitude": 21.2115,
+        "tooltip": "Na Rúrkach"
+      }
+    ],
+    "ezLines": ["11", "21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 108,
+    "stopName": "Veterinárna nemocnica",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.021,
+        "longitude": 21.232,
+        "tooltip": "Veterinárna nemocnica"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.021,
+        "longitude": 21.232,
+        "tooltip": "Veterinárna nemocnica"
+      }
+    ],
+    "ezLines": ["12", "2", "43", "5", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 109,
+    "stopName": "Hinrichs",
+    "stopCity": "Ľubotice",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0093,
+        "longitude": 21.2679,
+        "tooltip": "Hinrichs"
+      }
+    ],
+    "ezLines": ["37"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 110,
+    "stopName": "Terchovská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9887,
+        "longitude": 21.2156,
+        "tooltip": "Terchovská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9887,
+        "longitude": 21.2156,
+        "tooltip": "Terchovská"
+      }
+    ],
+    "ezLines": ["27"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 111,
+    "stopName": "Kvašná voda",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9902,
+        "longitude": 21.1918,
+        "tooltip": "Kvašná voda"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9902,
+        "longitude": 21.1918,
+        "tooltip": "Kvašná voda"
+      }
+    ],
+    "ezLines": ["18"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 112,
+    "stopName": "Vydumanec",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9928,
+        "longitude": 21.1979,
+        "tooltip": "Vydumanec"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9928,
+        "longitude": 21.1979,
+        "tooltip": "Vydumanec"
+      }
+    ],
+    "ezLines": ["18"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 113,
+    "stopName": "Za Kalváriou",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9813,
+        "longitude": 21.2173,
+        "tooltip": "Za Kalváriou"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9813,
+        "longitude": 21.2173,
+        "tooltip": "Za Kalváriou"
+      }
+    ],
+    "ezLines": ["15"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 114,
+    "stopName": "Hôrka",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9833,
+        "longitude": 21.2177,
+        "tooltip": "Hôrka"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9833,
+        "longitude": 21.2177,
+        "tooltip": "Hôrka"
+      }
+    ],
+    "ezLines": ["15"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 115,
+    "stopName": "Rázc. Cemjata",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9992,
+        "longitude": 21.2049,
+        "tooltip": "Rázc. Cemjata"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9992,
+        "longitude": 21.2049,
+        "tooltip": "Rázc. Cemjata"
+      }
+    ],
+    "ezLines": ["18", "21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 116,
+    "stopName": "Zabíjaná",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.99,
+        "longitude": 21.1793,
+        "tooltip": "Zabíjaná"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.99,
+        "longitude": 21.1793,
+        "tooltip": "Zabíjaná"
+      }
+    ],
+    "ezLines": ["18"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 117,
+    "stopName": "Školské lesy",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9875,
+        "longitude": 21.1762,
+        "tooltip": "Školské lesy"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9875,
+        "longitude": 21.1762,
+        "tooltip": "Školské lesy"
+      }
+    ],
+    "ezLines": ["18"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 118,
+    "stopName": "Cemjata",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9835,
+        "longitude": 21.175,
+        "tooltip": "Cemjata"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9835,
+        "longitude": 21.175,
+        "tooltip": "Cemjata"
+      }
+    ],
+    "ezLines": ["18"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 119,
+    "stopName": "Čertov kameň",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.98,
+        "longitude": 21.1739,
+        "tooltip": "Čertov kameň"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.98,
+        "longitude": 21.1739,
+        "tooltip": "Čertov kameň"
+      }
+    ],
+    "ezLines": ["18"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 120,
+    "stopName": "Telekča",
+    "stopCity": "Malý Šariš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0018,
+        "longitude": 21.1915,
+        "tooltip": "Telekča"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0018,
+        "longitude": 21.1915,
+        "tooltip": "Telekča"
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 121,
+    "stopName": "Chatky",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9768,
+        "longitude": 21.1715,
+        "tooltip": "Chatky"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9768,
+        "longitude": 21.1715,
+        "tooltip": "Chatky"
+      }
+    ],
+    "ezLines": ["18"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 122,
+    "stopName": "Rázc. M. Šariš",
+    "stopCity": "Malý Šariš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0045,
+        "longitude": 21.1812,
+        "tooltip": "Rázc. M. Šariš"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0045,
+        "longitude": 21.1812,
+        "tooltip": "Rázc. M. Šariš"
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 123,
+    "stopName": "OÚ M. Šariš",
+    "stopCity": "Malý Šariš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.008,
+        "longitude": 21.1794,
+        "tooltip": "OÚ M. Šariš"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.008,
+        "longitude": 21.1794,
+        "tooltip": "OÚ M. Šariš"
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 124,
+    "stopName": "Nákupné stred.",
+    "stopCity": "Malý Šariš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0098,
+        "longitude": 21.1822,
+        "tooltip": "Nákupné stred."
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0098,
+        "longitude": 21.1822,
+        "tooltip": "Nákupné stred."
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 125,
+    "stopName": "Šľachtiteľská st.",
+    "stopCity": "Malý Šariš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0124,
+        "longitude": 21.1857,
+        "tooltip": "Šľachtiteľská st."
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0124,
+        "longitude": 21.1857,
+        "tooltip": "Šľachtiteľská st."
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 126,
+    "stopName": "Wilecova hôrka",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.968,
+        "longitude": 21.2441,
+        "tooltip": "Wilecova hôrka"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.968,
+        "longitude": 21.2441,
+        "tooltip": "Wilecova hôrka"
+      }
+    ],
+    "ezLines": ["42"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 127,
+    "stopName": "Kamenná baňa",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9631,
+        "longitude": 21.2397,
+        "tooltip": "Kamenná baňa"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9631,
+        "longitude": 21.2397,
+        "tooltip": "Kamenná baňa"
+      }
+    ],
+    "ezLines": ["42"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 128,
+    "stopName": "Borkút",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9586,
+        "longitude": 21.2362,
+        "tooltip": "Borkút"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9586,
+        "longitude": 21.2362,
+        "tooltip": "Borkút"
+      }
+    ],
+    "ezLines": ["42"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 129,
+    "stopName": "Malý Šariš",
+    "stopCity": "Malý Šariš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0149,
+        "longitude": 21.1865,
+        "tooltip": "Malý Šariš"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0149,
+        "longitude": 21.1865,
+        "tooltip": "Malý Šariš"
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 130,
+    "stopName": "V kopci",
+    "stopCity": "Fintice",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0552,
+        "longitude": 21.2831,
+        "tooltip": "V kopci"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0552,
+        "longitude": 21.2831,
+        "tooltip": "V kopci"
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 131,
+    "stopName": "Nám.J.Kolarčíka",
+    "stopCity": "Fintice",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0518,
+        "longitude": 21.2866,
+        "tooltip": "Nám.J.Kolarčíka"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0518,
+        "longitude": 21.2866,
+        "tooltip": "Nám.J.Kolarčíka"
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 132,
+    "stopName": "Pri lipe",
+    "stopCity": "Fintice",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.05675,
+        "longitude": 21.28244,
+        "tooltip": "Pri lipe"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.05675,
+        "longitude": 21.28244,
+        "tooltip": "Pri lipe"
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 133,
+    "stopName": "Červený mostík",
+    "stopCity": "Fintice",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0489,
+        "longitude": 21.285,
+        "tooltip": "Červený mostík"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0489,
+        "longitude": 21.285,
+        "tooltip": "Červený mostík"
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 134,
+    "stopName": "Fintice",
+    "stopCity": "Fintice",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0582,
+        "longitude": 21.2823,
+        "tooltip": "Fintice"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0582,
+        "longitude": 21.2823,
+        "tooltip": "Fintice"
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 135,
+    "stopName": "Ihrisko",
+    "stopCity": "Fintice",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0467,
+        "longitude": 21.2847,
+        "tooltip": "Ihrisko"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0467,
+        "longitude": 21.2847,
+        "tooltip": "Ihrisko"
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 136,
+    "stopName": "Gribľovec",
+    "stopCity": "Fintice",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0402,
+        "longitude": 21.2835,
+        "tooltip": "Gribľovec"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0402,
+        "longitude": 21.2835,
+        "tooltip": "Gribľovec"
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 137,
+    "stopName": "Žel. priecestie",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0371,
+        "longitude": 21.2822,
+        "tooltip": "Žel. priecestie"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0371,
+        "longitude": 21.2822,
+        "tooltip": "Žel. priecestie"
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 138,
+    "stopName": "Išľa",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0319,
+        "longitude": 21.2804,
+        "tooltip": "Išľa"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0319,
+        "longitude": 21.2804,
+        "tooltip": "Išľa"
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 139,
+    "stopName": "Fintická",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0277,
+        "longitude": 21.2797,
+        "tooltip": "Fintická"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0277,
+        "longitude": 21.2797,
+        "tooltip": "Fintická"
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 140,
+    "stopName": "Surdok",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0337,
+        "longitude": 21.2578,
+        "tooltip": "Surdok"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0337,
+        "longitude": 21.2578,
+        "tooltip": "Surdok"
+      }
+    ],
+    "ezLines": ["41"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 141,
+    "stopName": "Nová",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0251,
+        "longitude": 21.2793,
+        "tooltip": "Nová"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0251,
+        "longitude": 21.2793,
+        "tooltip": "Nová"
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 142,
+    "stopName": "N. Šebastová",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0249,
+        "longitude": 21.2866,
+        "tooltip": "N. Šebastová"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0249,
+        "longitude": 21.2866,
+        "tooltip": "N. Šebastová"
+      }
+    ],
+    "ezLines": ["1", "13", "37", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 143,
+    "stopName": "Pred Surdokom",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0307,
+        "longitude": 21.2558,
+        "tooltip": "Pred Surdokom"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0307,
+        "longitude": 21.2558,
+        "tooltip": "Pred Surdokom"
+      }
+    ],
+    "ezLines": ["41"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 144,
+    "stopName": "Širpo",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0251,
+        "longitude": 21.2671,
+        "tooltip": "Širpo"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0251,
+        "longitude": 21.2671,
+        "tooltip": "Širpo"
+      }
+    ],
+    "ezLines": ["17", "28", "33", "35", "7"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 145,
+    "stopName": "Pažica",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.023,
+        "longitude": 21.2809,
+        "tooltip": "Pažica"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.023,
+        "longitude": 21.2809,
+        "tooltip": "Pažica"
+      }
+    ],
+    "ezLines": ["1", "13", "37", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 146,
+    "stopName": "Šidlovec",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0329,
+        "longitude": 21.2481,
+        "tooltip": "Šidlovec"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0329,
+        "longitude": 21.2481,
+        "tooltip": "Šidlovec"
+      }
+    ],
+    "ezLines": ["12", "22"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 147,
+    "stopName": "Plachty",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0268,
+        "longitude": 21.2579,
+        "tooltip": "Plachty"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0268,
+        "longitude": 21.2579,
+        "tooltip": "Plachty"
+      }
+    ],
+    "ezLines": ["41"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 148,
+    "stopName": "Limbová",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0221,
+        "longitude": 21.286,
+        "tooltip": "Limbová"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0221,
+        "longitude": 21.286,
+        "tooltip": "Limbová"
+      }
+    ],
+    "ezLines": ["13"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 149,
+    "stopName": "Gen. Ambruša",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0221,
+        "longitude": 21.286,
+        "tooltip": "Gen. Ambruša"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0221,
+        "longitude": 21.286,
+        "tooltip": "Gen. Ambruša"
+      }
+    ],
+    "ezLines": ["13"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 150,
+    "stopName": "Družstevná",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0229,
+        "longitude": 21.2665,
+        "tooltip": "Družstevná"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0229,
+        "longitude": 21.2665,
+        "tooltip": "Družstevná"
+      }
+    ],
+    "ezLines": ["17", "28", "33", "35", "7"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 151,
+    "stopName": "Slánska",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 2,
+        "latitude": 49.021,
+        "longitude": 21.2795,
+        "tooltip": "Slánska"
+      }
+    ],
+    "ezLines": ["13"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 152,
+    "stopName": "Vranovská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0212,
+        "longitude": 21.2765,
+        "tooltip": "Vranovská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0212,
+        "longitude": 21.2765,
+        "tooltip": "Vranovská"
+      }
+    ],
+    "ezLines": ["1", "21", "28", "37", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 153,
+    "stopName": "Husí hrb",
+    "stopCity": "Kanaš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0535,
+        "longitude": 21.2323,
+        "tooltip": "Husí hrb"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0535,
+        "longitude": 21.2323,
+        "tooltip": "Husí hrb"
+      }
+    ],
+    "ezLines": ["14", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 154,
+    "stopName": "Pri kostole",
+    "stopCity": "Kanaš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0568,
+        "longitude": 21.2325,
+        "tooltip": "Pri kostole"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0568,
+        "longitude": 21.2325,
+        "tooltip": "Pri kostole"
+      }
+    ],
+    "ezLines": ["14", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 155,
+    "stopName": "Slávik",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 2,
+        "latitude": 49.0196,
+        "longitude": 21.2847,
+        "tooltip": "Slávik"
+      }
+    ],
+    "ezLines": ["13"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 156,
+    "stopName": "Stavbárska",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.033,
+        "longitude": 21.2418,
+        "tooltip": "Stavbárska"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.033,
+        "longitude": 21.2418,
+        "tooltip": "Stavbárska"
+      }
+    ],
+    "ezLines": ["12", "22"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 157,
+    "stopName": "Šebastovská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0196,
+        "longitude": 21.2767,
+        "tooltip": "Šebastovská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0196,
+        "longitude": 21.2767,
+        "tooltip": "Šebastovská"
+      }
+    ],
+    "ezLines": ["13", "28"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 158,
+    "stopName": "Za Kútami",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0256,
+        "longitude": 21.2532,
+        "tooltip": "Za Kútami"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0256,
+        "longitude": 21.2532,
+        "tooltip": "Za Kútami"
+      }
+    ],
+    "ezLines": ["41"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 159,
+    "stopName": "Jahodová",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0321,
+        "longitude": 21.2427,
+        "tooltip": "Jahodová"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0321,
+        "longitude": 21.2427,
+        "tooltip": "Jahodová"
+      }
+    ],
+    "ezLines": ["12", "22"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 160,
+    "stopName": "Herlianska",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0193,
+        "longitude": 21.2931,
+        "tooltip": "Herlianska"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0193,
+        "longitude": 21.2931,
+        "tooltip": "Herlianska"
+      }
+    ],
+    "ezLines": ["13"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 161,
+    "stopName": "Strojnícka",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0202,
+        "longitude": 21.266,
+        "tooltip": "Strojnícka"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0202,
+        "longitude": 21.266,
+        "tooltip": "Strojnícka"
+      }
+    ],
+    "ezLines": ["17", "28", "33", "35", "7"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 162,
+    "stopName": "Medzi jarkami",
+    "stopCity": "Kanaš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0583,
+        "longitude": 21.2304,
+        "tooltip": "Medzi jarkami"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0583,
+        "longitude": 21.2304,
+        "tooltip": "Medzi jarkami"
+      }
+    ],
+    "ezLines": ["14", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 163,
+    "stopName": "Bardejovská",
+    "stopCity": "Ľubotice",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0179,
+        "longitude": 21.2755,
+        "tooltip": "Bardejovská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0179,
+        "longitude": 21.2755,
+        "tooltip": "Bardejovská"
+      }
+    ],
+    "ezLines": ["13", "28"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 164,
+    "stopName": "Skleník",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0181,
+        "longitude": 21.272,
+        "tooltip": "Skleník"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0181,
+        "longitude": 21.272,
+        "tooltip": "Skleník"
+      }
+    ],
+    "ezLines": ["1", "21", "28", "37", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 165,
+    "stopName": "Strážnická",
+    "stopCity": "Ľubotice",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0174,
+        "longitude": 21.2774,
+        "tooltip": "Strážnická"
+      }
+    ],
+    "ezLines": ["13", "28"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 166,
+    "stopName": "ZŠ Strážnická",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 2,
+        "latitude": 49.0174,
+        "longitude": 21.2774,
+        "tooltip": "ZŠ Strážnická"
+      }
+    ],
+    "ezLines": ["13"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 167,
+    "stopName": "Šidlovská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.03,
+        "longitude": 21.2404,
+        "tooltip": "Šidlovská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.03,
+        "longitude": 21.2404,
+        "tooltip": "Šidlovská"
+      }
+    ],
+    "ezLines": ["12", "22"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 168,
+    "stopName": "Kúty",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0225,
+        "longitude": 21.2526,
+        "tooltip": "Kúty"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0225,
+        "longitude": 21.2526,
+        "tooltip": "Kúty"
+      }
+    ],
+    "ezLines": ["41"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 169,
+    "stopName": "Kanaš - Stráže",
+    "stopCity": "Kanaš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0659,
+        "longitude": 21.2303,
+        "tooltip": "Kanaš - Stráže"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0659,
+        "longitude": 21.2303,
+        "tooltip": "Kanaš - Stráže"
+      }
+    ],
+    "ezLines": ["14", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 170,
+    "stopName": "Stará škola",
+    "stopCity": "Kanaš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0613,
+        "longitude": 21.2281,
+        "tooltip": "Stará škola"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0613,
+        "longitude": 21.2281,
+        "tooltip": "Stará škola"
+      }
+    ],
+    "ezLines": ["14", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 171,
+    "stopName": "Ľubochnianska",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0171,
+        "longitude": 21.2661,
+        "tooltip": "Ľubochnianska"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0171,
+        "longitude": 21.2661,
+        "tooltip": "Ľubochnianska"
+      }
+    ],
+    "ezLines": ["17", "28", "33", "35", "7"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 172,
+    "stopName": "Dúbravská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.031,
+        "longitude": 21.2354,
+        "tooltip": "Dúbravská"
+      }
+    ],
+    "ezLines": ["12"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 173,
+    "stopName": "Domašská",
+    "stopCity": "Ľubotice",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0149,
+        "longitude": 21.2712,
+        "tooltip": "Domašská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0149,
+        "longitude": 21.2712,
+        "tooltip": "Domašská"
+      }
+    ],
+    "ezLines": ["13", "28"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 174,
+    "stopName": "Kozí rožok",
+    "stopCity": "Kanaš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0478,
+        "longitude": 21.2241,
+        "tooltip": "Kozí rožok"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0478,
+        "longitude": 21.2241,
+        "tooltip": "Kozí rožok"
+      }
+    ],
+    "ezLines": ["14", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 175,
+    "stopName": "J. Kostru",
+    "stopCity": "Ľubotice",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0134,
+        "longitude": 21.2767,
+        "tooltip": "J. Kostru"
+      }
+    ],
+    "ezLines": ["13", "28"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 176,
+    "stopName": "Korabinského",
+    "stopCity": "Ľubotice",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0132,
+        "longitude": 21.2808,
+        "tooltip": "Korabinského"
+      }
+    ],
+    "ezLines": ["13", "28"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 177,
+    "stopName": "Pri kaplnke",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0287,
+        "longitude": 21.2349,
+        "tooltip": "Pri kaplnke"
+      }
+    ],
+    "ezLines": ["12"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 178,
+    "stopName": "Jánošíkova",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0248,
+        "longitude": 21.2377,
+        "tooltip": "Jánošíkova"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0248,
+        "longitude": 21.2377,
+        "tooltip": "Jánošíkova"
+      }
+    ],
+    "ezLines": ["12", "22"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 179,
+    "stopName": "Šalgovícka",
+    "stopCity": "Ľubotice",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0121,
+        "longitude": 21.2795,
+        "tooltip": "Šalgovícka"
+      }
+    ],
+    "ezLines": ["13", "28"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 180,
+    "stopName": "Kamence",
+    "stopCity": "Vyšná Šebastová",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0181,
+        "longitude": 21.3163,
+        "tooltip": "Kamence"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0181,
+        "longitude": 21.3163,
+        "tooltip": "Kamence"
+      }
+    ],
+    "ezLines": ["13"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 181,
+    "stopName": "Ľubotice",
+    "stopCity": "Ľubotice",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0117,
+        "longitude": 21.2736,
+        "tooltip": "Ľubotice"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0117,
+        "longitude": 21.2736,
+        "tooltip": "Ľubotice"
+      }
+    ],
+    "ezLines": ["13", "28"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 182,
+    "stopName": "Pod nadjazdom",
+    "stopCity": "Ľubotice",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0126,
+        "longitude": 21.2669,
+        "tooltip": "Pod nadjazdom"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0126,
+        "longitude": 21.2669,
+        "tooltip": "Pod nadjazdom"
+      }
+    ],
+    "ezLines": ["33", "37", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 183,
+    "stopName": "Kalinčiakova",
+    "stopCity": "Ľubotice",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0118,
+        "longitude": 21.2703,
+        "tooltip": "Kalinčiakova"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0118,
+        "longitude": 21.2703,
+        "tooltip": "Kalinčiakova"
+      }
+    ],
+    "ezLines": ["13", "28"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 184,
+    "stopName": "Kapanoš",
+    "stopCity": "Vyšná Šebastová",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0231,
+        "longitude": 21.3288,
+        "tooltip": "Kapanoš"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0231,
+        "longitude": 21.3288,
+        "tooltip": "Kapanoš"
+      }
+    ],
+    "ezLines": ["13"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 185,
+    "stopName": "Nižnianska",
+    "stopCity": "Ľubotice",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0117,
+        "longitude": 21.2675,
+        "tooltip": "Nižnianska"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0117,
+        "longitude": 21.2675,
+        "tooltip": "Nižnianska"
+      }
+    ],
+    "ezLines": ["13", "28"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 186,
+    "stopName": "Severná - Kostol",
+    "stopCity": "Vyšná Šebastová",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.02485,
+        "longitude": 21.33273,
+        "tooltip": "Severná - Kostol"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.02485,
+        "longitude": 21.33273,
+        "tooltip": "Severná - Kostol"
+      }
+    ],
+    "ezLines": ["13"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 187,
+    "stopName": "Dúbrava",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0249,
+        "longitude": 21.2321,
+        "tooltip": "Dúbrava"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0249,
+        "longitude": 21.2321,
+        "tooltip": "Dúbrava"
+      }
+    ],
+    "ezLines": ["12", "14", "2", "45", "5"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 188,
+    "stopName": "Rázc. V. Šebastová",
+    "stopCity": "Vyšná Šebastová",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0168,
+        "longitude": 21.3204,
+        "tooltip": "Rázc. V. Šebastová"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0168,
+        "longitude": 21.3204,
+        "tooltip": "Rázc. V. Šebastová"
+      }
+    ],
+    "ezLines": ["13"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 189,
+    "stopName": "Priecestie",
+    "stopCity": "Haniska",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9574,
+        "longitude": 21.2411,
+        "tooltip": "Priecestie"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9574,
+        "longitude": 21.2411,
+        "tooltip": "Priecestie"
+      }
+    ],
+    "ezLines": ["24"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 190,
+    "stopName": "Hydinárske záv.",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9582,
+        "longitude": 21.2563,
+        "tooltip": "Hydinárske záv."
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9582,
+        "longitude": 21.2563,
+        "tooltip": "Hydinárske záv."
+      }
+    ],
+    "ezLines": ["14", "26"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 191,
+    "stopName": "Lemešianska",
+    "stopCity": "Haniska",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9556,
+        "longitude": 21.2407,
+        "tooltip": "Lemešianska"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9556,
+        "longitude": 21.2407,
+        "tooltip": "Lemešianska"
+      }
+    ],
+    "ezLines": ["24"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 192,
+    "stopName": "Petrovanská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 2,
+        "latitude": 48.9593,
+        "longitude": 21.2568,
+        "tooltip": "Petrovanská"
+      }
+    ],
+    "ezLines": ["14"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 193,
+    "stopName": "Haniska",
+    "stopCity": "Haniska",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9533,
+        "longitude": 21.2412,
+        "tooltip": "Haniska"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9533,
+        "longitude": 21.2412,
+        "tooltip": "Haniska"
+      }
+    ],
+    "ezLines": ["24"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 194,
+    "stopName": "Čistička",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.965,
+        "longitude": 21.2469,
+        "tooltip": "Čistička"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.965,
+        "longitude": 21.2469,
+        "tooltip": "Čistička"
+      }
+    ],
+    "ezLines": ["24"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 195,
+    "stopName": "Jelšová",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9621,
+        "longitude": 21.2586,
+        "tooltip": "Jelšová"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9621,
+        "longitude": 21.2586,
+        "tooltip": "Jelšová"
+      }
+    ],
+    "ezLines": ["28", "33", "35", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 196,
+    "stopName": "Delňa",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9605,
+        "longitude": 21.2601,
+        "tooltip": "Delňa"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9605,
+        "longitude": 21.2601,
+        "tooltip": "Delňa"
+      }
+    ],
+    "ezLines": ["28", "33", "35", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 197,
+    "stopName": "Jesenná",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9644,
+        "longitude": 21.2568,
+        "tooltip": "Jesenná"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9644,
+        "longitude": 21.2568,
+        "tooltip": "Jesenná"
+      }
+    ],
+    "ezLines": ["28", "33", "35", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 198,
+    "stopName": "Gemor",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9672,
+        "longitude": 21.2496,
+        "tooltip": "Gemor"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9672,
+        "longitude": 21.2496,
+        "tooltip": "Gemor"
+      }
+    ],
+    "ezLines": ["24"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 199,
+    "stopName": "Vysielač",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9509,
+        "longitude": 21.2625,
+        "tooltip": "Vysielač"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9509,
+        "longitude": 21.2625,
+        "tooltip": "Vysielač"
+      }
+    ],
+    "ezLines": ["14"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 200,
+    "stopName": "ZVL",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9691,
+        "longitude": 21.252,
+        "tooltip": "ZVL"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9691,
+        "longitude": 21.252,
+        "tooltip": "ZVL"
+      }
+    ],
+    "ezLines": ["24"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 201,
+    "stopName": "Priemyselný park Záborské",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9561,
+        "longitude": 21.2675,
+        "tooltip": "Priemyselný park Záborské"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9561,
+        "longitude": 21.2675,
+        "tooltip": "Priemyselný park Záborské"
+      }
+    ],
+    "ezLines": ["14"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 202,
+    "stopName": "Pionierska",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9691,
+        "longitude": 21.257,
+        "tooltip": "Pionierska"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9691,
+        "longitude": 21.257,
+        "tooltip": "Pionierska"
+      }
+    ],
+    "ezLines": ["28", "33", "35", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 203,
+    "stopName": "Na brehu",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.973197,
+        "longitude": 21.274493,
+        "tooltip": "Na brehu"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.973197,
+        "longitude": 21.274493,
+        "tooltip": "Na brehu"
+      }
+    ],
+    "ezLines": ["11"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 204,
+    "stopName": "Zlatobanská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.973979,
+        "longitude": 21.278066,
+        "tooltip": "Zlatobanská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.973979,
+        "longitude": 21.278066,
+        "tooltip": "Zlatobanská"
+      }
+    ],
+    "ezLines": ["11"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 205,
+    "stopName": "Rázc. Záborské",
+    "stopCity": "Záborské",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.947,
+        "longitude": 21.2879,
+        "tooltip": "Rázc. Záborské"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.947,
+        "longitude": 21.2879,
+        "tooltip": "Rázc. Záborské"
+      }
+    ],
+    "ezLines": ["14"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 206,
+    "stopName": "Solivar",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9783,
+        "longitude": 21.2769,
+        "tooltip": "Solivar"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9783,
+        "longitude": 21.2769,
+        "tooltip": "Solivar"
+      }
+    ],
+    "ezLines": ["1", "11", "19", "44", "46", "N1"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 207,
+    "stopName": "Záborské - stred",
+    "stopCity": "Záborské",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9451,
+        "longitude": 21.2894,
+        "tooltip": "Záborské - stred"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9451,
+        "longitude": 21.2894,
+        "tooltip": "Záborské - stred"
+      }
+    ],
+    "ezLines": ["14"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 208,
+    "stopName": "Záborské",
+    "stopCity": "Záborské",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9424,
+        "longitude": 21.2878,
+        "tooltip": "Záborské"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9424,
+        "longitude": 21.2878,
+        "tooltip": "Záborské"
+      }
+    ],
+    "ezLines": ["14"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 209,
+    "stopName": "Soľnobanská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9821,
+        "longitude": 21.2796,
+        "tooltip": "Soľnobanská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9821,
+        "longitude": 21.2796,
+        "tooltip": "Soľnobanská"
+      }
+    ],
+    "ezLines": ["46"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 210,
+    "stopName": "Záhradky",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9812,
+        "longitude": 21.289,
+        "tooltip": "Záhradky"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9812,
+        "longitude": 21.289,
+        "tooltip": "Záhradky"
+      }
+    ],
+    "ezLines": ["46"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 211,
+    "stopName": "Hruny",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9965,
+        "longitude": 21.2847,
+        "tooltip": "Hruny"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9965,
+        "longitude": 21.2847,
+        "tooltip": "Hruny"
+      }
+    ],
+    "ezLines": ["22"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 212,
+    "stopName": "Kamenná",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9965,
+        "longitude": 21.2847,
+        "tooltip": "Kamenná"
+      }
+    ],
+    "ezLines": ["22"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 213,
+    "stopName": "Sekčovská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 2,
+        "latitude": 48.9949,
+        "longitude": 21.2818,
+        "tooltip": "Sekčovská"
+      }
+    ],
+    "ezLines": ["22"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 214,
+    "stopName": "Šalgovík",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9969,
+        "longitude": 21.2874,
+        "tooltip": "Šalgovík"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9969,
+        "longitude": 21.2874,
+        "tooltip": "Šalgovík"
+      }
+    ],
+    "ezLines": ["22"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 215,
+    "stopName": "Labutia",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9922,
+        "longitude": 21.2885,
+        "tooltip": "Labutia"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9922,
+        "longitude": 21.2885,
+        "tooltip": "Labutia"
+      }
+    ],
+    "ezLines": ["22"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 216,
+    "stopName": "Tulčícka",
+    "stopCity": "Veľký Šariš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0337,
+        "longitude": 21.1943,
+        "tooltip": "Tulčícka"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0337,
+        "longitude": 21.1943,
+        "tooltip": "Tulčícka"
+      }
+    ],
+    "ezLines": ["21"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 217,
+    "stopName": "Prostějovská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0209,
+        "longitude": 21.2248,
+        "tooltip": "Prostějovská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0209,
+        "longitude": 21.2248,
+        "tooltip": "Prostějovská"
+      }
+    ],
+    "ezLines": ["12", "17", "29", "34", "38", "39", "4", "43", "8", "N1", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 218,
+    "stopName": "Bzenov",
+    "stopCity": "Bzenov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9552,
+        "longitude": 21.1713,
+        "tooltip": "Bzenov"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9552,
+        "longitude": 21.1713,
+        "tooltip": "Bzenov"
+      }
+    ],
+    "ezLines": ["18"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 219,
+    "stopName": "Bikoš",
+    "stopCity": "Veľký Šariš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0288,
+        "longitude": 21.2191,
+        "tooltip": "Bikoš"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0288,
+        "longitude": 21.2191,
+        "tooltip": "Bikoš"
+      }
+    ],
+    "ezLines": ["14", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 220,
+    "stopName": "Bajkalská",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0236,
+        "longitude": 21.2299,
+        "tooltip": "Bajkalská"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0236,
+        "longitude": 21.2299,
+        "tooltip": "Bajkalská"
+      }
+    ],
+    "ezLines": ["12", "2", "43", "5"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 221,
+    "stopName": "Sídlisko III",
+    "stopCity": "Prešov",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0235,
+        "longitude": 21.229,
+        "tooltip": "Sídlisko III"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0235,
+        "longitude": 21.229,
+        "tooltip": "Sídlisko III"
+      }
+    ],
+    "ezLines": ["12", "17", "29", "34", "38", "39", "4", "8", "N1", "N2"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 222,
+    "stopName": "Staničná",
+    "stopCity": "Veľký Šariš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.04425,
+        "longitude": 21.20268,
+        "tooltip": "Staničná"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.04425,
+        "longitude": 21.20268,
+        "tooltip": "Staničná"
+      }
+    ],
+    "ezLines": ["14", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 223,
+    "stopName": "Pivovar",
+    "stopCity": "Veľký Šariš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0434,
+        "longitude": 21.2089,
+        "tooltip": "Pivovar"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0434,
+        "longitude": 21.2089,
+        "tooltip": "Pivovar"
+      }
+    ],
+    "ezLines": ["14", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 224,
+    "stopName": "Pod Sordokom",
+    "stopCity": "Veľký Šariš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0438,
+        "longitude": 21.211,
+        "tooltip": "Pod Sordokom"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0438,
+        "longitude": 21.211,
+        "tooltip": "Pod Sordokom"
+      }
+    ],
+    "ezLines": ["14", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 225,
+    "stopName": "Sordok",
+    "stopCity": "Kanaš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0438,
+        "longitude": 21.211,
+        "tooltip": "Sordok"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0438,
+        "longitude": 21.211,
+        "tooltip": "Sordok"
+      }
+    ],
+    "ezLines": ["14"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 226,
+    "stopName": "Šariš park",
+    "stopCity": "Veľký Šariš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0409,
+        "longitude": 21.2131,
+        "tooltip": "Šariš park"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0409,
+        "longitude": 21.2131,
+        "tooltip": "Šariš park"
+      }
+    ],
+    "ezLines": ["14", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 227,
+    "stopName": "Medulienka",
+    "stopCity": "Veľký Šariš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0392,
+        "longitude": 21.1993,
+        "tooltip": "Medulienka"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0392,
+        "longitude": 21.1993,
+        "tooltip": "Medulienka"
+      }
+    ],
+    "ezLines": ["14", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 228,
+    "stopName": "Nám. sv. Jakuba",
+    "stopCity": "Veľký Šariš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0392,
+        "longitude": 21.194,
+        "tooltip": "Nám. sv. Jakuba"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0392,
+        "longitude": 21.194,
+        "tooltip": "Nám. sv. Jakuba"
+      }
+    ],
+    "ezLines": ["14", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 229,
+    "stopName": "Veľký Šariš",
+    "stopCity": "Veľký Šariš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0421,
+        "longitude": 21.1888,
+        "tooltip": "Veľký Šariš"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0421,
+        "longitude": 21.1888,
+        "tooltip": "Veľký Šariš"
+      }
+    ],
+    "ezLines": ["14", "21", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 230,
+    "stopName": "ZŠ Veľký Šariš",
+    "stopCity": "Veľký Šariš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0421,
+        "longitude": 21.1888,
+        "tooltip": "ZŠ Veľký Šariš"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0421,
+        "longitude": 21.1888,
+        "tooltip": "ZŠ Veľký Šariš"
+      }
+    ],
+    "ezLines": ["14"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 231,
+    "stopName": "Varoš",
+    "stopCity": "Veľký Šariš",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.04,
+        "longitude": 21.1908,
+        "tooltip": "Varoš"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.04,
+        "longitude": 21.1908,
+        "tooltip": "Varoš"
+      }
+    ],
+    "ezLines": ["14", "21", "45"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 232,
+    "stopName": "OcÚ V. Šebastová",
+    "stopCity": "Vyšná Šebastová",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0148,
+        "longitude": 21.3261,
+        "tooltip": "OcÚ V. Šebastová"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0148,
+        "longitude": 21.3261,
+        "tooltip": "OcÚ V. Šebastová"
+      }
+    ],
+    "ezLines": ["13"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 233,
+    "stopName": "Pod Maglovcom",
+    "stopCity": "Vyšná Šebastová",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.012,
+        "longitude": 21.3313,
+        "tooltip": "Pod Maglovcom"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.012,
+        "longitude": 21.3313,
+        "tooltip": "Pod Maglovcom"
+      }
+    ],
+    "ezLines": ["13"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 234,
+    "stopName": "Vyšná Šebastová",
+    "stopCity": "Vyšná Šebastová",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0106,
+        "longitude": 21.3335,
+        "tooltip": "Vyšná Šebastová"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0106,
+        "longitude": 21.3335,
+        "tooltip": "Vyšná Šebastová"
+      }
+    ],
+    "ezLines": ["13"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 235,
+    "stopName": "Severná",
+    "stopCity": "Vyšná Šebastová",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 49.0242,
+        "longitude": 21.3368,
+        "tooltip": "Severná"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 49.0242,
+        "longitude": 21.3368,
+        "tooltip": "Severná"
+      }
+    ],
+    "ezLines": ["13"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 236,
+    "stopName": "Teriakovce",
+    "stopCity": "Teriakovce",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.99,
+        "longitude": 21.3118,
+        "tooltip": "Teriakovce"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.99,
+        "longitude": 21.3118,
+        "tooltip": "Teriakovce"
+      }
+    ],
+    "ezLines": ["22"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 237,
+    "stopName": "OÚ Teriakovce",
+    "stopCity": "Teriakovce",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9906,
+        "longitude": 21.3088,
+        "tooltip": "OÚ Teriakovce"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9906,
+        "longitude": 21.3088,
+        "tooltip": "OÚ Teriakovce"
+      }
+    ],
+    "ezLines": ["22"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 238,
+    "stopName": "Na Kruhu",
+    "stopCity": "Teriakovce",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9908,
+        "longitude": 21.3046,
+        "tooltip": "Na Kruhu"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9908,
+        "longitude": 21.3046,
+        "tooltip": "Na Kruhu"
+      }
+    ],
+    "ezLines": ["22"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 239,
+    "stopName": "Rázc. Teriakovce",
+    "stopCity": "Teriakovce",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9911,
+        "longitude": 21.3021,
+        "tooltip": "Rázc. Teriakovce"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9911,
+        "longitude": 21.3021,
+        "tooltip": "Rázc. Teriakovce"
+      }
+    ],
+    "ezLines": ["22"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 240,
+    "stopName": "Hulica",
+    "stopCity": "Ruská Nová Ves",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9792,
+        "longitude": 21.3277,
+        "tooltip": "Hulica"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9792,
+        "longitude": 21.3277,
+        "tooltip": "Hulica"
+      }
+    ],
+    "ezLines": ["46"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 241,
+    "stopName": "Na Záhumní",
+    "stopCity": "Ruská Nová Ves",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9778,
+        "longitude": 21.3243,
+        "tooltip": "Na Záhumní"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9778,
+        "longitude": 21.3243,
+        "tooltip": "Na Záhumní"
+      }
+    ],
+    "ezLines": ["46"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 242,
+    "stopName": "Ruská Nová Ves",
+    "stopCity": "Ruská Nová Ves",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9781,
+        "longitude": 21.3335,
+        "tooltip": "Ruská Nová Ves"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9781,
+        "longitude": 21.3335,
+        "tooltip": "Ruská Nová Ves"
+      }
+    ],
+    "ezLines": ["46"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  },
+  {
+    "stopID": 243,
+    "stopName": "Pri zámočku",
+    "stopCity": "Ruská Nová Ves",
+    "platforms": [
+      {
+        "platformNumber": 1,
+        "latitude": 48.9778,
+        "longitude": 21.3191,
+        "tooltip": "Pri zámočku"
+      },
+      {
+        "platformNumber": 2,
+        "latitude": 48.9778,
+        "longitude": 21.3191,
+        "tooltip": "Pri zámočku"
+      }
+    ],
+    "ezLines": ["46"],
+    "ezStopTypeName": "Navigation.StopType.Urban"
+  }
+]

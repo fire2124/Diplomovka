@@ -9,15 +9,19 @@
     "weatherPO": "node ./Download/weatherPO.js",
     "weatherKE": "node ./Download/weatherKE.js",
     "traffic": "node ./Download/trafficSituation.js",
-    "sizeOF": "node ./sizeOF.js",
+    "sizeOF": "node ./infoAboutDataSize/sizeOF.js",
     "down": "node ./down.js",
-    "zas": "node ./zas.js",
-    "excel": "node ./excel.js"
+    "zas": "node ./Zastavky_Presov/zastavky.js",
+    "excel": "node ./excel.js",
+    "volby": "node ./Download/volby.js",
+    "gps": "node ./Ulice_Presov/transformGPS.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {},
   "dependencies": {
+    "@supercharge/collections": "^3.0.0",
+    "array-unique": "^0.3.2",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "csv-mapper-lite": "^1.0.6",
@@ -28,6 +32,9 @@
     "jsonwebtoken": "^8.5.1",
     "node-fetch": "^2.2.0",
     "nodemon": "^2.0.6",
+    "proj4": "^2.6.3",
+    "read-files-promise": "^1.1.1",
+    "read-multiple-files": "^3.0.0",
     "request": "^2.88.0",
     "start": "^5.1.0"
   },
