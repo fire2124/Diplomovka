@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "MhdPO.js",
   "scripts": {
-    "MhdPO": "node ./Download/MhdPO.js",
+    "MhdPO": "node ./DownloadWithGeoJSON/MhdPO.js",
     "Trains": "node ./Download/Trains.js",
     "SadPO": "node ./Download/SadPo.js",
     "weatherPO": "node ./Download/weatherPO.js",
@@ -13,7 +13,6 @@
     "down": "node ./down.js",
     "zas": "node ./Zastavky_Presov/zastavky.js",
     "excel": "node ./excel.js",
-    "volby": "node ./Download/volby.js",
     "gps": "node ./Ulice_Presov/transformGPS.js"
   },
   "author": "",
