@@ -177,7 +177,7 @@ async function downloadExcel() {
         let streets = await axios.get(
           "http://localhost:9200/api/v1/PresovStreets"
         );
-        filteredResult.map((zaznam) => {
+        filteredResult.map(async (zaznam) => {
           streets.data.features.forEach((ul) => {
             ul.geometry.coordinates.forEach((u) => {
               u.map((x) => {
@@ -191,13 +191,16 @@ async function downloadExcel() {
               });
             });
           });
+          try {
+            await axios.post(
+              "http://localhost:9200/api/v1/currentMhdPoBusses/",
+              zaznam
+            );
+          } catch (e) {
+            console.log(e);
+          }
         });
-        //console.log(filteredResult)
 
-        // filteredResult.forEach(async(zaznam) =>{
-        //   await axios.post("http://localhost:9200/api/v1/currentMhdPoBusses/", zaznam);
-        //   await axios.post("http://localhost:9200/api/v1/currentMhdPoBusses/", zaznam);
-        // })
         await axios.post(
           "http://localhost:9200/api/v1/currentMhdPoBusses/firstJSON/1",
           filteredResult
@@ -207,7 +210,7 @@ async function downloadExcel() {
 }
 
 //setInterval(downloadExcel, 15000);
-//downloadExcel();
+downloadExcel();
 module.exports = {
   downloadExcel,
 };

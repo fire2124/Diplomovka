@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "main": "MhdPO.js",
   "scripts": {
+    "Ubian": "node ./DownloadWithGeoJSON/Ubian.js",
     "MhdPO": "node ./DownloadWithGeoJSON/MhdPO.js",
-    "Trains": "node ./Download/Trains.js",
-    "SadPO": "node ./Download/SadPo.js",
-    "weatherPO": "node ./Download/weatherPO.js",
-    "weatherKE": "node ./Download/weatherKE.js",
-    "traffic": "node ./Download/trafficSituation.js",
+    "Trains": "node ./DownloadWithGeoJSON/Trains.js",
+    "SadPO": "node ./DownloadWithGeoJSON/SadPo.js",
+    "weatherPO": "node ./DownloadWithGeoJSON/weatherPO.js",
+    "weatherKE": "node ./DownloadWithGeoJSON/weatherKE.js",
+    "traffic": "node ./DownloadWithGeoJSON/trafficSituation.js",
     "sizeOF": "node ./infoAboutDataSize/sizeOF.js",
     "down": "node ./down.js",
     "zas": "node ./Zastavky_Presov/zastavky.js",
@@ -17,7 +18,9 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
   "dependencies": {
     "@supercharge/collections": "^3.0.0",
     "array-unique": "^0.3.2",
@@ -30,7 +33,6 @@
     "jsonpath": "^1.0.2",
     "jsonwebtoken": "^8.5.1",
     "node-fetch": "^2.2.0",
-    "nodemon": "^2.0.6",
     "proj4": "^2.6.3",
     "read-files-promise": "^1.1.1",
     "read-multiple-files": "^3.0.0",

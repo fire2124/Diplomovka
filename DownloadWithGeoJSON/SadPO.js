@@ -5,15 +5,12 @@ const axios = require("axios");
 const imageDate = Date.parse(date);
 let request = require("request");
 
-if (!fs.existsSync("./Data/SadPO_json")) {
-  fs.mkdirSync("./Data/SadPO_json");
-}
 
 async function downloadSadPO () {
   let options = {
     method: "POST",
     // https://www.dispecing.info/TDWebAPI/api/GetOnlineData
-    url: "https://www.dispecing.info/TDWebAPI/api/GetOnlineData",
+    url: "https://test.dispecing.info/TDWebAPI/api/GetOnlineData",
     headers: {
       "content-type": "application/json",
     },
@@ -29,11 +26,13 @@ async function downloadSadPO () {
     request(options, function (error, response, body) {
       if (error) reject(error);
       else resolve(body);
+      console.log(body)
     });
   });
- let array= []
+  console.log(json)
   const zaznamy = json
   .map( (zaznam) => {
+    //adding from via to
       switch (true) {
         case zaznam.Line == 701402:
           zaznam.From = "Bardejov";
@@ -415,29 +414,28 @@ async function downloadSadPO () {
           return zaznam;
       }
       return
-    })
-    .filter((v) => v != undefined)
+    }).filter((v) => v != undefined)
     
     //debugger
 
       let time = new Date();
       let currentTime = time.getTime();
       let count2 = 0;
-
-    return await Promise.all(
-      zaznamy.map((zaznam) => {
-        zaznam.OrderInJsonId = ++count2;
-        zaznam.Type = "SAD";
-        zaznam.CurrentTime = currentTime;
-        // await axios.post(
-        //   "http://localhost:3000/api/v1/currentSadPoBusses/",
-        //   zaznam
-        // );
-         axios.post(`http://127.0.0.1:9200/sadpo/_doc/`, zaznam);
-        //array2.push(zaznam);
-      }));
+   console.log(zaznamy)
+    // return await Promise.all(
+    //   zaznamy.map((zaznam) => {
+    //     zaznam.OrderInJsonId = ++count2;
+    //     zaznam.Type = "SAD";
+    //     zaznam.CurrentTime = currentTime;
+        
+    //    //  axios.post(`http://127.0.0.1:9200/sadpo/_doc/`, zaznam);
+    //     //array2.push(zaznam);
+    //   }));
      
-    
+      await axios.post(
+        "http://localhost:9200/api/v1/currentSadPoBusses/firstJSON/1",
+        zaznamy
+      );
   };
 
 //setInterval(downloadSadPO, 5000);
