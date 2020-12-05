@@ -9,7 +9,7 @@ const config = {
 async function downloadUbian() {
   let firstJson;
   firstJson = await axios.get(
-    "http://localhost:9200/api/v1/currentSadPoBusses/firstJSON/1"
+    "http://localhost:9200/api/v1/currentUbianBackup/firstJSON/1"
   );
   firstJson = firstJson.data;
   await axios(config)
@@ -430,7 +430,7 @@ async function downloadUbian() {
         a.geometry = geometry;
 
         properties.vehicleID = x.vehicleID;
-        properties.delay = x.delayMinutes;
+        properties.delay = (x.delayMinutes)*60 // na sekundy;
         properties.lastCommunication = x.lastCommunication;
         properties.lastStopOrder = x.lastStopOrder;
         properties.isOnStop = x.isOnStop;
@@ -486,7 +486,7 @@ async function downloadUbian() {
               j.properties["CHANGE_OF_Variation"] > 0
             ) {
               j.properties["CHANGE_OF_Variation"] =
-                -j.properties["CHANGE_OF_Variation"] * 60;
+                -j.properties["CHANGE_OF_Variation"] ;
 
               //new                               //old
             } else if (
@@ -494,7 +494,7 @@ async function downloadUbian() {
               j.properties["CHANGE_OF_Variation"] > 0
             ) {
               j.properties["CHANGE_OF_Variation"] =
-                j.properties["CHANGE_OF_Variation"] * 60;
+                j.properties["CHANGE_OF_Variation"] ;
 
               //new                               //old
             } else if (
@@ -502,7 +502,7 @@ async function downloadUbian() {
               j.properties["CHANGE_OF_Variation"] < 0
             ) {
               j.properties["CHANGE_OF_Variation"] =
-                -j.properties["CHANGE_OF_Variation"] * 60;
+                -j.properties["CHANGE_OF_Variation"] ;
 
               //new                               //old
             } else if (
@@ -510,12 +510,12 @@ async function downloadUbian() {
               j.properties["CHANGE_OF_Variation"] < 0
             ) {
               j.properties["CHANGE_OF_Variation"] =
-                j.properties["CHANGE_OF_Variation"] * 60;
+                j.properties["CHANGE_OF_Variation"] ;
             }
-            console.log("----------------------------------");
-            console.log("oldExcel " + e.properties["delay"]);
-            console.log("newExcel " + j.properties["delay"]);
-            console.log(j.properties["CHANGE_OF_Variation"]);
+            //console.log("----------------------------------");
+            //console.log("oldExcel " + e.properties["delay"]);
+            //console.log("newExcel " + j.properties["delay"]);
+            //console.log(j.properties["CHANGE_OF_Variation"]);
             result.push(j);
           } else {
             result.push(j);
@@ -539,7 +539,7 @@ async function downloadUbian() {
         }
       }, []);
 
-      console.log(filteredResult);
+      //console.log(filteredResult);
       // adding Street
       let streets = await axios.get(
         "http://localhost:9200/api/v1/PresovStreets"
@@ -558,17 +558,17 @@ async function downloadUbian() {
           });
         });
         try {
-          // await axios.post(
-          //   "http://localhost:9200/api/v1/currentSadPoBusses",
-          //   zaznam
-          // );
+          await axios.post(
+            "http://localhost:9200/api/v1/currentUbianBackup",
+            zaznam
+          );
         } catch (e) {
           console.log(e);
         }
       });
-
+      console.log(downloadResult);
       await axios.post(
-        "http://localhost:9200/api/v1/currentSadPoBusses/firstJSON/1",
+        "http://localhost:9200/api/v1/currentUbianBackup/firstJSON/1",
         downloadResult
       );
     })
