@@ -46,8 +46,8 @@ async function downloadWeatherKE() {
   a.type = "Feature";
 
   geometry.type = "Point";
-  coordinates[0] = globalObject.coord.lat;
-  coordinates[1] = globalObject.coord.lon;
+  coordinates[0] = globalObject.coord.lon;
+  coordinates[1] = globalObject.coord.lat;
   geometry.coordinates = coordinates;
   a.geometry = geometry;
   properties.Id = ++count;

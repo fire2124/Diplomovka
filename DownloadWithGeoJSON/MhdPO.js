@@ -80,8 +80,8 @@ async function downloadExcel() {
           properties.Type = "MHD";
           properties.Current_Time = currentTime;
           a.properties = properties;
-          coordinates[0] = x.LATITUDE;
-          coordinates[1] = x.LONGITUDE;
+          coordinates[0] = x.LONGITUDE;
+          coordinates[1] =  x.LATITUDE;
           geometry.coordinates = coordinates;
           geometry.type = "Point";
           a.geometry = geometry;

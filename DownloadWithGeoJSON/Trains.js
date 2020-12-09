@@ -46,8 +46,8 @@ async function downloadTrains() {
         let geometry = {};
         let coordinates = [];
         a.type = "Feature";
-        coordinates[0] = zaznam.Position[0];
-        coordinates[1] = zaznam.Position[1];
+        coordinates[0] = zaznam.Position[1];
+        coordinates[1] = zaznam.Position[0];
         geometry.coordinates = coordinates;
         geometry.type = "Point";
         a.geometry = geometry;

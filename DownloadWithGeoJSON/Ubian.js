@@ -423,8 +423,8 @@ async function downloadUbian() {
         let coordinates = [];
         a.type = "Feature"; // type of all
 
-        coordinates[0] = x.latitude;
-        coordinates[1] = x.longitude;
+        coordinates[0] = x.longitude;
+        coordinates[1] = x.latitude;
         geometry.coordinates = coordinates;
         geometry.type = "Point"; // type of Geometry
         a.geometry = geometry;

@@ -438,7 +438,7 @@ async function downloadSadPO() {
 }
 
 //setInterval(downloadSadPO, 5000);
-//downloadSadPO().then(v => console.log(v));
+downloadSadPO().then(v => console.log(v));
 
 module.exports = {
   downloadSadPO,

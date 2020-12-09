@@ -47,8 +47,8 @@ async function downloadWeatherPO() {
   a.type = "Feature";
 
   geometry.type = "Point";
-  coordinates[0] = globalObject.coord.lat;
-  coordinates[1] = globalObject.coord.lon;
+  coordinates[0] = globalObject.coord.lon;
+  coordinates[1] = globalObject.coord.lat;
   geometry.coordinates = coordinates;
   a.geometry = geometry;
   properties.Id = ++count;
@@ -117,7 +117,7 @@ async function downloadWeatherPO() {
     // );
     await axios.post("http://localhost:9200/api/v1/currentWeatherPo/", a);
 
-    //axios.post(`http://127.0.0.1:9200/weather_ke/_doc/`, globalObject);
+    //axios.post(`http://127.0.0.1:9200/weather_po/_doc/`, globalObject);
     resolve();
     });
   }

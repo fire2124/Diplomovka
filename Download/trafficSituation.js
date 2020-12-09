@@ -36,6 +36,7 @@ async function downloadTrafficSituation() {
     .map((element) => {
       try {
         if (element.region.id === 7 || element.region.id === 8) {
+
           element.region_ID = element.region.id;
           element.region_name = element.region.name;
           element.Type = "Traffic";
