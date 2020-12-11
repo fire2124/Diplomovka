@@ -14,6 +14,12 @@ const options = {
 };
 
 async function downloadTrafficSituation() {
+  let firstJson;
+  firstJson = await axios.get(
+    "http://localhost:9200/api/v1/currentTrains/firstJSON/1"
+  );
+  firstJson = firstJson.data;
+
   let json = await new Promise((resolve, reject) => {
     request(options, function (error, response, body) {
       if (error) reject(error);
@@ -29,8 +35,10 @@ async function downloadTrafficSituation() {
   let count = 0;
 
   const zaznamy = bodyFinal
-    .map(async (element) => {
+    .map((element) => {
       try {
+        // if (element.region.id === 7 || element.region.id === 8
+        //   || element.region.id === 6 || element.region.id === 5){
         if (element.region.id === 7 || element.region.id === 8) {
           //console.log(element)
           let a = {};
@@ -47,6 +55,7 @@ async function downloadTrafficSituation() {
           properties.district_ID = element.district.id;
           properties.district_Name = element.district.name;
           properties.district_AreaLevel = element.district.areaLevel;
+          properties.delaySeconds = element.delayMinutes * 60;
 
           if (element.district_Parent_ID) {
             properties.district_Parent_ID = element.district.parent.id;
@@ -57,44 +66,46 @@ async function downloadTrafficSituation() {
           properties.category_Name = element.category.name;
           properties.status_Code = element.status.code;
           properties.status_Name = element.status.name;
-
+          if (element.title) properties.title = element.title;
+          properties.description = element.description;
           //Location -------------------------------------------------------------
           if (element.location) {
             //console.log(++count);
             let loc = JSON.parse(element.location);
-
+            //console.log(loc)
             //points
             if (loc.points) {
-              const iterator9 = loc.points.values();
-              for (const value10 of iterator9) {
+              let iterator9 = loc.points.values();
+              for (let value10 of iterator9) {
+                //console.log(value10.geometry);
                 coordinates[0] = value10.geometry.x;
                 coordinates[1] = value10.geometry.y;
               }
               geometry.type = "Point";
               geometry.coordinates = coordinates;
+              a.geometry = geometry;
             }
-            //polygons
+            //polygons -- bavi
             if (loc.polygons) {
-              const iterator4 = loc.polygons.values();
+              let iterator4 = loc.polygons.values();
               //console.log("polygon" + " " + iterator4);
-              for (const value4 of iterator4) {
-                const iterator5 = value4.geometry.rings.values();
-                for (const value5 of iterator5) {
+              for (let value4 of iterator4) {
+                // console.log(value4);
+                let iterator5 = value4.geometry.rings.values();
+                for (let value5 of iterator5) {
                   coordinatesPoly = value5;
                 }
               }
               properties.coordinatesPoly = coordinatesPoly;
               properties.typePoly = "Polygon";
-              //console.log("polygon");
-              //console.log(loc.polygons);
             }
 
-            //lines
+            //lines "MultiPoint"
             if (loc.lines) {
-              const iterator6 = loc.lines.values();
-              for (const value7 of iterator6) {
-                const iterator8 = value7.geometry.paths.values();
-                for (const value8 of iterator8) {
+              let iterator6 = loc.lines.values();
+              for (let value7 of iterator6) {
+                let iterator8 = value7.geometry.paths.values();
+                for (let value8 of iterator8) {
                   coordinatesMulti = value8;
                 }
               }
@@ -108,58 +119,80 @@ async function downloadTrafficSituation() {
           if (element.houseNo) {
             //console.log(element.houseNo);
             const split = element.houseNo.split("/");
-            properties.houseNoFirst = split[0];
-            properties.houseNoSecond = split[1];
+            properties.houseNoFirst = parseInt(split[0]);
+            if (split[1]) properties.houseNoSecond = parseInt(split[1]);
           }
 
           a.type = "Feature";
-          a.geometry = geometry;
           a.properties = properties;
 
-          console.log(a)
+          //console.log(a)
           return a;
         }
         return;
       } catch (e) {}
     })
     .filter((v) => v != undefined);
-  // console.log(zaznamy);
-  // await axios.post(
-  //   `http://localhost:9200/api/v1/currentTraffic/firstJSON/1`,
-  //   zaznamy
-  // )
+
+  //Filter
+  let filteredResult = zaznamy.reduce((acc, current) => {
+    const x = acc.find(
+      (item) =>
+        item.properties.district_Name === current.properties.district_Name &&
+        item.properties.status_Name === current.properties.status_Name &&
+        item.properties.category_Code === current.properties.category_Code
+    );
+    if (!x) {
+      return acc.concat([current]);
+    } else {
+      return acc;
+    }
+  }, []);
+
   let count2 = 0;
+  if (firstJson == undefined || firstJson.length < 1) {
+    console.log("first json udefined");
 
-  //return
-  let result = [];
-  // return await Promise.all(
-  //   // zaznamy.map((element) => {
-  //   //   if (element !== undefined)
-  //   //     //element.OrderInJsonId = ++count2;
-  //   //     //console.log(count2);
-  //   //     //console.log(element)
-  //   //     //axios.post("http://localhost:3000/api/v1/currentTraffic/", element);
-  //   //     //axios.post(`http://127.0.0.1:9200/traffic_situation/_doc/`, element);
-
-  //   //     //array2.push(zaznam);
-  //   //     //result.push(element)
-        
-  //   // })
-  //   axios.post(
-  //     `http://localhost:9200/api/v1/currentTraffic/firstJSON/1`,
-  //     zaznamy
-  //   )
-  // );
-
-  // await axios.post(
-  //   `http://localhost:9200/api/v1/currentTraffic/firstJSON/1`,
-  //   zaznamy
-  // );
-  //   fs.writeFileSync(
-  //     `./Data/TrafficSituation/${imageDate}.json`,
-  //     json
-  //   );
+    axios.post(
+      `http://localhost:9200/api/v1/currentTraffic/firstJSON/1`,
+      filteredResult
+    );
+    return await Promise.all(
+      filteredResult.map((element) => {
+        //console.log(element);
+        //if (element !== undefined) element.properties.OrderInJsonId = ++count2;
+        axios.post("http://localhost:9200/api/v1/currentTraffic/", element);
+        // axios.post(`http://127.0.0.1:9200/traffic_situation/_doc/`, element);
+      })
+    );
+  } else {
+    console.log(!_.isEqual(filteredResult, firstJson));
+    firstJson.forEach(async (item) => {
+      delete item.properties.Current_Time;
+    });
+    // if (_.isEqual(filteredResult, firstJson) === false) {
+    axios.post(
+      `http://localhost:9200/api/v1/currentTraffic/firstJSON/1`,
+      filteredResult
+    );
+    return await Promise.all(
+      filteredResult.map((element) => {
+        // if (element !== undefined)element.properties.OrderInJsonId = ++count2;
+        axios.post("http://localhost:9200/api/v1/currentTraffic/", element);
+        // axios.post(`http://127.0.0.1:9200/traffic_situation/_doc/`, element);
+      })
+    );
+  }
 }
+
+// await axios.post(
+//   `http://localhost:9200/api/v1/currentTraffic/firstJSON/1`,
+//   zaznamy
+// );
+//   fs.writeFileSync(
+//     `./Data/TrafficSituation/${imageDate}.json`,
+//     json
+//   );
 
 //setInterval(downloadTrafficSituation, 15000);
 downloadTrafficSituation();

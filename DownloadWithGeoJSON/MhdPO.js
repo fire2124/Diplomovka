@@ -1,13 +1,11 @@
-const fs = require("fs");
 const axios = require("axios");
 const csv = require("csvtojson");
 const config = {
   method: "get",
   url: "https://egov.presov.sk/geodatakatalog/dpmp.csv",
-  headers: {
-    encoding: "utf-8",
-  },
 };
+const iconv = require('iconv-lite');
+const unidecode = require('unidecode');
 
 async function downloadExcel() {
   let firstJson;
@@ -17,11 +15,20 @@ async function downloadExcel() {
   firstJson = firstJson.data;
   axios(config).then(async (response) => {
     array = response.data;
+    console.log(array);
+    let array2 = unidecode(array);
+
+    //let array2 = iconv.decode(Buffer.from(array),'cp1163')
+    console.log(array2);
+    
+
+    // array2 = iconv.encode(array2,'ISO-6-2')
+    // console.log(array2);
     csv({
       noheader: false,
       delimiter: ";",
       checkType: true,
-      encoding: "utf-8",
+      //encoding: "iso-8859-1",
       headers: [
         "ROUTE_NUMBER",
         "PLANNED_START",
@@ -43,8 +50,9 @@ async function downloadExcel() {
         "DATE_TIME",
       ],
     })
-      .fromString(array)
+      .fromString(array2)
       .then(async (json) => {
+       
         // currentExcel
         let d;
         let result = [];

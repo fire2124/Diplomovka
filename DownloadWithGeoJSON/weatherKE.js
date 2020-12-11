@@ -95,13 +95,16 @@ async function downloadWeatherKE() {
 
     console.log(a);
     console.log("here");
-    await axios.post(
-      "http://localhost:9200/api/v1/currentWeatherKe/firstJSON/1",
-      a
-    );
+    try {
+      await axios.post(
+        "http://localhost:9200/api/v1/currentWeatherKe/firstJSON/1",
+        a
+      );
 
-    await axios.post("http://localhost:9200/api/v1/currentWeatherKe/", a);
-
+      await axios.post("http://localhost:9200/api/v1/currentWeatherKe/", a);
+    } catch (err) {
+      console.log(err);
+    }
 
     //resolve();
     //});
@@ -109,11 +112,15 @@ async function downloadWeatherKE() {
     //return new Promise(async (resolve, reject) => {
     a.properties.Current_Time = currentTime;
     console.log(a);
-    await axios.post(
-      "http://localhost:9200/api/v1/currentWeatherKe/firstJSON/1",
-      a
-    );
-    await axios.post("http://localhost:9200/api/v1/currentWeatherKe/", a);
+    try {
+      await axios.post(
+        "http://localhost:9200/api/v1/currentWeatherKe/firstJSON/1",
+        a
+      );
+      await axios.post("http://localhost:9200/api/v1/currentWeatherKe/", a);
+    } catch (error) {
+      console.log(error);
+    }
 
     //axios.post(`http://127.0.0.1:9200/weather_ke/_doc/`, globalObject);
     //resolve();
