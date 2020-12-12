@@ -1,13 +1,14 @@
-const fs = require("fs");
+  const fs = require("fs");
 const axios = require("axios");
 const csv = require("csvtojson");
 const config = {
   method: "get",
   url: "https://egov.presov.sk/geodatakatalog/dpmp.csv",
-  headers: {
-    encoding: "utf-8",
-  },
+  // headers: {
+  //   encoding: "utf-8",
+  // },
 };
+const jschardet = require("jschardet")
 
 async function downloadExcel() {
   fs.readFile("./excel.json", async (err, data) => {
@@ -17,11 +18,13 @@ async function downloadExcel() {
       (resolve, reject) => {},
       axios(config).then((response) => {
         array = response.data;
+        let encoding = jschardet.detect(response)
+        console.log(encoding);
         csv({
           noheader: false,
           delimiter: ";",
           checkType: true,
-          encoding: "utf-8",
+          //encoding: "utf-8",
           headers: [
             "ROUTE_NUMBER",
             "PLANNED_START",
@@ -116,9 +119,9 @@ async function downloadExcel() {
               x.Type = "MHD";
               x.Current_Time = currentTime;
             });
-            console.log(filteredResult);
-            console.log(i);
-            console.log(count);
+            //console.log(filteredResult);
+            //console.log(i);
+            //console.log(count);
 
             // filteredResult.forEach(async(zaznam) =>{
             //   await axios.post("http://localhost:9200/api/v1/currentMhdPoBusses/", zaznam);

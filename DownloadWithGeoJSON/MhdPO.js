@@ -6,6 +6,7 @@ const config = {
 };
 const iconv = require('iconv-lite');
 const unidecode = require('unidecode');
+const jschardet = require("jschardet")
 
 async function downloadExcel() {
   let firstJson;
