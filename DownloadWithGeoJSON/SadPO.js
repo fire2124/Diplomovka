@@ -1,25 +1,21 @@
-const fs = require("fs");
-const fetch = require("node-fetch");
-const date = new Date();
 const axios = require("axios");
-const imageDate = Date.parse(date);
 let request = require("request");
+let options = {
+  method: "POST",
+  url: "https://www.dispecing.info/TDWebAPI/api/GetOnlineData",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: {
+    login: "1007",
+    heslo: "heslo",
+  },
+  json: true,
+};
+const firstJsonUrl =
+  "http://localhost:9200/api/v1/currentSadPoBusses/firstJSON/1";
 
 async function downloadSadPO() {
-  let options = {
-    method: "POST",
-    // https://www.dispecing.info/TDWebAPI/api/GetOnlineData
-    url: "https://test.dispecing.info/TDWebAPI/api/GetOnlineData",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: {
-      login: "1007",
-      heslo: "heslo",
-    },
-    json: true,
-  };
-
   let json = await new Promise((resolve, reject) => {
     request(options, function (error, response, body) {
       if (error) reject(error);
@@ -431,14 +427,11 @@ async function downloadSadPO() {
   //     //array2.push(zaznam);
   //   }));
 
-  await axios.post(
-    "http://localhost:9200/api/v1/currentSadPoBusses/firstJSON/1",
-    zaznamy
-  );
+  await axios.post(firstJsonUrl, zaznamy);
 }
 
 //setInterval(downloadSadPO, 5000);
-downloadSadPO().then(v => console.log(v));
+downloadSadPO().then((v) => console.log(v));
 
 module.exports = {
   downloadSadPO,

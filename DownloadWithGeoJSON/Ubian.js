@@ -5,12 +5,15 @@ const config = {
     "https://www.ubian.sk/navigation/vehicles/nearby?lat=48.99835545200854&lng=21.238180698603646&radius=50&cityID=",
   headers: {},
 };
+const presovStreetsUrl = "http://localhost:9200/api/v1/PresovStreets";
+const firstJsonUrl = "http://localhost:9200/api/v1/currentUbianBackup/firstJSON/1";
+const currentUbianUrl = "http://localhost:9200/api/v1/currentUbianBackup";
+const currentUbianUrlElastic = `http://127.0.0.1:9200/currentUbianBackup/_doc/`;
+
 
 async function downloadUbian() {
   let firstJson;
-  firstJson = await axios.get(
-    "http://localhost:9200/api/v1/currentUbianBackup/firstJSON/1"
-  );
+  firstJson = await axios.get(firstJsonUrl);
   firstJson = firstJson.data;
   await axios(config)
     .then(async (response) => {
@@ -430,7 +433,7 @@ async function downloadUbian() {
         a.geometry = geometry;
 
         properties.vehicleID = x.vehicleID;
-        properties.delay = (x.delayMinutes)*60 // na sekundy;
+        properties.delay = x.delayMinutes * 60; // na sekundy;
         properties.lastCommunication = x.lastCommunication;
         properties.lastStopOrder = x.lastStopOrder;
         properties.isOnStop = x.isOnStop;
@@ -485,8 +488,9 @@ async function downloadUbian() {
               j.properties["delay"] < e.properties["delay"] &&
               j.properties["CHANGE_OF_Variation"] > 0
             ) {
-              j.properties["CHANGE_OF_Variation"] =
-                -j.properties["CHANGE_OF_Variation"] ;
+              j.properties["CHANGE_OF_Variation"] = -j.properties[
+                "CHANGE_OF_Variation"
+              ];
 
               //new                               //old
             } else if (
@@ -494,15 +498,16 @@ async function downloadUbian() {
               j.properties["CHANGE_OF_Variation"] > 0
             ) {
               j.properties["CHANGE_OF_Variation"] =
-                j.properties["CHANGE_OF_Variation"] ;
+                j.properties["CHANGE_OF_Variation"];
 
               //new                               //old
             } else if (
               j.properties["delay"] < e.properties["delay"] &&
               j.properties["CHANGE_OF_Variation"] < 0
             ) {
-              j.properties["CHANGE_OF_Variation"] =
-                -j.properties["CHANGE_OF_Variation"] ;
+              j.properties["CHANGE_OF_Variation"] = -j.properties[
+                "CHANGE_OF_Variation"
+              ];
 
               //new                               //old
             } else if (
@@ -510,7 +515,7 @@ async function downloadUbian() {
               j.properties["CHANGE_OF_Variation"] < 0
             ) {
               j.properties["CHANGE_OF_Variation"] =
-                j.properties["CHANGE_OF_Variation"] ;
+                j.properties["CHANGE_OF_Variation"];
             }
             //console.log("----------------------------------");
             //console.log("oldExcel " + e.properties["delay"]);
@@ -541,9 +546,7 @@ async function downloadUbian() {
 
       //console.log(filteredResult);
       // adding Street
-      let streets = await axios.get(
-        "http://localhost:9200/api/v1/PresovStreets"
-      );
+      let streets = await axios.get(presovStreetsUrl);
       filteredResult.map(async (zaznam) => {
         streets.data.features.forEach((ul) => {
           ul.geometry.coordinates.forEach((u) => {
@@ -558,19 +561,13 @@ async function downloadUbian() {
           });
         });
         try {
-          await axios.post(
-            "http://localhost:9200/api/v1/currentUbianBackup",
-            zaznam
-          );
+          await axios.post(currentUbianUrl, zaznam);
         } catch (e) {
           console.log(e);
         }
       });
       console.log(downloadResult);
-      await axios.post(
-        "http://localhost:9200/api/v1/currentUbianBackup/firstJSON/1",
-        downloadResult
-      );
+      await axios.post(firstJsonUrl, downloadResult);
     })
     .catch(function (error) {
       console.log(error);

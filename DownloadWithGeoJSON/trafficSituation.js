@@ -1,8 +1,5 @@
-const fs = require("fs");
 const fetch = require("node-fetch");
-const date = new Date();
 const axios = require("axios");
-const imageDate = Date.parse(date);
 const request = require("request");
 const options = {
   method: "GET",
@@ -12,12 +9,13 @@ const options = {
     Cookie: "DigestTracker=AAABcmANZNU",
   },
 };
+const firstJsonUrl = `http://localhost:9200/api/v1/currentTraffic/firstJSON/1`;
+const currentTrafficUrl = "http://localhost:9200/api/v1/currentTraffic/";
+const currentTrafficUrlElastic = `http://127.0.0.1:9200/traffic_situation/_doc/`;
 
 async function downloadTrafficSituation() {
   let firstJson;
-  firstJson = await axios.get(
-    "http://localhost:9200/api/v1/currentTrains/firstJSON/1"
-  );
+  firstJson = await axios.get(firstJsonUrl);
   firstJson = firstJson.data;
 
   let json = await new Promise((resolve, reject) => {
@@ -37,8 +35,6 @@ async function downloadTrafficSituation() {
   const zaznamy = bodyFinal
     .map((element) => {
       try {
-        // if (element.region.id === 7 || element.region.id === 8
-        //   || element.region.id === 6 || element.region.id === 5){
         if (element.region.id === 7 || element.region.id === 8) {
           //console.log(element)
           let a = {};
@@ -153,16 +149,13 @@ async function downloadTrafficSituation() {
   if (firstJson == undefined || firstJson.length < 1) {
     console.log("first json udefined");
 
-    axios.post(
-      `http://localhost:9200/api/v1/currentTraffic/firstJSON/1`,
-      filteredResult
-    );
+    axios.post(firstJsonUrl, filteredResult);
     return await Promise.all(
       filteredResult.map((element) => {
         //console.log(element);
         //if (element !== undefined) element.properties.OrderInJsonId = ++count2;
-        axios.post("http://localhost:9200/api/v1/currentTraffic/", element);
-        // axios.post(`http://127.0.0.1:9200/traffic_situation/_doc/`, element);
+        axios.post(currentTrafficUrl, element);
+        // axios.post(currentTrafficUrlElastic, element);
       })
     );
   } else {
@@ -171,28 +164,16 @@ async function downloadTrafficSituation() {
       delete item.properties.Current_Time;
     });
     // if (_.isEqual(filteredResult, firstJson) === false) {
-    axios.post(
-      `http://localhost:9200/api/v1/currentTraffic/firstJSON/1`,
-      filteredResult
-    );
+    axios.post(firstJsonUrl, filteredResult);
     return await Promise.all(
       filteredResult.map((element) => {
         // if (element !== undefined)element.properties.OrderInJsonId = ++count2;
-        axios.post("http://localhost:9200/api/v1/currentTraffic/", element);
-        // axios.post(`http://127.0.0.1:9200/traffic_situation/_doc/`, element);
+        axios.post(currentTrafficUrl, element);
+        // axios.post(currentTrafficUrlElastic, element);
       })
     );
   }
 }
-
-// await axios.post(
-//   `http://localhost:9200/api/v1/currentTraffic/firstJSON/1`,
-//   zaznamy
-// );
-//   fs.writeFileSync(
-//     `./Data/TrafficSituation/${imageDate}.json`,
-//     json
-//   );
 
 //setInterval(downloadTrafficSituation, 15000);
 downloadTrafficSituation();

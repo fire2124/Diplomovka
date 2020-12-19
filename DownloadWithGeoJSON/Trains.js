@@ -1,8 +1,4 @@
-const fs = require("fs");
-const fetch = require("node-fetch");
-const date = new Date();
 const axios = require("axios");
-const imageDate = Date.parse(date);
 const request = require("request");
 const _ = require("lodash");
 const options = {
@@ -16,12 +12,13 @@ const options = {
   },
   json: true,
 };
+const firstJsonUrl = "http://localhost:9200/api/v1/currentTrains/firstJSON/1";
+const currentTrainsUrl = "http://localhost:9200/api/v1/currentTrains/";
+const currentTrainsUrlElastic = `http://127.0.0.1:9200/trains/_doc/`;
 
 async function downloadTrains() {
   let firstJson;
-  firstJson = await axios.get(
-    "http://localhost:9200/api/v1/currentTrains/firstJSON/1"
-  );
+  firstJson = await axios.get(firstJsonUrl);
   firstJson = firstJson.data;
 
   let json = await new Promise((resolve, reject) => {
@@ -173,18 +170,15 @@ async function downloadTrains() {
 
   //debugger
   // return await Promise.all(zaznamy.map(zaznam=>
-  //     axios.post(`http://127.0.0.1:9200/trains/_doc/`, zaznam)
+  //     axios.post(currentTrainsUrlElastic, zaznam)
   // ))
 
   if (firstJson == undefined || firstJson.length < 1) {
     filteredResult.forEach(async (item) => {
       item.properties.Current_Time = currentTime;
-      await axios.post("http://localhost:9200/api/v1/currentTrains/", item);
+      await axios.post(currentTrainsUrl, item);
     });
-    await axios.post(
-      "http://localhost:9200/api/v1/currentTrains/firstJSON/1",
-      filteredResult
-    );
+    await axios.post(firstJsonUrl, filteredResult);
   }
   // check if two array are eugle
   else {
@@ -193,15 +187,12 @@ async function downloadTrains() {
     firstJson.forEach(async (item) => {
       delete item.properties.Current_Time;
     });
-    if (_.isEqual(filteredResult, firstJson)===false) {
+    if (_.isEqual(filteredResult, firstJson) === false) {
       filteredResult.forEach(async (item) => {
         item.properties.Current_Time = currentTime;
-        await axios.post("http://localhost:9200/api/v1/currentTrains/", item);
+        await axios.post(currentTrainsUrl, item);
       });
-      await axios.post(
-        "http://localhost:9200/api/v1/currentTrains/firstJSON/1",
-        filteredResult
-      );
+      await axios.post(firstJsonUrl, filteredResult);
     }
   }
 }

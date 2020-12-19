@@ -1,12 +1,11 @@
 // weather Prešov
-const fs = require("fs");
-const fetch = require("node-fetch");
-const date = new Date();
 const axios = require("axios");
-const imageDate = Date.parse(date);
 const request = require("request");
 const _ = require("lodash");
-
+const firstJsonUrl =
+  "http://localhost:9200/api/v1/currentWeatherPo/firstJSON/1";
+const currentWeatherUrl = "http://localhost:9200/api/v1/currentWeatherPo/"
+const currentWeatherPoUrlElastic = `http://127.0.0.1:9200/weather_po/_doc/`
 const options = {
   method: "GET",
   url:
@@ -14,11 +13,10 @@ const options = {
   headers: {},
 };
 
+
 async function downloadWeatherPO() {
   let firstJson;
-  firstJson = await axios.get(
-    "http://localhost:9200/api/v1/currentWeatherPo/firstJSON/1"
-  );
+  firstJson = await axios.get(firstJsonUrl);
   firstJson = firstJson.data;
   let json = await new Promise((resolve, reject) => {
     request(options, function (error, response, body) {
@@ -93,40 +91,38 @@ async function downloadWeatherPO() {
 
   if (firstJson == undefined || firstJson.length < 1) {
     return new Promise(async (resolve, reject) => {
-    a.properties.Current_Time = currentTime;
+      a.properties.Current_Time = currentTime;
 
-    console.log(a);
-    console.log("here");
-    await axios.post(
-      "http://localhost:9200/api/v1/currentWeatherPo/firstJSON/1",
-      a
-    );
+      console.log(a);
+      console.log("here");
+      await axios.post(
+        firstJsonUrl,
+        a
+      );
 
-    await axios.post("http://localhost:9200/api/v1/currentWeatherPo/", a);
+      await axios.post(currentWeatherUrl, a);
 
-
-    resolve();
+      resolve();
     });
   } else if (_.isEqual(a, firstJson) === false) {
     return new Promise(async (resolve, reject) => {
-    a.properties.Current_Time = currentTime;
-    console.log(a);
-    // await axios.post(
-    //   "http://localhost:9200/api/v1/currentWeatherPo/firstJSON/1",
-    //   a
-    // );
-    await axios.post("http://localhost:9200/api/v1/currentWeatherPo/", a);
+      a.properties.Current_Time = currentTime;
+      console.log(a);
+      // await axios.post(
+      //   firstJsonUrl,
+      //   a
+      // );
+      await axios.post(currentWeatherUrl, a);
 
-    //axios.post(`http://127.0.0.1:9200/weather_po/_doc/`, globalObject);
-    resolve();
+      //axios.post(currentWeatherPoUrlElastic, globalObject);
+      resolve();
     });
   }
 }
 
-
 //setInterval(downloadWeatherPO, 5000);
-downloadWeatherPO()
+downloadWeatherPO();
 
 module.exports = {
-downloadWeatherPO
-}
+  downloadWeatherPO,
+};

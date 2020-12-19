@@ -1,23 +1,20 @@
-const fs = require("fs");
-const fetch = require("node-fetch");
-const date = new Date();
 const axios = require("axios");
-const imageDate = Date.parse(date);
 const request = require("request");
 const _ = require("lodash");
-const { post } = require("request");
 const options = {
   method: "GET",
   url:
     "https://openweathermap.org/data/2.5/weather?id=724443&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02\n",
   headers: {},
 };
+const currentWeatherKeUrl = "http://localhost:9200/api/v1/currentWeatherKe/";
+const firstJsonUrl =
+  "http://localhost:9200/api/v1/currentWeatherKe/firstJSON/1";
+const currentWeatherKeUrlElastic = `http://127.0.0.1:9200/weather_ke/_doc/`;
 // weather Kosice
 async function downloadWeatherKE() {
   let firstJson;
-  firstJson = await axios.get(
-    "http://localhost:9200/api/v1/currentWeatherKe/firstJSON/1"
-  );
+  firstJson = await axios.get(firstJsonUrl);
   firstJson = firstJson.data;
 
   let json = await new Promise((resolve, reject) => {
@@ -96,12 +93,9 @@ async function downloadWeatherKE() {
     console.log(a);
     console.log("here");
     try {
-      await axios.post(
-        "http://localhost:9200/api/v1/currentWeatherKe/firstJSON/1",
-        a
-      );
+      await axios.post(firstJsonUrl, a);
 
-      await axios.post("http://localhost:9200/api/v1/currentWeatherKe/", a);
+      await axios.post(currentWeatherKeUrl, a);
     } catch (err) {
       console.log(err);
     }
@@ -113,25 +107,18 @@ async function downloadWeatherKE() {
     a.properties.Current_Time = currentTime;
     console.log(a);
     try {
-      await axios.post(
-        "http://localhost:9200/api/v1/currentWeatherKe/firstJSON/1",
-        a
-      );
-      await axios.post("http://localhost:9200/api/v1/currentWeatherKe/", a);
+      await axios.post(firstJsonUrl, a);
+      await axios.post(currentWeatherKeUrl, a);
     } catch (error) {
       console.log(error);
     }
 
-    //axios.post(`http://127.0.0.1:9200/weather_ke/_doc/`, globalObject);
+    //axios.post(currentWeatherKeUrlElastic, globalObject);
     //resolve();
     //});
   }
 }
 
-// fs.writeFileSync(
-//   `./Data/weather/KE_json/${imageDate}.json`,
-//   JSON.stringify(array)
-// );
 //setInterval(downloadWeatherKE, 15000);
 //downloadWeatherKE().then((v) => console.log(v));
 downloadWeatherKE();

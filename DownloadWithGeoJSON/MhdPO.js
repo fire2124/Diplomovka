@@ -1,59 +1,86 @@
 const axios = require("axios");
 const csv = require("csvtojson");
-const config = {
-  method: "get",
-  url: "https://egov.presov.sk/geodatakatalog/dpmp.csv",
+const OPTIONS = {
+  method: "GET",
+  hostname: "egov.presov.sk",
+  path: "/geodatakatalog/dpmp.csv",
+  headers: {},
+  maxRedirects: 0,
 };
-const iconv = require('iconv-lite');
-const unidecode = require('unidecode');
-const jschardet = require("jschardet")
+const RESPONSE_ENCODING = "CP1250";
+const https = require("follow-redirects").https;
+const IconvLite = require("iconv-lite");
+const firstJsonUrl =
+  "http://localhost:9200/api/v1/currentMhdPoBusses/firstJSON/1";
+const presovStreetUrl = "http://localhost:9200/api/v1/PresovStreets";
+const currentMhdPoBussesUrl =
+  "http://localhost:9200/api/v1/currentMhdPoBusses/";
+const currentMhdPoBussesUrlElastic = `http://127.0.0.1:9200/currentMhdPoBusses/_doc/`;
+
+const csvHeaders = [
+  "ROUTE_NUMBER",
+  "PLANNED_START",
+  "DIRECTION",
+  "BUS_STOP_ORDER_NUM",
+  "BUS_STOP_NAME_1",
+  "BUS_STOP_NUM_1",
+  "BUS_STOP_SUB_NUM_1",
+  "BUS_STOP_NAME_2",
+  "BUS_STOP_NUM_2",
+  "BUS_STOP_SUB_NUM_2",
+  "PLANNED_ROAD",
+  "REAL_ROAD",
+  "LATITUDE",
+  "LONGITUDE",
+  "VARIATION",
+  "VEHICLE_NUMBER",
+  "VEHICLE_NUMBER",
+  "DATE_TIME",
+];
+const getStops = async () => {
+  return new Promise((resolve, reject) => {
+    const req = https.request(OPTIONS, (res) => {
+      let chunks = [];
+      res.on("data", (chunk) => {
+        chunks.push(chunk);
+        //buffre
+      });
+
+      res.on("end", () => {
+        try {
+          const body = IconvLite.decode(
+            Buffer.concat(chunks),
+            RESPONSE_ENCODING
+          );
+          resolve(body.toString());
+        } catch (e) {
+          reject(e);
+        }
+      });
+
+      res.on("error", (error) => {
+        reject(error);
+      });
+    });
+    req.end();
+  });
+};
 
 async function downloadExcel() {
   let firstJson;
-  firstJson = await axios.get(
-    "http://localhost:9200/api/v1/currentMhdPoBusses/firstJSON/1"
-  );
+  firstJson = await axios.get(firstJsonUrl);
   firstJson = firstJson.data;
-  axios(config).then(async (response) => {
-    array = response.data;
-    console.log(array);
-    let array2 = unidecode(array);
+  getStops().then(async (response) => {
+    console.log(response);
 
-    //let array2 = iconv.decode(Buffer.from(array),'cp1163')
-    console.log(array2);
-    
-
-    // array2 = iconv.encode(array2,'ISO-6-2')
-    // console.log(array2);
     csv({
       noheader: false,
       delimiter: ";",
       checkType: true,
-      //encoding: "iso-8859-1",
-      headers: [
-        "ROUTE_NUMBER",
-        "PLANNED_START",
-        "DIRECTION",
-        "BUS_STOP_ORDER_NUM",
-        "BUS_STOP_NAME_1",
-        "BUS_STOP_NUM_1",
-        "BUS_STOP_SUB_NUM_1",
-        "BUS_STOP_NAME_2",
-        "BUS_STOP_NUM_2",
-        "BUS_STOP_SUB_NUM_2",
-        "PLANNED_ROAD",
-        "REAL_ROAD",
-        "LATITUDE",
-        "LONGITUDE",
-        "VARIATION",
-        "VEHICLE_NUMBER",
-        "VEHICLE_NUMBER",
-        "DATE_TIME",
-      ],
+      headers: csvHeaders,
     })
-      .fromString(array2)
+      .fromString(response)
       .then(async (json) => {
-       
         // currentExcel
         let d;
         let result = [];
@@ -74,10 +101,40 @@ async function downloadExcel() {
           properties.DIRECTION = x.DIRECTION;
           properties.BUS_STOP_ORDER_NUM = x.BUS_STOP_ORDER_NUM;
           properties.BUS_STOP_NAME_1 = x.BUS_STOP_NAME_1;
+          // kontrola ci sa nachadza " *"
+          if (properties.BUS_STOP_NAME_1.includes(" *")) {
+            console.log(properties.BUS_STOP_NAME_1);
+            properties.BUS_STOP_NAME_1 = properties.BUS_STOP_NAME_1.split(
+              " *"
+            )[0];
+            //kontrola medzier " "
+            if (properties.BUS_STOP_NAME_1.slice(-1) === " ")
+              properties.BUS_STOP_NAME_1 = properties.BUS_STOP_NAME_1.slice(
+                0,
+                -1
+              );
+            console.log(properties.BUS_STOP_NAME_1);
+          }
+
           properties.BUS_STOP_NUM_1 = x.BUS_STOP_NUM_1;
           properties.BUS_STOP_SUB_NUM_1 = x.BUS_STOP_SUB_NUM_1;
           properties.BUS_STOP_NAME_2 = x.BUS_STOP_NAME_2;
           properties.BUS_STOP_NUM_2 = x.BUS_STOP_NUM_2;
+
+          if (properties.BUS_STOP_NAME_2.includes(" *")) {
+            console.log(properties.BUS_STOP_NAME_2);
+            properties.BUS_STOP_NAME_2 = properties.BUS_STOP_NAME_2.split(
+              " *"
+            )[0];
+            //kontrola medzier " "
+            if (properties.BUS_STOP_NAME_2.slice(-1) === " ")
+              properties.BUS_STOP_NAME_2 = properties.BUS_STOP_NAME_2.slice(
+                0,
+                -1
+              );
+            console.log(properties.BUS_STOP_NAME_2);
+          }
+
           properties.BUS_STOP_SUB_NUM_2 = x.BUS_STOP_SUB_NUM_2;
           properties.PLANNED_ROAD = x.PLANNED_ROAD;
           properties.REAL_ROAD = x.REAL_ROAD;
@@ -90,7 +147,7 @@ async function downloadExcel() {
           properties.Current_Time = currentTime;
           a.properties = properties;
           coordinates[0] = x.LONGITUDE;
-          coordinates[1] =  x.LATITUDE;
+          coordinates[1] = x.LATITUDE;
           geometry.coordinates = coordinates;
           geometry.type = "Point";
           a.geometry = geometry;
@@ -183,9 +240,7 @@ async function downloadExcel() {
         }, []);
 
         // adding Street
-        let streets = await axios.get(
-          "http://localhost:9200/api/v1/PresovStreets"
-        );
+        let streets = await axios.get(presovStreetUrl);
         filteredResult.map(async (zaznam) => {
           streets.data.features.forEach((ul) => {
             ul.geometry.coordinates.forEach((u) => {
@@ -201,25 +256,20 @@ async function downloadExcel() {
             });
           });
           try {
-            await axios.post(
-              "http://localhost:9200/api/v1/currentMhdPoBusses/",
-              zaznam
-            );
+            await axios.post(currentMhdPoBussesUrl, zaznam);
           } catch (e) {
             console.log(e);
           }
         });
 
-        await axios.post(
-          "http://localhost:9200/api/v1/currentMhdPoBusses/firstJSON/1",
-          filteredResult
-        );
+        await axios.post(firstJsonUrl, filteredResult);
       });
   });
 }
 
 //setInterval(downloadExcel, 15000);
 downloadExcel();
+
 module.exports = {
   downloadExcel,
 };
