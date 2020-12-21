@@ -34,7 +34,6 @@ const csvHeaders = [
   "LONGITUDE",
   "VARIATION",
   "VEHICLE_NUMBER",
-  "VEHICLE_NUMBER",
   "DATE_TIME",
 ];
 const getStops = async () => {
@@ -67,12 +66,10 @@ const getStops = async () => {
 };
 
 async function downloadExcel() {
-  let firstJson;
+  let firstJson; //downloadPreviousJson
   firstJson = await axios.get(firstJsonUrl);
   firstJson = firstJson.data;
   getStops().then(async (response) => {
-    console.log(response);
-
     csv({
       noheader: false,
       delimiter: ";",
@@ -103,55 +100,62 @@ async function downloadExcel() {
           properties.BUS_STOP_NAME_1 = x.BUS_STOP_NAME_1;
           // kontrola ci sa nachadza " *"
           if (properties.BUS_STOP_NAME_1.includes(" *")) {
-            console.log(properties.BUS_STOP_NAME_1);
             properties.BUS_STOP_NAME_1 = properties.BUS_STOP_NAME_1.split(
               " *"
             )[0];
             //kontrola medzier " "
-            if (properties.BUS_STOP_NAME_1.slice(-1) === " ")
+            if (properties.BUS_STOP_NAME_1.slice(-1) === " ") {
+              //console.log("StopName1");
               properties.BUS_STOP_NAME_1 = properties.BUS_STOP_NAME_1.slice(
                 0,
                 -1
               );
-            console.log(properties.BUS_STOP_NAME_1);
+            }
+            //kontrola ak je properties.BUS_STOP_NAME_1 prazdne
+            if (properties.BUS_STOP_NAME_1 === "") {
+              properties.BUS_STOP_NAME_1 = x.BUS_STOP_NAME_1.split(" *")[0];
+            }
           }
 
           properties.BUS_STOP_NUM_1 = x.BUS_STOP_NUM_1;
           properties.BUS_STOP_SUB_NUM_1 = x.BUS_STOP_SUB_NUM_1;
           properties.BUS_STOP_NAME_2 = x.BUS_STOP_NAME_2;
           properties.BUS_STOP_NUM_2 = x.BUS_STOP_NUM_2;
-
           if (properties.BUS_STOP_NAME_2.includes(" *")) {
-            console.log(properties.BUS_STOP_NAME_2);
             properties.BUS_STOP_NAME_2 = properties.BUS_STOP_NAME_2.split(
               " *"
             )[0];
             //kontrola medzier " "
-            if (properties.BUS_STOP_NAME_2.slice(-1) === " ")
+            if (properties.BUS_STOP_NAME_2.slice(-1) === " ") {
+              //console.log("StopName2");
               properties.BUS_STOP_NAME_2 = properties.BUS_STOP_NAME_2.slice(
                 0,
                 -1
               );
-            console.log(properties.BUS_STOP_NAME_2);
+            }
+            //kontrola ak je properties.BUS_STOP_NAME_2 prazdne
+            if (properties.BUS_STOP_NAME_2 === "") {
+              properties.BUS_STOP_NAME_2 = x.BUS_STOP_NAME_2.split(" *")[0];
+            }
           }
-
           properties.BUS_STOP_SUB_NUM_2 = x.BUS_STOP_SUB_NUM_2;
           properties.PLANNED_ROAD = x.PLANNED_ROAD;
           properties.REAL_ROAD = x.REAL_ROAD;
           properties.VARIATION = x.VARIATION;
+          properties.VEHICLE_NUMBER = x.VEHICLE_NUMBER;
           if (x.CHANGE_OF_Variation)
             properties.CHANGE_OF_Variation = x.CHANGE_OF_Variation;
           if (x.Street) properties.Street = x.Street;
           properties.Order_In_Json_Id = ++count;
           properties.Type = "MHD";
           properties.Current_Time = currentTime;
-          a.properties = properties;
           coordinates[0] = x.LONGITUDE;
           coordinates[1] = x.LATITUDE;
           geometry.coordinates = coordinates;
           geometry.type = "Point";
-          a.geometry = geometry;
           a.type = "Feature";
+          a.geometry = geometry;
+          a.properties = properties;
           downloadResult.push(a);
         });
         if (firstJson == undefined || firstJson.length < 1) {
@@ -256,7 +260,9 @@ async function downloadExcel() {
             });
           });
           try {
+            //postovanie do mongodb
             await axios.post(currentMhdPoBussesUrl, zaznam);
+            //await axios.post(currentMhdPoBussesUrlElastic, zaznam);
           } catch (e) {
             console.log(e);
           }
@@ -267,8 +273,8 @@ async function downloadExcel() {
   });
 }
 
-//setInterval(downloadExcel, 15000);
-downloadExcel();
+setInterval(downloadExcel, 15000);
+//downloadExcel();
 
 module.exports = {
   downloadExcel,

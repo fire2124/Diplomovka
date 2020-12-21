@@ -26,9 +26,9 @@ fs.readFile("./Zastavky_SAD/ZastávkySAD.csv", async (err, data) => {
     checkType: true,
     //encoding: "UTF-8",
     headers: [
-      "Názov zastávky",
-      "Kód zastávky",
-      "Správca zastávky",
+      "Názov_zastávky",
+      "Kód_zastávky",
+      "Správca_zastávky",
       "Long",
       "Lat",
     ],
@@ -36,6 +36,27 @@ fs.readFile("./Zastavky_SAD/ZastávkySAD.csv", async (err, data) => {
     .fromString(data)
     .then((json) => {
       console.log(json);
-      fs.writeFileSync(`./excel.json`, JSON.stringify(json));
+      let a = []
+      json.map(param =>{
+        let object = {}
+        let geometry = {}
+        let properties = {}
+        let coordinates = []
+
+         geometry.type = "Point"
+         coordinates[0] = param.Long
+         coordinates[1] = param.Lat
+         geometry.coordinates = coordinates
+         
+         properties.Názov_zastávky = param.Názov_zastávky;
+         properties.Kód_zastávky = param.Kód_zastávky;
+         properties.Správca_zastávky = param.Správca_zastávky;
+
+         object.type = "Feature"
+         object.geometry = geometry;
+         object.properties = properties;
+         a.push(object)
+      })
+      fs.writeFileSync(`./Zastavky_SAD/Zastavky_SAD.json`, JSON.stringify(a));
     });
 });

@@ -6,10 +6,10 @@ const config = {
   headers: {},
 };
 const presovStreetsUrl = "http://localhost:9200/api/v1/PresovStreets";
-const firstJsonUrl = "http://localhost:9200/api/v1/currentUbianBackup/firstJSON/1";
+const firstJsonUrl =
+  "http://localhost:9200/api/v1/currentUbianBackup/firstJSON/1";
 const currentUbianUrl = "http://localhost:9200/api/v1/currentUbianBackup";
 const currentUbianUrlElastic = `http://127.0.0.1:9200/currentUbianBackup/_doc/`;
-
 
 async function downloadUbian() {
   let firstJson;
@@ -418,7 +418,7 @@ async function downloadUbian() {
       let time = new Date();
       let currentTime = time.getTime();
       let count = 0;
-      zaznamy.map(async (x) => {
+      zaznamy.map((x) => {
         //to GeoJSON
         let a = {};
         let properties = {};
@@ -555,27 +555,31 @@ async function downloadUbian() {
                 x[0].toFixed(3) === zaznam.geometry.coordinates[0].toFixed(3) &&
                 x[1].toFixed(3) === zaznam.geometry.coordinates[1].toFixed(3)
               ) {
-                zaznam.properties.Street = ul.properties.N_GM_U;
+                //console.log(zaznam)
+                let Street = ul.properties.N_GM_U;
+                zaznam.properties.Street = Street;
               }
             });
           });
+          //console.log(zaznam.properties.Street)
         });
         try {
           await axios.post(currentUbianUrl, zaznam);
+          //await axios.post(currentUbianUrlElastic, zaznam);
         } catch (e) {
           console.log(e);
         }
       });
-      console.log(downloadResult);
-      await axios.post(firstJsonUrl, downloadResult);
+      //console.log(filteredResult);
+      await axios.post(firstJsonUrl, filteredResult);
     })
     .catch(function (error) {
       console.log(error);
     });
 }
 
-//setInterval(downloadUbian, 5000);
-downloadUbian();
+setInterval(downloadUbian, 15000);
+//downloadUbian();
 module.exports = {
   downloadUbian,
 };

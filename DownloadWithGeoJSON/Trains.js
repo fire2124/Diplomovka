@@ -32,7 +32,7 @@ async function downloadTrains() {
   let globalObject = json.result;
   let time = new Date();
   let currentTime = time.getTime();
-  //fs.writeFileSync(`./Data/Trains_json/${imageDate}.json`, JSON.stringify(body));
+
   const zaznamy = globalObject
     .map((zaznam) => {
       // stiahnutie -> filter na vychod -> GeoJSON
@@ -75,7 +75,7 @@ async function downloadTrains() {
         a.properties = properties;
         // if (.CHANGE_OF_Variation)
         //   properties.CHANGE_OF_Variation = x.CHANGE_OF_Variation;
-        console.log(a);
+        //console.log(a);
         return a;
       }
       return;
@@ -84,7 +84,7 @@ async function downloadTrains() {
 
   if (firstJson == undefined || firstJson.length < 1) {
     //previosExcel
-    firstJson = zaznamy; //currentExcel
+    //firstJson = zaznamy; //currentExcel
     d = zaznamy;
     // console.log(firstJson)
     // console.log(d)
@@ -141,10 +141,10 @@ async function downloadTrains() {
           j.properties["CHANGE_OF_Variation"] =
             j.properties["CHANGE_OF_Variation"];
         }
-        console.log("----------------------------------");
-        console.log("oldExcel " + e.properties["Meska"]);
-        console.log("newExcel " + j.properties["Meska"]);
-        console.log(j.properties["CHANGE_OF_Variation"]);
+        //console.log("----------------------------------");
+        //console.log("oldExcel " + e.properties["Meska"]);
+        //console.log("newExcel " + j.properties["Meska"]);
+        //console.log(j.properties["CHANGE_OF_Variation"]);
         result.push(j);
       } else {
         result.push(j);
@@ -168,38 +168,47 @@ async function downloadTrains() {
     }
   }, []);
 
-  //debugger
-  // return await Promise.all(zaznamy.map(zaznam=>
-  //     axios.post(currentTrainsUrlElastic, zaznam)
-  // ))
-
+  
   if (firstJson == undefined || firstJson.length < 1) {
-    filteredResult.forEach(async (item) => {
+    console.log("First");
+    filteredResult.map((item) => {
       item.properties.Current_Time = currentTime;
-      await axios.post(currentTrainsUrl, item);
     });
-    await axios.post(firstJsonUrl, filteredResult);
-  }
-  // check if two array are eugle
-  else {
-    console.log(!_.isEqual(filteredResult, firstJson));
 
-    firstJson.forEach(async (item) => {
+    axios.post(firstJsonUrl, filteredResult);
+
+    return await Promise.all(
+      filteredResult.map((item) => {
+        axios.post(currentTrainsUrl, item);
+        //axios.post(currentTrainsUrlElastic, item);
+
+      })
+    );
+  } else {
+    // check if two array are egual
+    firstJson.map((item) => { //delete for check
+      delete item.properties.Order_In_JsonId;
       delete item.properties.Current_Time;
     });
     if (_.isEqual(filteredResult, firstJson) === false) {
-      filteredResult.forEach(async (item) => {
+      console.log(_.isEqual(filteredResult, firstJson));
+      filteredResult.map((item) => {
         item.properties.Current_Time = currentTime;
-        await axios.post(currentTrainsUrl, item);
       });
-      await axios.post(firstJsonUrl, filteredResult);
+
+      axios.post(firstJsonUrl, filteredResult);
+
+      return await Promise.all(
+        filteredResult.map((item) => {
+          axios.post(currentTrainsUrl, item);
+          //axios.post(currentTrainsUrlElastic, item);
+        })
+      );
     }
   }
 }
-downloadTrains();
-//setInterval(downloadTrains, 15000)
-// downloadTrains().then(v=>
-//     console.log(v))
+//downloadTrains();
+setInterval(downloadTrains, 60000);
 
 module.exports = {
   downloadTrains,

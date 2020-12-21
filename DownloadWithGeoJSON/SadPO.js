@@ -12,18 +12,25 @@ let options = {
   },
   json: true,
 };
+const presovStreetsUrl = "http://localhost:9200/api/v1/PresovStreets";
 const firstJsonUrl =
   "http://localhost:9200/api/v1/currentSadPoBusses/firstJSON/1";
+const currentSadPoUrl = "http://localhost:9200/api/v1/currentSadPoBusses";
+const currentSadPoUrlElastic = `http://127.0.0.1:9200/currentSadPoBusses/_doc/`;
 
 async function downloadSadPO() {
+  let firstJson;
+  firstJson = await axios.get(firstJsonUrl);
+  firstJson = firstJson.data;
+
   let json = await new Promise((resolve, reject) => {
     request(options, function (error, response, body) {
       if (error) reject(error);
       else resolve(body);
-      console.log(body);
+      //console.log(body);
     });
   });
-  console.log(json);
+  //console.log(json);
   const zaznamy = json
     .map((zaznam) => {
       //adding from via to
@@ -412,26 +419,150 @@ async function downloadSadPO() {
     .filter((v) => v != undefined);
 
   //debugger
-
+  let downloadResult = [];
+  let d;
   let time = new Date();
   let currentTime = time.getTime();
-  let count2 = 0;
-  console.log(zaznamy);
-  // return await Promise.all(
-  //   zaznamy.map((zaznam) => {
-  //     zaznam.OrderInJsonId = ++count2;
-  //     zaznam.Type = "SAD";
-  //     zaznam.CurrentTime = currentTime;
+  let count = 0;
+  //console.log(zaznamy);
+  zaznamy.map((x) => {
+    //to GeoJSON
+    let a = {};
+    let properties = {};
+    let geometry = {};
+    let coordinates = [];
 
-  //    //  axios.post(`http://127.0.0.1:9200/sadpo/_doc/`, zaznam);
-  //     //array2.push(zaznam);
-  //   }));
+    coordinates[0] = x.Lng;
+    coordinates[1] = x.Lat;
+    geometry.type = "Point";
+    geometry.coordinates = coordinates;
+    // type of Geometry
 
-  await axios.post(firstJsonUrl, zaznamy);
+    properties.Line = x.Line;
+    properties.Trip = x.Trip;
+    properties.Delay = x.Delay;
+    properties.Dir = x.Dir;
+    properties.TripTime = x.TripTime;
+    if (x.From) properties.From = x.From;
+    if (x.Via) properties.Via = x.Via;
+    if (x.To) properties.To = x.To;
+    properties.Type = "SAD";
+    properties.Current_Time = currentTime;
+    properties.Order_In_Json_Id = ++count;
+
+    a.type = "Feature"; // type of all
+    a.geometry = geometry;
+    a.properties = properties;
+    downloadResult.push(a);
+  });
+  if (firstJson == undefined || firstJson.length < 1) {
+    //previosSad
+    firstJson = downloadResult; //currentSad
+    d = downloadResult;
+    // console.log(firstJson)
+    // console.log(d)
+  } else {
+    d = firstJson;
+  }
+  let result = [];
+  downloadResult.forEach((j) => {
+    d.forEach((e) => {
+      if (
+        e.properties["Line"] === j.properties["Line"] &&
+        e.properties["Trip"] === j.properties["Trip"] &&
+        e.properties["From"] === j.properties["From"] &&
+        e.properties["To"] === j.properties["To"]
+      ) {
+        j.properties["CHANGE_OF_Delay"] = Math.abs(
+          e.properties["Delay"] - j.properties["Delay"]
+        );
+
+        //new                               //old
+        if (
+          j.properties["Delay"] < e.properties["Delay"] &&
+          j.properties["CHANGE_OF_Delay"] > 0
+        ) {
+          j.properties["CHANGE_OF_Delay"] = -j.properties["CHANGE_OF_Delay"];
+
+          //new                               //old
+        } else if (
+          j.properties["Delay"] > e.properties["Delay"] &&
+          j.properties["CHANGE_OF_Delay"] > 0
+        ) {
+          j.properties["CHANGE_OF_Delay"] = j.properties["CHANGE_OF_Delay"];
+
+          //new                               //old
+        } else if (
+          j.properties["Delay"] < e.properties["Delay"] &&
+          j.properties["CHANGE_OF_Delay"] < 0
+        ) {
+          j.properties["CHANGE_OF_Delay"] = -j.properties["CHANGE_OF_Delay"];
+
+          //new                               //old
+        } else if (
+          j.properties["Delay"] > e.properties["Delay"] &&
+          j.properties["CHANGE_OF_Delay"] < 0
+        ) {
+          j.properties["CHANGE_OF_Delay"] = j.properties["CHANGE_OF_Delay"];
+        }
+        //console.log("----------------------------------");
+        //console.log("oldExcel " + e.properties["Delay"]);
+        //console.log("newExcel " + j.properties["Delay"]);
+        //console.log(j.properties["CHANGE_OF_Delay"]);
+        result.push(j);
+      } else {
+        result.push(j);
+      }
+    });
+  });
+
+  //Filter
+  let filteredResult = result.reduce((acc, current) => {
+    const x = acc.find(
+      (item) =>
+        item.properties.Line === current.properties.Line &&
+        item.properties.Trip === current.properties.Trip &&
+        item.properties.From === current.properties.From &&
+        item.properties.To === current.properties.To
+    );
+    if (!x) {
+      return acc.concat([current]);
+    } else {
+      return acc;
+    }
+  }, []);
+
+  console.log(filteredResult);
+  // adding Street
+  let streets = await axios.get(presovStreetsUrl);
+  filteredResult.map(async (zaznam) => {
+    streets.data.features.forEach((ul) => {
+      ul.geometry.coordinates.forEach((u) => {
+        u.map((x) => {
+          if (
+            x[0].toFixed(3) === zaznam.geometry.coordinates[0].toFixed(3) &&
+            x[1].toFixed(3) === zaznam.geometry.coordinates[1].toFixed(3)
+          ) {
+            //console.log(zaznam)
+            let Street = ul.properties.N_GM_U;
+            zaznam.properties.Street = Street;
+          }
+        });
+      });
+    });
+    try {
+      await axios.post(currentSadPoUrl, zaznam);
+      //await axios.post(currentSadPoUrlElastic, zaznam);
+    } catch (e) {
+      console.log(e);
+    }
+  });
+  //console.log(filteredResult);
+  await axios.post(firstJsonUrl, filteredResult);
 }
 
-//setInterval(downloadSadPO, 5000);
-downloadSadPO().then((v) => console.log(v));
+setInterval(downloadSadPO, 15000);
+//downloadSadPO()
 
 module.exports = {
   downloadSadPO,

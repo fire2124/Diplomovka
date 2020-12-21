@@ -11,7 +11,8 @@ if (!fs.existsSync("Ubian")) {
   fs.mkdirSync("Ubian");
 }
 
-fs.readFile("./Ulice Prešov/ulicePrešov-Long,Lat.json", (err, data) => {
+fs.readFile("./Ulice_Presov/ulicePrešov-Long,Lat.json", (err, data) => {
+
   if (err) throw err;
   let d = JSON.parse(data);
   let newArray = [];
@@ -27,9 +28,9 @@ fs.readFile("./Ulice Prešov/ulicePrešov-Long,Lat.json", (err, data) => {
       u.forEach((v) => {
         let array = [];
         let gps = proj4(firstProjection).inverse(v);
-        let lat = gps[1];
         let lng = gps[0];
-        array.push(lat, lng);
+        let lat = gps[1];
+        array.push(lng, lat);
         gpsNew.push(array);
          //GPS suradnice
       });
@@ -52,7 +53,7 @@ fs.readFile("./Ulice Prešov/ulicePrešov-Long,Lat.json", (err, data) => {
   crs.properties = properties
   a.crs = crs
   a.features = newArray;
-  fs.writeFileSync(`./ulice.json`, JSON.stringify(a));
+  fs.writeFileSync(`./uliceFinal.json`, JSON.stringify(a));
 });
 
 
