@@ -180,8 +180,9 @@ async function downloadTrains() {
     firstJson.map((item) => {
       delete item.properties.Current_Time;
     });
+    console.log("----------")
     console.log(_.isEqual(filteredResult, firstJson));
-
+    console.log("Trains")
     if (_.isEqual(filteredResult, firstJson) === false) {
       filteredResult.map((item) => {
         item.properties.Current_Time = currentTime;

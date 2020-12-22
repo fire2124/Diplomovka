@@ -445,6 +445,7 @@ async function downloadUbian() {
         properties.destinationCityName = x.timeTableTrip.destinationCityName;
         properties.from = x.timeTableTrip.from;
         properties.via = x.timeTableTrip.via;
+        if(properties.via ==="") properties.via= "-";
 
         //properties.to = x.timeTableTrip.to;
         properties.lineID = x.timeTableTrip.timeTableLine.lineID;

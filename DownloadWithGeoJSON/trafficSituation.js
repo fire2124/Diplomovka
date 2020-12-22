@@ -38,7 +38,7 @@ async function downloadTrafficSituation() {
     .map((element) => {
       try {
         if (element.region.id === 7 || element.region.id === 8) {
-          //console.log(element)
+          // console.log(element)
           let a = {};
           let properties = {};
           let geometry = {};
@@ -60,6 +60,8 @@ async function downloadTrafficSituation() {
             properties.district_Parent_Name = element.district.parent.name;
           }
 
+          if(element.city)  properties.city = element.city;
+          if(element.street)  properties.street = element.street;
           properties.category_Code = element.category.code;
           properties.category_Name = element.category.name;
           properties.status_Code = element.status.code;
@@ -168,7 +170,9 @@ async function downloadTrafficSituation() {
     firstJson.map((item) => {
       delete item.properties.Current_Time;
     });
+    console.log("----------")
     console.log(_.isEqual(filteredResult, firstJson));
+    console.log("Traffic")
     if (_.isEqual(filteredResult, firstJson) === false) {
       
       filteredResult.map((item) => {

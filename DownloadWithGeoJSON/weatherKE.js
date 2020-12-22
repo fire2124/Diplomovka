@@ -85,8 +85,9 @@ async function downloadWeatherKE() {
     }
   } else {
     delete firstJson.properties.Current_Time;
-
+    console.log("----------")
     console.log(_.isEqual(a, firstJson));
+    console.log("weatherKE")
     if (_.isEqual(a, firstJson) === false) {
       a.properties.Current_Time = currentTime;
 
