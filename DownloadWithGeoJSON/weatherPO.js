@@ -73,9 +73,6 @@ async function downloadWeatherPO() {
   } catch (error) {}
   a.properties = properties;
 
-
-  
-
   if (firstJson == undefined || firstJson.length < 1) {
     console.log("first Weather");
     a.properties.Current_Time = currentTime;

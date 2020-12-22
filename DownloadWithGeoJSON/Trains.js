@@ -69,13 +69,9 @@ async function downloadTrains() {
         properties.To = res[1]
           .split("(")[0]
           .substring(1, res[1].split("(")[0].length - 1);
-        //properties.Current_Time = currentTime;
         properties.Type = "Train";
-        properties.Order_In_JsonId = ++count;
         a.properties = properties;
-        // if (.CHANGE_OF_Variation)
-        //   properties.CHANGE_OF_Variation = x.CHANGE_OF_Variation;
-        //console.log(a);
+
         return a;
       }
       return;
@@ -84,7 +80,6 @@ async function downloadTrains() {
 
   if (firstJson == undefined || firstJson.length < 1) {
     //previosExcel
-    //firstJson = zaznamy; //currentExcel
     d = zaznamy;
     // console.log(firstJson)
     // console.log(d)
@@ -94,10 +89,8 @@ async function downloadTrains() {
 
   let result = [];
   //adding Change of Variation
-  zaznamy.forEach((j) => {
-    //currentExcel
-    d.forEach((e) => {
-      // previosExcel
+  zaznamy.forEach((j) => {//currentExcel
+    d.forEach((e) => {// previosExcel
       if (
         e.properties["Nazov"] === j.properties["Nazov"] &&
         e.properties["From"] === j.properties["From"] &&
@@ -168,7 +161,6 @@ async function downloadTrains() {
     }
   }, []);
 
-  
   if (firstJson == undefined || firstJson.length < 1) {
     console.log("First");
     filteredResult.map((item) => {
@@ -181,17 +173,16 @@ async function downloadTrains() {
       filteredResult.map((item) => {
         axios.post(currentTrainsUrl, item);
         //axios.post(currentTrainsUrlElastic, item);
-
       })
     );
   } else {
     // check if two array are egual
-    firstJson.map((item) => { //delete for check
-      delete item.properties.Order_In_JsonId;
+    firstJson.map((item) => {
       delete item.properties.Current_Time;
     });
+    console.log(_.isEqual(filteredResult, firstJson));
+
     if (_.isEqual(filteredResult, firstJson) === false) {
-      console.log(_.isEqual(filteredResult, firstJson));
       filteredResult.map((item) => {
         item.properties.Current_Time = currentTime;
       });
@@ -208,7 +199,7 @@ async function downloadTrains() {
   }
 }
 //downloadTrains();
-setInterval(downloadTrains, 60000);
+setInterval(downloadTrains, 15000);
 
 module.exports = {
   downloadTrains,

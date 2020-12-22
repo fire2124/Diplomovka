@@ -151,7 +151,7 @@ async function downloadTrafficSituation() {
 
   let count2 = 0;
   if (firstJson == undefined || firstJson.length < 1) {
-    console.log("first json udefined");
+    console.log("first json undefined");
 
     filteredResult.map((item) => {
       item.properties.Current_Time = currentTime;
