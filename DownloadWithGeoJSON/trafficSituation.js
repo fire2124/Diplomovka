@@ -1,6 +1,8 @@
 const fetch = require("node-fetch");
 const axios = require("axios");
 const request = require("request");
+const _ = require("lodash");
+
 const options = {
   method: "GET",
   url:
@@ -47,7 +49,7 @@ async function downloadTrafficSituation() {
           properties.region_ID = element.region.id;
           properties.region_name = element.region.name;
           properties.Type = "Traffic";
-          properties.Current_Time = currentTime;
+          //properties.Current_Time = currentTime;
           properties.district_ID = element.district.id;
           properties.district_Name = element.district.name;
           properties.district_AreaLevel = element.district.areaLevel;
@@ -130,6 +132,8 @@ async function downloadTrafficSituation() {
     })
     .filter((v) => v != undefined);
 
+
+
   //Filter
   let filteredResult = zaznamy.reduce((acc, current) => {
     const x = acc.find(
@@ -149,34 +153,42 @@ async function downloadTrafficSituation() {
   if (firstJson == undefined || firstJson.length < 1) {
     console.log("first json udefined");
 
+    filteredResult.map((item) => {
+      item.properties.Current_Time = currentTime;
+    });
+
     axios.post(firstJsonUrl, filteredResult);
     return await Promise.all(
       filteredResult.map((element) => {
-        //console.log(element);
-        //if (element !== undefined) element.properties.OrderInJsonId = ++count2;
         axios.post(currentTrafficUrl, element);
-        // axios.post(currentTrafficUrlElastic, element);
+        //axios.post(currentTrafficUrlElastic, element);
       })
     );
   } else {
-    console.log(!_.isEqual(filteredResult, firstJson));
-    firstJson.forEach(async (item) => {
+    firstJson.map((item) => {
       delete item.properties.Current_Time;
     });
-    // if (_.isEqual(filteredResult, firstJson) === false) {
-    axios.post(firstJsonUrl, filteredResult);
-    return await Promise.all(
-      filteredResult.map((element) => {
-        // if (element !== undefined)element.properties.OrderInJsonId = ++count2;
-        axios.post(currentTrafficUrl, element);
-        // axios.post(currentTrafficUrlElastic, element);
-      })
-    );
+    console.log(_.isEqual(filteredResult, firstJson));
+    if (_.isEqual(filteredResult, firstJson) === false) {
+      
+      filteredResult.map((item) => {
+        item.properties.Current_Time = currentTime;
+      });
+
+      axios.post(firstJsonUrl, filteredResult);
+
+      return await Promise.all(
+        filteredResult.map((element) => {
+          axios.post(currentTrafficUrl, element);
+          //axios.post(currentTrafficUrlElastic, element);
+        })
+      );
+    }
   }
 }
 
-//setInterval(downloadTrafficSituation, 15000);
-downloadTrafficSituation();
+setInterval(downloadTrafficSituation, 15000);
+//downloadTrafficSituation();
 
 module.exports = {
   downloadTrafficSituation,

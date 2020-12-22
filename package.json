@@ -14,7 +14,6 @@
     "down": "node ./down.js",
     "zas": "node ./Zastavky_Presov/zastavky.js",
     "zas2": "node ./Zastavky_SAD/zastavkySad.js",
-    "excel": "node ./excel.js",
     "gps": "node ./Ulice_Presov/transformGPS.js"
   },
   "author": "",

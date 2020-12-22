@@ -1,7 +1,7 @@
 const fs = require("fs");
 const date = new Date();
 const imageDate = Date.parse(date);
-const Collect = require('@supercharge/collections')
+const Collect = require("@supercharge/collections");
 
 if (!fs.existsSync("Zastavky_Presov")) {
   fs.mkdirSync("Zastavky_Presov");
@@ -36,23 +36,20 @@ readFiles(
     array.push(data["stops"]);
   });
   // const unique = [...new Set(array)];
-  fs.writeFileSync(
-    `./Zastavky_Presov/VSETKOSPOLU.json`,
-    JSON.stringify(array)
-  );
+  fs.writeFileSync(`./Zastavky_Presov/VSETKOSPOLU.json`, JSON.stringify(array));
 
-  i=0
-  a=[]
+  i = 0;
+  a = [];
 
-  array.forEach((e) =>{
-    e.forEach((x) =>{
-      i=i+1
-      a.push(x)
-    })
-  })
-  console.log(i)
+  array.forEach((e) => {
+    e.forEach((x) => {
+      i = i + 1;
+      a.push(x);
+    });
+  });
+  console.log(i);
 
-  const unique = await Collect(a).unique().all()
+  const unique = await Collect(a).unique().all();
 
   iArray = 0;
   iArray2 = 0;
@@ -76,16 +73,13 @@ readFiles(
     if (zaznam.ezStopTypeName === "Navigation.StopType.Urban") {
       iArray = iArray + 1;
       mhd.push(zaznam);
-
     } else if (zaznam.ezStopTypeName === "Navigation.StopType.Train") {
       iArray2 = iArray2 + 1;
       train.push(zaznam);
-
     } else if (zaznam.ezStopTypeName === "Navigation.StopType.Bus") {
       iArray3 = iArray3 + 1;
       bus.push(zaznam);
     }
-    
   }
   console.log("----------");
   console.log(iArray);
@@ -94,7 +88,7 @@ readFiles(
   console.log("----------");
 
   const filteredMHD = mhd.reduce((acc, current) => {
-    const x = acc.find(item => item.stopID === current.stopID);
+    const x = acc.find((item) => item.stopID === current.stopID);
     if (!x) {
       return acc.concat([current]);
     } else {
@@ -103,7 +97,7 @@ readFiles(
   }, []);
 
   const filteredTrain = train.reduce((acc, current) => {
-    const x = acc.find(item => item.stopID === current.stopID);
+    const x = acc.find((item) => item.stopID === current.stopID);
     if (!x) {
       return acc.concat([current]);
     } else {
@@ -112,7 +106,7 @@ readFiles(
   }, []);
 
   const filteredSadBus = bus.reduce((acc, current) => {
-    const x = acc.find(item => item.stopID === current.stopID);
+    const x = acc.find((item) => item.stopID === current.stopID);
     if (!x) {
       return acc.concat([current]);
     } else {
@@ -121,29 +115,94 @@ readFiles(
   }, []);
 
   console.log("----------");
-  let q=0
+  let q = 0;
 
-  filteredMHD.forEach(e=>{
-      q=q+1
-      e.stopID=q
-  })
-  console.log(q)
-  
-  let w=0
-  filteredTrain.forEach(e=>{
-      w=w+1
-      e.stopID=w
-  })
-  console.log(w)
+  filteredMHD.forEach((e) => {
+    q = q + 1;
+    e.stopID = q;
+  });
+  console.log(q);
 
-  let r=0
-  filteredSadBus.forEach(e=>{
-      r=r+1
-      e.stopID=r
-  })
-  console.log(r)
+  let w = 0;
+  filteredTrain.forEach((e) => {
+    w = w + 1;
+    e.stopID = w;
+  });
+  console.log(w);
+
+  let r = 0;
+  filteredSadBus.forEach((e) => {
+    r = r + 1;
+    e.stopID = r;
+  });
+  console.log(r);
   console.log("----------");
-  fs.writeFileSync(`./Zastavky_Presov/MhdZAS.json`, JSON.stringify(filteredMHD));
-  fs.writeFileSync(`./Zastavky_Presov/TrainZAS.json`, JSON.stringify(filteredTrain));
-  fs.writeFileSync(`./Zastavky_Presov/BusZAS.json`, JSON.stringify(filteredSadBus));
+
+  result = [];
+  filteredMHD.map((e) => {
+    //console.log(e)
+    let a = {};
+    let geometry = {};
+    let properties = {};
+
+    if (e.platforms[1]) {
+      //two platforms
+      let coordinates = [];
+      coordinates[0] = e.platforms[0].longitude;
+      coordinates[1] = e.platforms[1].latitude;
+      geometry.type = "Point";
+      geometry.coordinates = coordinates;
+    } else {
+      let coordinates = [];
+      coordinates[0] = e.platforms[0].longitude;
+      coordinates[1] = e.platforms[0].latitude;
+      geometry.type = "Point";
+      geometry.coordinates = coordinates;
+    }
+    properties.stopID = e.stopID;
+    properties.stopName = e.stopName;
+    properties.stopCity = e.stopCity;
+    properties.passingLines = e.ezLines;
+    properties.description = e.platforms[0].tooltip;
+
+    a.type = "Feature";
+    a.geometry = geometry;
+    a.properties = properties;
+    result.push(a);
+  });
+
+  resultTrain = [];
+
+  filteredTrain.map((e) => {
+    //console.log(e)
+    let a = {};
+    let geometry = {};
+    let properties = {};
+    let coordinates = [];
+    coordinates[0] = e.platforms[0].longitude;
+    coordinates[1] = e.platforms[0].latitude;
+    geometry.type = "Point";
+    geometry.coordinates = coordinates;
+
+    properties.stopID = e.stopID;
+    properties.stopName = e.stopName;
+    properties.stopCity = e.stopCity;
+    properties.passingLines = e.ezLines;
+    properties.description = e.platforms[0].tooltip;
+
+    a.type = "Feature";
+    a.geometry = geometry;
+    a.properties = properties;
+    resultTrain.push(a);
+  });
+
+  fs.writeFileSync(`./Zastavky_Presov/MhdZAS.json`, JSON.stringify(result));
+  fs.writeFileSync(
+    `./Zastavky_Presov/TrainZAS.json`,
+    JSON.stringify(resultTrain)
+  );
+  fs.writeFileSync(
+    `./Zastavky_Presov/BusZAS.json`,
+    JSON.stringify(filteredSadBus)
+  );
 });

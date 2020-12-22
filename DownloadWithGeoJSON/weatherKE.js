@@ -25,7 +25,6 @@ async function downloadWeatherKE() {
   });
   const date = new Date();
   const imageDate = Date.parse(date);
-  let array = [];
   let globalObject = JSON.parse(json);
   let time = new Date();
   let currentTime = time.getTime();
@@ -34,8 +33,6 @@ async function downloadWeatherKE() {
   let sth = {};
   sth = globalObject.rain;
 
-  //array.push(globalObject);
-  //console.log(array);
   let a = {};
   let properties = {};
   let geometry = {};
@@ -49,7 +46,6 @@ async function downloadWeatherKE() {
   a.geometry = geometry;
   properties.Id = ++count;
   properties.Type = "WeatherKE";
-  //properties.CurrentTime = currentTime;
 
   const iterator = globalObject.weather.values();
   for (const value of iterator) {
@@ -75,53 +71,38 @@ async function downloadWeatherKE() {
   } catch (error) {}
   a.properties = properties;
 
-  //console.log(a);
   if (firstJson == undefined || firstJson.length < 1) {
-    //previosExcel
-    d = a; //currentExcel
-  } else {
-    d = firstJson;
-  }
-
-  delete d.properties.Current_Time;
-  //console.log(_.isEqual(a, d));
-
-  if (firstJson == undefined || firstJson.length < 1) {
-    //return new Promise(async (resolve, reject) => {
+    console.log("first Weather");
     a.properties.Current_Time = currentTime;
 
-    console.log(a);
-    console.log("here");
     try {
-      await axios.post(firstJsonUrl, a);
+      axios.post(firstJsonUrl, a);
+      axios.post(currentWeatherKeUrl, a);
+      //axios.post(currentWeatherKeUrlElastic, a);
 
-      await axios.post(currentWeatherKeUrl, a);
     } catch (err) {
       console.log(err);
     }
+  } else {
+    delete firstJson.properties.Current_Time;
 
-    //resolve();
-    //});
-  } else if (_.isEqual(a, firstJson) === false) {
-    //return new Promise(async (resolve, reject) => {
-    a.properties.Current_Time = currentTime;
-    console.log(a);
-    try {
-      await axios.post(firstJsonUrl, a);
-      await axios.post(currentWeatherKeUrl, a);
-    } catch (error) {
-      console.log(error);
+    console.log(_.isEqual(a, firstJson));
+    if (_.isEqual(a, firstJson) === false) {
+      a.properties.Current_Time = currentTime;
+
+      try {
+        axios.post(firstJsonUrl, a);
+        axios.post(currentWeatherKeUrl, a);
+        //axios.post(currentWeatherKeUrlElastic, a);
+      } catch (error) {
+        console.log(error);
+      }
     }
-
-    //axios.post(currentWeatherKeUrlElastic, globalObject);
-    //resolve();
-    //});
   }
 }
 
-//setInterval(downloadWeatherKE, 15000);
-//downloadWeatherKE().then((v) => console.log(v));
-downloadWeatherKE();
+setInterval(downloadWeatherKE, 15000);
+//downloadWeatherKE();
 module.exports = {
   downloadWeatherKE,
 };
