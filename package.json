@@ -14,7 +14,11 @@
     "down": "node ./down.js",
     "zas": "node ./Zastavky_Presov/zastavky.js",
     "zas2": "node ./Zastavky_SAD/zastavkySad.js",
-    "gps": "node ./Ulice_Presov/transformGPS.js"
+    "gps": "node ./Ulice_Presov/transformGPS.js",
+    "cest": "node ./Cestovne_poriadky/cest.js",
+    "prestupy": "node ./Cestovne_poriadky/prestupy.js",
+    "salesman": "node ./Salesman/salesman.js"
+
   },
   "author": "",
   "license": "ISC",
@@ -44,6 +48,7 @@
     "read-multiple-files": "^3.0.0",
     "request": "^2.88.0",
     "start": "^5.1.0",
+    "tspwc": "^1.0.6",
     "unicode": "^12.1.0",
     "unidecode": "^0.1.8"
   },
