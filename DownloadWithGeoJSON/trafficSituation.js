@@ -11,8 +11,8 @@ const options = {
     Cookie: "DigestTracker=AAABcmANZNU",
   },
 };
-const firstJsonUrl = `http://localhost:9200/api/v1/currentTraffic/firstJSON/1`;
-const currentTrafficUrl = "http://localhost:9200/api/v1/currentTraffic/";
+const firstJsonUrl = `http://localhost:9500/api/v1/currentTraffic/firstJSON/1`;
+const currentTrafficUrl = "http://localhost:9500/api/v1/currentTraffic/";
 const currentTrafficUrlElastic = `http://127.0.0.1:9200/traffic_situation/_doc/`;
 
 async function downloadTrafficSituation() {
@@ -163,7 +163,7 @@ async function downloadTrafficSituation() {
     return await Promise.all(
       filteredResult.map((element) => {
         axios.post(currentTrafficUrl, element);
-        //axios.post(currentTrafficUrlElastic, element);
+        axios.post(currentTrafficUrlElastic, element);
       })
     );
   } else {
@@ -179,12 +179,12 @@ async function downloadTrafficSituation() {
         item.properties.Current_Time = currentTime;
       });
 
-      axios.post(firstJsonUrl, filteredResult);
+      await axios.post(firstJsonUrl, filteredResult);
 
       return await Promise.all(
         filteredResult.map((element) => {
           axios.post(currentTrafficUrl, element);
-          //axios.post(currentTrafficUrlElastic, element);
+          axios.post(currentTrafficUrlElastic, element);
         })
       );
     }

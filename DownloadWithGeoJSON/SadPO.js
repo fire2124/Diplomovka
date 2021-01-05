@@ -12,11 +12,11 @@ let options = {
   },
   json: true,
 };
-const presovStreetsUrl = "http://localhost:9200/api/v1/PresovStreets";
+const presovStreetsUrl = "http://localhost:9500/api/v1/PresovStreets";
 const firstJsonUrl =
-  "http://localhost:9200/api/v1/currentSadPoBusses/firstJSON/1";
-const currentSadPoUrl = "http://localhost:9200/api/v1/currentSadPoBusses";
-const currentSadPoUrlElastic = `http://127.0.0.1:9200/currentSadPoBusses/_doc/`;
+  "http://localhost:9500/api/v1/currentSadPoBusses/firstJSON/1";
+const currentSadPoUrl = "http://localhost:9500/api/v1/currentBst";
+const currentSadPoUrlElastic = `http://127.0.0.1:9200/bst/_doc/`;
 
 async function downloadSadPO() {
   let firstJson;
@@ -532,7 +532,7 @@ async function downloadSadPO() {
     }
   }, []);
 
-  console.log(filteredResult);
+  //console.log(filteredResult);
   // adding Street
   let streets = await axios.get(presovStreetsUrl);
   filteredResult.map(async (zaznam) => {
@@ -550,15 +550,18 @@ async function downloadSadPO() {
         });
       });
     });
-    try {
-      await axios.post(currentSadPoUrl, zaznam);
-      //await axios.post(currentSadPoUrlElastic, zaznam);
-    } catch (e) {
-      console.log(e);
-    }
+    
   });
-  //console.log(filteredResult);
+  
   await axios.post(firstJsonUrl, filteredResult);
+
+  return await Promise.all(
+    filteredResult.map((zaznam) => {
+      console.log(zaznam);
+      axios.post(currentSadPoUrl, zaznam);
+      axios.post(currentSadPoUrlElastic, zaznam);
+    })
+  );
 }
 
 setInterval(downloadSadPO, 15000);

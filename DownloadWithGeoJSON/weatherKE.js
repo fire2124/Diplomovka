@@ -7,10 +7,11 @@ const options = {
     "https://openweathermap.org/data/2.5/weather?id=724443&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02\n",
   headers: {},
 };
-const currentWeatherKeUrl = "http://localhost:9200/api/v1/currentWeatherKe/";
 const firstJsonUrl =
-  "http://localhost:9200/api/v1/currentWeatherKe/firstJSON/1";
-const currentWeatherKeUrlElastic = `http://127.0.0.1:9200/weather_ke/_doc/`;
+  "http://localhost:9500/api/v1/currentWeatherKe/firstJSON/1";
+const currentWeatherKeUrl = "http://localhost:9500/api/v1/currentWeather/";
+const currentWeatherKeUrlElastic = `http://127.0.0.1:9200/weather/_doc/`;
+
 // weather Kosice
 async function downloadWeatherKE() {
   let firstJson;
@@ -23,8 +24,8 @@ async function downloadWeatherKE() {
       else resolve(body);
     });
   });
-  const date = new Date();
-  const imageDate = Date.parse(date);
+ 
+  
   let globalObject = JSON.parse(json);
   let time = new Date();
   let currentTime = time.getTime();
@@ -61,7 +62,7 @@ async function downloadWeatherKE() {
   properties.Main_Pressure = globalObject.main.pressure;
   properties.Main_Humidity = globalObject.main.humidity;
   properties.Wind_Speed = globalObject.wind.speed;
-  properties.Wind_Speed = globalObject.wind.deg;
+  properties.Wind_Deg = globalObject.wind.deg;
   properties.Clouds_All = globalObject.clouds.all;
   properties.Sunrise = globalObject.sys.sunrise;
   properties.Sunset = globalObject.sys.sunset;
@@ -78,23 +79,22 @@ async function downloadWeatherKE() {
     try {
       axios.post(firstJsonUrl, a);
       axios.post(currentWeatherKeUrl, a);
-      //axios.post(currentWeatherKeUrlElastic, a);
-
+      axios.post(currentWeatherKeUrlElastic, a);
     } catch (err) {
       console.log(err);
     }
   } else {
     delete firstJson.properties.Current_Time;
-    console.log("----------")
+    console.log("----------");
     console.log(_.isEqual(a, firstJson));
-    console.log("weatherKE")
+    console.log("weatherKE");
     if (_.isEqual(a, firstJson) === false) {
       a.properties.Current_Time = currentTime;
 
       try {
         axios.post(firstJsonUrl, a);
         axios.post(currentWeatherKeUrl, a);
-        //axios.post(currentWeatherKeUrlElastic, a);
+        axios.post(currentWeatherKeUrlElastic, a);
       } catch (error) {
         console.log(error);
       }

@@ -12,9 +12,9 @@ const options = {
   },
   json: true,
 };
-const firstJsonUrl = "http://localhost:9200/api/v1/currentTrains/firstJSON/1";
-const currentTrainsUrl = "http://localhost:9200/api/v1/currentTrains/";
-const currentTrainsUrlElastic = `http://127.0.0.1:9200/trains/_doc/`;
+const firstJsonUrl = "http://localhost:9500/api/v1/currentTrains/firstJSON/1";
+const currentTrainsUrl = "http://localhost:9500/api/v1/currentBst/";
+const currentTrainsUrlElastic = `http://127.0.0.1:9200/bst/_doc/`;
 
 async function downloadTrains() {
   let firstJson;
@@ -167,18 +167,18 @@ async function downloadTrains() {
       item.properties.Current_Time = currentTime;
     });
 
-    axios.post(firstJsonUrl, filteredResult);
+    await axios.post(firstJsonUrl, filteredResult);
 
     return await Promise.all(
       filteredResult.map((item) => {
         axios.post(currentTrainsUrl, item);
-        //axios.post(currentTrainsUrlElastic, item);
+        axios.post(currentTrainsUrlElastic, item);
       })
     );
   } else {
     // check if two array are egual
     firstJson.map((item) => {
-      delete item.properties.Current_Time;
+      delete item.properties.Current_Time;     
     });
     console.log("----------")
     console.log(_.isEqual(filteredResult, firstJson));
@@ -188,12 +188,12 @@ async function downloadTrains() {
         item.properties.Current_Time = currentTime;
       });
 
-      axios.post(firstJsonUrl, filteredResult);
+      await axios.post(firstJsonUrl, filteredResult);
 
       return await Promise.all(
         filteredResult.map((item) => {
           axios.post(currentTrainsUrl, item);
-          //axios.post(currentTrainsUrlElastic, item);
+          axios.post(currentTrainsUrlElastic, item);
         })
       );
     }

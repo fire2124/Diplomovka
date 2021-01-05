@@ -5,11 +5,11 @@ const config = {
     "https://www.ubian.sk/navigation/vehicles/nearby?lat=48.99835545200854&lng=21.238180698603646&radius=50&cityID=",
   headers: {},
 };
-const presovStreetsUrl = "http://localhost:9200/api/v1/PresovStreets";
+const presovStreetsUrl = "http://localhost:9500/api/v1/PresovStreets";
 const firstJsonUrl =
-  "http://localhost:9200/api/v1/currentUbianBackup/firstJSON/1";
-const currentUbianUrl = "http://localhost:9200/api/v1/currentUbianBackup";
-const currentUbianUrlElastic = `http://127.0.0.1:9200/currentUbianBackup/_doc/`;
+  "http://localhost:9500/api/v1/currentUbianBackup/firstJSON/1";
+const currentUbianUrl = "http://localhost:9500/api/v1/currentBst";
+const currentUbianUrlElastic = `http://127.0.0.1:9200/bst/_doc/`;
 
 async function downloadUbian() {
   let firstJson;
@@ -445,12 +445,12 @@ async function downloadUbian() {
         properties.destinationCityName = x.timeTableTrip.destinationCityName;
         properties.from = x.timeTableTrip.from;
         properties.via = x.timeTableTrip.via;
-        if(properties.via ==="") properties.via= "-";
+        if (properties.via === "") properties.via = "-";
 
         //properties.to = x.timeTableTrip.to;
         properties.lineID = x.timeTableTrip.timeTableLine.lineID;
         properties.lineType = x.timeTableTrip.timeTableLine.lineType;
-        properties.type = "SAD";
+        properties.type = "UBIAN";
         properties.lineNumber = x.timeTableTrip.timeTableLine.lineNumber;
         if (x.CHANGE_OF_Variation)
           properties.CHANGE_OF_Variation = x.CHANGE_OF_Variation;
@@ -556,23 +556,26 @@ async function downloadUbian() {
                 x[0].toFixed(3) === zaznam.geometry.coordinates[0].toFixed(3) &&
                 x[1].toFixed(3) === zaznam.geometry.coordinates[1].toFixed(3)
               ) {
-                //console.log(zaznam)
                 let Street = ul.properties.N_GM_U;
                 zaznam.properties.Street = Street;
               }
             });
           });
-          //console.log(zaznam.properties.Street)
         });
-        try {
-          await axios.post(currentUbianUrl, zaznam);
-          //await axios.post(currentUbianUrlElastic, zaznam);
-        } catch (e) {
-          console.log(e);
-        }
       });
-      //console.log(filteredResult);
-      await axios.post(firstJsonUrl, filteredResult);
+      try {
+        await axios.post(firstJsonUrl, filteredResult);
+
+        return await Promise.all(
+          filteredResult.map((zaznam) => {
+            axios.post(currentUbianUrl, zaznam);
+            axios.post(currentUbianUrlElastic, zaznam);
+            console.log(zaznam);
+          })
+        );
+      } catch (error) {
+        console.log(error);
+      }
     })
     .catch(function (error) {
       console.log(error);
