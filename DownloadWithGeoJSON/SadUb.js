@@ -553,7 +553,11 @@ async function downloadSadUb() {
   } else {
     zaznamy.map((x) => {
       down.map((v) => {
-        if (parseInt(x.Line) === v.properties.ROUTE_NUMBER) {
+        if (
+          parseInt(x.Line) === v.properties.ROUTE_NUMBER &&
+          x.Lat === v.geometry.coordinates[1] &&
+          x.Lng === v.geometry.coordinates[0]
+        ) {
           // console.log(v)
           // console.log(x)
           //to GeoJSON
