@@ -18,7 +18,94 @@ const firstJsonUrl =
 const currentSadPoUrl = "http://localhost:9500/api/v1/currentBst";
 const currentSadPoUrlElastic = `http://127.0.0.1:9200/bst/_doc/`;
 
-async function downloadSadPO() {
+const configUbian = {
+  method: "get",
+  url:
+    "https://www.ubian.sk/navigation/vehicles/nearby?lat=48.99835545200854&lng=21.238180698603646&radius=50&cityID=",
+  headers: {},
+};
+
+async function downloadSadUb() {
+  let down = await axios(configUbian).then(async (response) => {
+    let data = response.data.vehicles;
+    let i = 0;
+    let arraySadPO = [];
+
+    data.map(async (d) => {
+      //filter SADPO
+      if (d.timeTableTrip.timeTableLine.supervisorName === "SAD Prešov") {
+        delete d.licenseNumber;
+        delete d.timeTableTrip.bicycle;
+        delete d.timeTableTrip.wifi;
+        delete d.timeTableTrip.lowFloor;
+        delete d.timeTableTrip.operatorID;
+        delete d.timeTableTrip.messages;
+        delete d.timeTableTrip.allowTicketPurchase;
+        delete d.timeTableTrip.tripSigns;
+        delete d.timeTableTrip.direction;
+        delete d.timeTableTrip.tripDirectionHere;
+        delete d.timeTableTrip.ezTripDirection;
+        delete d.timeTableTrip.timeTableLine.ezIsTrain;
+        delete d.timeTableTrip.timeTableLine.ezIsUrban;
+        delete d.timeTableTrip.timeTableLine.ezIsBus;
+        delete d.timeTableTrip.timeTableLine.firmaID;
+        delete d.timeTableTrip.timeTableLine.ezTrainType;
+        delete d.timeTableTrip.timeTableLine.ezTrainLabel;
+        delete d.timeTableTrip.timeTableLine.lineName;
+        arraySadPO.push(d);
+        i = ++i;
+      }
+    });
+    let downloadResult = [];
+    let time = new Date();
+    let currentTime = time.getTime();
+    let count = 0;
+    arraySadPO.map((x) => {
+      //to GeoJSON
+      let a = {};
+      let properties = {};
+      let geometry = {};
+      let coordinates = [];
+      a.type = "Feature"; // type of all
+
+      coordinates[0] = x.longitude;
+      coordinates[1] = x.latitude;
+      geometry.coordinates = coordinates;
+      geometry.type = "Point"; // type of Geometry
+      a.geometry = geometry;
+
+      properties.ROUTE_NUMBER = x.timeTableTrip.timeTableLine.lineNumber;
+      properties.DELAY = x.delayMinutes * 60; // na sekundy;
+      properties.Type = "UBIAN";
+      properties.From = x.timeTableTrip.From;
+      properties.Via = x.timeTableTrip.Via;
+      //if (properties.Via === "") properties.Via = "-";
+      properties.Order_In_Json_Id = ++count;
+      properties.Current_Time = currentTime;
+      properties.vehicleID = x.vehicleID;
+      properties.lastStopOrder = x.lastStopOrder;
+      properties.isOnStop = x.isOnStop;
+      properties.trip = x.timeTableTrip.trip;
+      if (x.timeTableTrip.destination !== "")
+        properties.destination = x.timeTableTrip.destination;
+      if (x.timeTableTrip.destinationStopName !== "")
+        properties.destinationStopName = x.timeTableTrip.destinationStopName;
+      if (x.timeTableTrip.destinationCityName !== "")
+        properties.destinationCityName = x.timeTableTrip.destinationCityName;
+
+      //properties.to = x.timeTableTrip.to;
+      properties.lineID = x.timeTableTrip.timeTableLine.lineID;
+      properties.lineType = x.timeTableTrip.timeTableLine.lineType;
+
+      if (x.CHANGE_OF_DELAY) properties.CHANGE_OF_DELAY = x.CHANGE_OF_DELAY;
+
+      a.properties = properties;
+      downloadResult.push(a);
+    });
+    return downloadResult;
+  });
+  //console.log(down);
+
   let firstJson;
   try {
     firstJson = await axios.get(firstJsonUrl);
@@ -428,34 +515,49 @@ async function downloadSadPO() {
   let count = 0;
   //console.log(zaznamy);
   zaznamy.map((x) => {
-    //to GeoJSON
-    let a = {};
-    let properties = {};
-    let geometry = {};
-    let coordinates = [];
+    down.map((v) => {
+      if (parseInt(x.Line) === v.properties.ROUTE_NUMBER) {
+        // console.log(v)
+        // console.log(x)
+        //to GeoJSON
+        let a = {};
+        let properties = {};
+        let geometry = {};
+        let coordinates = [];
 
-    coordinates[0] = x.Lng;
-    coordinates[1] = x.Lat;
-    geometry.type = "Point";
-    geometry.coordinates = coordinates;
-    // type of Geometry
+        coordinates[0] = x.Lng;
+        coordinates[1] = x.Lat;
+        geometry.type = "Point";
+        geometry.coordinates = coordinates;
+        // type of Geometry
 
-    properties.ROUTE_NUMBER = x.Line;
-    properties.Trip = x.Trip;
-    properties.DELAY = x.Delay;
-    properties.Dir = x.Dir;
-    properties.TripTime = x.TripTime;
-    if (x.From) properties.From = x.From;
-    if (x.Via) properties.Via = x.Via;
-    if (x.To) properties.To = x.To;
-    properties.Type = "SAD";
-    properties.Current_Time = currentTime;
-    properties.Order_In_Json_Id = ++count;
+        properties.ROUTE_NUMBER = x.Line;
+        properties.Trip = x.Trip;
+        properties.DELAY = x.Delay;
+        properties.Dir = x.Dir;
+        properties.TripTime = x.TripTime;
+        if (x.From) properties.From = x.From;
+        if (x.Via) properties.Via = x.Via;
+        if (x.To) properties.To = x.To;
+        properties.Type = "SAD";
+        properties.Current_Time = currentTime;
+        properties.Order_In_Json_Id = ++count;
 
-    a.type = "Feature"; // type of all
-    a.geometry = geometry;
-    a.properties = properties;
-    downloadResult.push(a);
+        properties.vehicleID = v.properties.vehicleID;
+        properties.lastStopOrder = v.properties.lastStopOrder;
+        properties.isOnStop = v.properties.isOnStop;
+        properties.destination = v.properties.destination;
+        properties.destinationStopName = v.properties.destinationStopName;
+        properties.destinationCityName = v.properties.destinationCityName;
+        properties.lineID = v.properties.lineID;
+        properties.lineType = v.properties.lineType;
+
+        a.type = "Feature"; // type of all
+        a.geometry = geometry;
+        a.properties = properties;
+        downloadResult.push(a);
+      }
+    });
   });
   if (firstJson == undefined || firstJson.length < 1) {
     //previosSad
@@ -568,9 +670,9 @@ async function downloadSadPO() {
   );
 }
 
-setInterval(downloadSadPO, 15000);
-//downloadSadPO()
+setInterval(downloadSadUb, 15000);
+//downloadSadUb()
 
 module.exports = {
-  downloadSadPO,
+  downloadSadUb,
 };

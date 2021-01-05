@@ -49,7 +49,7 @@ async function downloadTrains() {
         geometry.type = "Point";
         a.geometry = geometry;
         properties.Nazov = zaznam.Nazov;
-        properties.Meska = zaznam.Meska * 60; // na sekundy;
+        properties.DELAY = zaznam.Meska * 60; // na sekundy;
         properties.MeskaText = zaznam.MeskaText;
         properties.Current_Stop = zaznam.InfoZoStanice;
         properties.Dopravca = zaznam.Dopravca;
@@ -88,7 +88,7 @@ async function downloadTrains() {
   }
 
   let result = [];
-  //adding Change of Variation
+  //adding Change of DELAY
   zaznamy.forEach((j) => {//currentExcel
     d.forEach((e) => {// previosExcel
       if (
@@ -96,48 +96,48 @@ async function downloadTrains() {
         e.properties["From"] === j.properties["From"] &&
         e.properties["To"] === j.properties["To"]
       ) {
-        j.properties["CHANGE_OF_Variation"] = Math.abs(
-          e.properties["Meska"] - j.properties["Meska"]
+        j.properties["CHANGE_OF_DELAY"] = Math.abs(
+          e.properties["DELAY"] - j.properties["DELAY"]
         );
 
         //new                               //old
         if (
-          j.properties["Meska"] < e.properties["Meska"] &&
-          j.properties["CHANGE_OF_Variation"] > 0
+          j.properties["DELAY"] < e.properties["DELAY"] &&
+          j.properties["CHANGE_OF_DELAY"] > 0
         ) {
-          j.properties["CHANGE_OF_Variation"] = -j.properties[
-            "CHANGE_OF_Variation"
+          j.properties["CHANGE_OF_DELAY"] = -j.properties[
+            "CHANGE_OF_DELAY"
           ];
 
           //new                               //old
         } else if (
-          j.properties["Meska"] > e.properties["Meska"] &&
-          j.properties["CHANGE_OF_Variation"] > 0
+          j.properties["DELAY"] > e.properties["DELAY"] &&
+          j.properties["CHANGE_OF_DELAY"] > 0
         ) {
-          j.properties["CHANGE_OF_Variation"] =
-            j.properties["CHANGE_OF_Variation"];
+          j.properties["CHANGE_OF_DELAY"] =
+            j.properties["CHANGE_OF_DELAY"];
 
           //new                               //old
         } else if (
-          j.properties["Meska"] < e.properties["Meska"] &&
-          j.properties["CHANGE_OF_Variation"] < 0
+          j.properties["DELAY"] < e.properties["DELAY"] &&
+          j.properties["CHANGE_OF_DELAY"] < 0
         ) {
-          j.properties["CHANGE_OF_Variation"] = -j.properties[
-            "CHANGE_OF_Variation"
+          j.properties["CHANGE_OF_DELAY"] = -j.properties[
+            "CHANGE_OF_DELAY"
           ];
 
           //new                               //old
         } else if (
-          j.properties["Meska"] > e.properties["Meska"] &&
-          j.properties["CHANGE_OF_Variation"] < 0
+          j.properties["DELAY"] > e.properties["DELAY"] &&
+          j.properties["CHANGE_OF_DELAY"] < 0
         ) {
-          j.properties["CHANGE_OF_Variation"] =
-            j.properties["CHANGE_OF_Variation"];
+          j.properties["CHANGE_OF_DELAY"] =
+            j.properties["CHANGE_OF_DELAY"];
         }
         //console.log("----------------------------------");
-        //console.log("oldExcel " + e.properties["Meska"]);
-        //console.log("newExcel " + j.properties["Meska"]);
-        //console.log(j.properties["CHANGE_OF_Variation"]);
+        //console.log("oldExcel " + e.properties["DELAY"]);
+        //console.log("newExcel " + j.properties["DELAY"]);
+        //console.log(j.properties["CHANGE_OF_DELAY"]);
         result.push(j);
       } else {
         result.push(j);
@@ -172,7 +172,8 @@ async function downloadTrains() {
     return await Promise.all(
       filteredResult.map((item) => {
         axios.post(currentTrainsUrl, item);
-        axios.post(currentTrainsUrlElastic, item);
+        //axios.post(currentTrainsUrlElastic, item);
+        console.log(item);
       })
     );
   } else {
@@ -194,6 +195,7 @@ async function downloadTrains() {
         filteredResult.map((item) => {
           axios.post(currentTrainsUrl, item);
           axios.post(currentTrainsUrlElastic, item);
+          console.log(item);
         })
       );
     }

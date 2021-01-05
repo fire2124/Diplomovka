@@ -51,362 +51,362 @@ async function downloadUbian() {
       const zaznamy = arraySadPO
         .map((zaznam) => {
           count2 = ++count2;
-          //adding from via to
+          //adding From Via to
           switch (true) {
             case zaznam.timeTableTrip.timeTableLine.line == 701402:
-              zaznam.timeTableTrip.from = "Bardejov";
-              zaznam.timeTableTrip.via = "Beloveža - Hažlín - Ortuťová";
+              zaznam.timeTableTrip.From = "Bardejov";
+              zaznam.timeTableTrip.Via = "Beloveža - Hažlín - Ortuťová";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 701404:
-              zaznam.timeTableTrip.from = "Bardejov";
-              zaznam.timeTableTrip.via = "Kožany";
+              zaznam.timeTableTrip.From = "Bardejov";
+              zaznam.timeTableTrip.Via = "Kožany";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 701406:
-              zaznam.timeTableTrip.from = "Bardejov";
-              zaznam.timeTableTrip.via = "Poliakovce - Porúbka - Marhaň";
+              zaznam.timeTableTrip.From = "Bardejov";
+              zaznam.timeTableTrip.Via = "Poliakovce - Porúbka - Marhaň";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 701407:
-              zaznam.timeTableTrip.from = "Bardejov";
-              zaznam.timeTableTrip.via =
+              zaznam.timeTableTrip.From = "Bardejov";
+              zaznam.timeTableTrip.Via =
                 "Lukavica - Rešov - N.Voľa - Dubie - Hankovce - Marhaň";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 701411:
-              zaznam.timeTableTrip.from = "Bardejov";
-              zaznam.timeTableTrip.via = "Lopúchov - Koprivnica";
+              zaznam.timeTableTrip.From = "Bardejov";
+              zaznam.timeTableTrip.Via = "Lopúchov - Koprivnica";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 701412:
-              zaznam.timeTableTrip.from = "Bardejov";
-              zaznam.timeTableTrip.via = "Prešov";
+              zaznam.timeTableTrip.From = "Bardejov";
+              zaznam.timeTableTrip.Via = "Prešov";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 701414:
-              zaznam.timeTableTrip.from = "Bardejov";
-              zaznam.timeTableTrip.via =
+              zaznam.timeTableTrip.From = "Bardejov";
+              zaznam.timeTableTrip.Via =
                 "Šiba - Bartošovce - Hertník - Raslavice";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 701417:
-              zaznam.timeTableTrip.from = "Bardejov";
-              zaznam.timeTableTrip.via = "Hervartov";
+              zaznam.timeTableTrip.From = "Bardejov";
+              zaznam.timeTableTrip.Via = "Hervartov";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 701418:
-              zaznam.timeTableTrip.from = "Bardejov";
-              zaznam.timeTableTrip.via = "Kurov - Kružľov - Krivé/Bogliarka";
+              zaznam.timeTableTrip.From = "Bardejov";
+              zaznam.timeTableTrip.Via = "Kurov - Kružľov - Krivé/Bogliarka";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 701419:
-              zaznam.timeTableTrip.from = "Bardejov";
-              zaznam.timeTableTrip.via = "Snakov - Hrabské - Livov";
+              zaznam.timeTableTrip.From = "Bardejov";
+              zaznam.timeTableTrip.Via = "Snakov - Hrabské - Livov";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 701420:
-              zaznam.timeTableTrip.from = "Bardejov";
-              zaznam.timeTableTrip.via = "";
+              zaznam.timeTableTrip.From = "Bardejov";
+              zaznam.timeTableTrip.Via = "";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 701423:
-              zaznam.timeTableTrip.from = "Bardejov";
-              zaznam.timeTableTrip.via = "Zlaté";
+              zaznam.timeTableTrip.From = "Bardejov";
+              zaznam.timeTableTrip.Via = "Zlaté";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 701424:
-              zaznam.timeTableTrip.from = "Bardejov";
-              zaznam.timeTableTrip.via = "Zlaté";
+              zaznam.timeTableTrip.From = "Bardejov";
+              zaznam.timeTableTrip.Via = "Zlaté";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 701427:
-              zaznam.timeTableTrip.from = "Bardejov";
-              zaznam.timeTableTrip.via = "Zborov - Stebnická Huta";
+              zaznam.timeTableTrip.From = "Bardejov";
+              zaznam.timeTableTrip.Via = "Zborov - Stebnická Huta";
 
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 701428:
-              zaznam.timeTableTrip.from = "Bardejov";
-              zaznam.timeTableTrip.via = "Jedlinka - Mikulášová";
+              zaznam.timeTableTrip.From = "Bardejov";
+              zaznam.timeTableTrip.Via = "Jedlinka - Mikulášová";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 701429:
-              zaznam.timeTableTrip.from = "Bardejov";
-              zaznam.timeTableTrip.via = "Svidník";
+              zaznam.timeTableTrip.From = "Bardejov";
+              zaznam.timeTableTrip.Via = "Svidník";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 701432:
-              zaznam.timeTableTrip.from = "Bardejov";
-              zaznam.timeTableTrip.via = "Šarišské Čierne - Cernina";
+              zaznam.timeTableTrip.From = "Bardejov";
+              zaznam.timeTableTrip.Via = "Šarišské Čierne - Cernina";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707401:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Abranovce";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Abranovce";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707403:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Abranovce - Lesíček - Tuhrina";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Abranovce - Lesíček - Tuhrina";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707405:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Žehňa - Brestov";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Žehňa - Brestov";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707407:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via =
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via =
                 "Drienov - Šarišské Bohdanovce - Brestov";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707408:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Drienov - Lemešany";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Drienov - Lemešany";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707410:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Lemešany";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Lemešany";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707416:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Sedlice - Klenov";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Sedlice - Klenov";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707417:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Brežany - Kvačany";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Brežany - Kvačany";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707418:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Župčany";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Župčany";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707419:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Križovany - Ovčie - Víťaz";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Križovany - Ovčie - Víťaz";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707421:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Lipovce - Široké";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Lipovce - Široké";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707424:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via =
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via =
                 "Jarovnice - Chminianska Nová Ves - Hermanovce - Štefanovce";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707430:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via =
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via =
                 "Medzany - Ostrovany - Uzovský Šalgov/Sabinov";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707431:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via =
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via =
                 "Šarišské Michaľany - Sabinov - Lipany";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707432:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Stará Ľubovňa";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Stará Ľubovňa";
 
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707435:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Ratvaj";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Ratvaj";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707436:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Uzovce - Ratvaj";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Uzovce - Ratvaj";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707437:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Ratvaj - Terňa, Babin Potok";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Ratvaj - Terňa, Babin Potok";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707438:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Fintice";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Fintice";
 
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707442:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Okružná - Šarišská Poruba - Nemcovce";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Okružná - Šarišská Poruba - Nemcovce";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707444:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Čeľovce / Chmeľov";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Čeľovce / Chmeľov";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707445:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via =
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via =
                 "Chmeľov - Giraltovce - Fijaš - Domaša";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707446:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via =
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via =
                 "Hanušovce nad topľou - Babie - Giraltovce";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707447:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Giraltovce - Svidník";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Giraltovce - Svidník";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707448:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via =
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via =
                 "Radvanovce - Pavlovce - Hanušovce nad toplou";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707449:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via =
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via =
                 "Vranov nad topľou - Strážske - Humenné";
 
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 707452:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Vyšná Šebastová,Severná";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Vyšná Šebastová,Severná";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 708401:
-              zaznam.timeTableTrip.from = "Lipany";
-              zaznam.timeTableTrip.via = "Lúčka";
+              zaznam.timeTableTrip.From = "Lipany";
+              zaznam.timeTableTrip.Via = "Lúčka";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 708402:
-              zaznam.timeTableTrip.from = "Lipany";
-              zaznam.timeTableTrip.via = "Rožkovany";
+              zaznam.timeTableTrip.From = "Lipany";
+              zaznam.timeTableTrip.Via = "Rožkovany";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 708403:
-              zaznam.timeTableTrip.from = "Vyšný Slavkov / T.Potok";
-              zaznam.timeTableTrip.via = "Brezovica - Lipany - Prešov";
+              zaznam.timeTableTrip.From = "Vyšný Slavkov / T.Potok";
+              zaznam.timeTableTrip.Via = "Brezovica - Lipany - Prešov";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 708404:
-              zaznam.timeTableTrip.from = "Lipany";
-              zaznam.timeTableTrip.via = "Dubovica";
+              zaznam.timeTableTrip.From = "Lipany";
+              zaznam.timeTableTrip.Via = "Dubovica";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 708411:
-              zaznam.timeTableTrip.from = "Prešov";
-              zaznam.timeTableTrip.via = "Sabinov - Lipany - Oľšov - Poloma";
+              zaznam.timeTableTrip.From = "Prešov";
+              zaznam.timeTableTrip.Via = "Sabinov - Lipany - Oľšov - Poloma";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 708412:
-              zaznam.timeTableTrip.from = "Lipany";
-              zaznam.timeTableTrip.via =
+              zaznam.timeTableTrip.From = "Lipany";
+              zaznam.timeTableTrip.Via =
                 "Kamenica - Šarišské Jastrabie - Vislanka";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 708452:
-              zaznam.timeTableTrip.from = "Hanigovce";
-              zaznam.timeTableTrip.via = "Jakubova Voľa - Sabinov";
+              zaznam.timeTableTrip.From = "Hanigovce";
+              zaznam.timeTableTrip.Via = "Jakubova Voľa - Sabinov";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 708453:
-              zaznam.timeTableTrip.from = "Sabinov";
-              zaznam.timeTableTrip.via = "Jakubovany - Terňa";
+              zaznam.timeTableTrip.From = "Sabinov";
+              zaznam.timeTableTrip.Via = "Jakubovany - Terňa";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 708455:
-              zaznam.timeTableTrip.from = "Sabinov";
-              zaznam.timeTableTrip.via = "";
+              zaznam.timeTableTrip.From = "Sabinov";
+              zaznam.timeTableTrip.Via = "";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 708459:
-              zaznam.timeTableTrip.from = "Sabinov / Prešov";
-              zaznam.timeTableTrip.via = "Široké - Krompachy";
+              zaznam.timeTableTrip.From = "Sabinov / Prešov";
+              zaznam.timeTableTrip.Via = "Široké - Krompachy";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 708461:
-              zaznam.timeTableTrip.from = "Sabinov";
-              zaznam.timeTableTrip.via = "Uzovský Šalgov - Renčišov";
+              zaznam.timeTableTrip.From = "Sabinov";
+              zaznam.timeTableTrip.Via = "Uzovský Šalgov - Renčišov";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 708465:
-              zaznam.timeTableTrip.from = "Sabinov";
-              zaznam.timeTableTrip.via = "Hubošovce - Gregorovce";
+              zaznam.timeTableTrip.From = "Sabinov";
+              zaznam.timeTableTrip.Via = "Hubošovce - Gregorovce";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 708468:
-              zaznam.timeTableTrip.from = "Sabinov";
-              zaznam.timeTableTrip.via =
+              zaznam.timeTableTrip.From = "Sabinov";
+              zaznam.timeTableTrip.Via =
                 "Červená Voda - Jakovany / Peč. N. Ves - Ľutina";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 709451:
-              zaznam.timeTableTrip.from = "Snina";
-              zaznam.timeTableTrip.via = "Humenné - Havaj";
+              zaznam.timeTableTrip.From = "Snina";
+              zaznam.timeTableTrip.Via = "Humenné - Havaj";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 712451:
-              zaznam.timeTableTrip.from = "Giraltovce";
-              zaznam.timeTableTrip.via =
+              zaznam.timeTableTrip.From = "Giraltovce";
+              zaznam.timeTableTrip.Via =
                 "Hanušovce nad topľou - Bystré - Vranov";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 712452:
-              zaznam.timeTableTrip.from = "Kalnište";
-              zaznam.timeTableTrip.via = "Giraltovce - Štefurov";
+              zaznam.timeTableTrip.From = "Kalnište";
+              zaznam.timeTableTrip.Via = "Giraltovce - Štefurov";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 712453:
-              zaznam.timeTableTrip.from = "Giraltovce";
-              zaznam.timeTableTrip.via = "Železník";
+              zaznam.timeTableTrip.From = "Giraltovce";
+              zaznam.timeTableTrip.Via = "Železník";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 712455:
-              zaznam.timeTableTrip.from = "Giraltovce";
-              zaznam.timeTableTrip.via = "Marhaň - Vyšný Kručov - Lopúchov";
+              zaznam.timeTableTrip.From = "Giraltovce";
+              zaznam.timeTableTrip.Via = "Marhaň - Vyšný Kručov - Lopúchov";
               return zaznam;
 
             case zaznam.timeTableTrip.timeTableLine.line == 712459:
-              zaznam.timeTableTrip.from = "Giraltovce";
-              zaznam.timeTableTrip.via = "Koprivnica";
+              zaznam.timeTableTrip.From = "Giraltovce";
+              zaznam.timeTableTrip.Via = "Koprivnica";
               return zaznam;
             case zaznam.timeTableTrip.timeTableLine.line == 1:
-              zaznam.timeTableTrip.from = "Tačevská";
-              zaznam.timeTableTrip.via = "Slovenská - Vinbarg - Ľ. Štúra";
+              zaznam.timeTableTrip.From = "Tačevská";
+              zaznam.timeTableTrip.Via = "Slovenská - Vinbarg - Ľ. Štúra";
               return zaznam;
             case zaznam.timeTableTrip.timeTableLine.line == 2:
-              zaznam.timeTableTrip.from = "Družba";
-              zaznam.timeTableTrip.via = "Komenského - Slovenská";
+              zaznam.timeTableTrip.From = "Družba";
+              zaznam.timeTableTrip.Via = "Komenského - Slovenská";
               return zaznam;
             case zaznam.timeTableTrip.timeTableLine.line == 3:
-              zaznam.timeTableTrip.from = "Dlhá Lúka";
-              zaznam.timeTableTrip.via = "Slovenská - Tačevská";
+              zaznam.timeTableTrip.From = "Dlhá Lúka";
+              zaznam.timeTableTrip.Via = "Slovenská - Tačevská";
               return zaznam;
             case zaznam.timeTableTrip.timeTableLine.line == 4:
-              zaznam.timeTableTrip.from = "Štefániková";
-              zaznam.timeTableTrip.via = "Dlhý Rad - Slovenská";
+              zaznam.timeTableTrip.From = "Štefániková";
+              zaznam.timeTableTrip.Via = "Dlhý Rad - Slovenská";
               return zaznam;
             case zaznam.timeTableTrip.timeTableLine.line == 5:
-              zaznam.timeTableTrip.from = "Mihaľov";
-              zaznam.timeTableTrip.via = "Dlhý Rad - Slovenská - Duklianska";
+              zaznam.timeTableTrip.From = "Mihaľov";
+              zaznam.timeTableTrip.Via = "Dlhý Rad - Slovenská - Duklianska";
               return zaznam;
             case zaznam.timeTableTrip.timeTableLine.line == 6:
-              zaznam.timeTableTrip.from = "Poštárka";
-              zaznam.timeTableTrip.via = "Tačevská - Slovenská";
+              zaznam.timeTableTrip.From = "Poštárka";
+              zaznam.timeTableTrip.Via = "Tačevská - Slovenská";
               return zaznam;
           }
           return;
@@ -432,8 +432,16 @@ async function downloadUbian() {
         geometry.type = "Point"; // type of Geometry
         a.geometry = geometry;
 
+        properties.ROUTE_NUMBER = x.timeTableTrip.timeTableLine.lineNumber;
+        properties.DELAY = x.delayMinutes * 60; // na sekundy;
+        properties.Type = "UBIAN";
+        properties.From = x.timeTableTrip.From;
+        properties.Via = x.timeTableTrip.Via;
+        //if (properties.Via === "") properties.Via = "-";
+        properties.Order_In_Json_Id = ++count;
+        properties.Current_Time = currentTime;
         properties.vehicleID = x.vehicleID;
-        properties.delay = x.delayMinutes * 60; // na sekundy;
+        
         properties.lastCommunication = x.lastCommunication;
         properties.lastStopOrder = x.lastStopOrder;
         properties.isOnStop = x.isOnStop;
@@ -443,20 +451,17 @@ async function downloadUbian() {
         properties.destination = x.timeTableTrip.destination;
         properties.destinationStopName = x.timeTableTrip.destinationStopName;
         properties.destinationCityName = x.timeTableTrip.destinationCityName;
-        properties.from = x.timeTableTrip.from;
-        properties.via = x.timeTableTrip.via;
-        if (properties.via === "") properties.via = "-";
+        
 
         //properties.to = x.timeTableTrip.to;
         properties.lineID = x.timeTableTrip.timeTableLine.lineID;
         properties.lineType = x.timeTableTrip.timeTableLine.lineType;
-        properties.type = "UBIAN";
-        properties.lineNumber = x.timeTableTrip.timeTableLine.lineNumber;
-        if (x.CHANGE_OF_Variation)
-          properties.CHANGE_OF_Variation = x.CHANGE_OF_Variation;
+        
+        
+        if (x.CHANGE_OF_DELAY)
+          properties.CHANGE_OF_DELAY = x.CHANGE_OF_DELAY;
         if (x.Street) properties.Street = x.Street;
-        properties.Current_Time = currentTime;
-        properties.Order_In_Json_Id = ++count;
+       
         a.properties = properties;
         downloadResult.push(a);
       });
@@ -477,51 +482,51 @@ async function downloadUbian() {
           if (
             e.properties["vehicleID"] === j.properties["vehicleID"] &&
             e.properties["destination"] === j.properties["destination"] &&
-            e.properties["from"] === j.properties["from"] &&
-            e.properties["via"] === j.properties["via"]
+            e.properties["From"] === j.properties["From"] &&
+            e.properties["Via"] === j.properties["Via"]
           ) {
-            j.properties["CHANGE_OF_Variation"] = Math.abs(
-              e.properties["delay"] - j.properties["delay"]
+            j.properties["CHANGE_OF_DELAY"] = Math.abs(
+              e.properties["DELAY"] - j.properties["DELAY"]
             );
 
             //new                               //old
             if (
-              j.properties["delay"] < e.properties["delay"] &&
-              j.properties["CHANGE_OF_Variation"] > 0
+              j.properties["DELAY"] < e.properties["DELAY"] &&
+              j.properties["CHANGE_OF_DELAY"] > 0
             ) {
-              j.properties["CHANGE_OF_Variation"] = -j.properties[
-                "CHANGE_OF_Variation"
+              j.properties["CHANGE_OF_DELAY"] = -j.properties[
+                "CHANGE_OF_DELAY"
               ];
 
               //new                               //old
             } else if (
-              j.properties["delay"] > e.properties["delay"] &&
-              j.properties["CHANGE_OF_Variation"] > 0
+              j.properties["DELAY"] > e.properties["DELAY"] &&
+              j.properties["CHANGE_OF_DELAY"] > 0
             ) {
-              j.properties["CHANGE_OF_Variation"] =
-                j.properties["CHANGE_OF_Variation"];
+              j.properties["CHANGE_OF_DELAY"] =
+                j.properties["CHANGE_OF_DELAY"];
 
               //new                               //old
             } else if (
-              j.properties["delay"] < e.properties["delay"] &&
-              j.properties["CHANGE_OF_Variation"] < 0
+              j.properties["DELAY"] < e.properties["DELAY"] &&
+              j.properties["CHANGE_OF_DELAY"] < 0
             ) {
-              j.properties["CHANGE_OF_Variation"] = -j.properties[
-                "CHANGE_OF_Variation"
+              j.properties["CHANGE_OF_DELAY"] = -j.properties[
+                "CHANGE_OF_DELAY"
               ];
 
               //new                               //old
             } else if (
-              j.properties["delay"] > e.properties["delay"] &&
-              j.properties["CHANGE_OF_Variation"] < 0
+              j.properties["DELAY"] > e.properties["DELAY"] &&
+              j.properties["CHANGE_OF_DELAY"] < 0
             ) {
-              j.properties["CHANGE_OF_Variation"] =
-                j.properties["CHANGE_OF_Variation"];
+              j.properties["CHANGE_OF_DELAY"] =
+                j.properties["CHANGE_OF_DELAY"];
             }
             //console.log("----------------------------------");
-            //console.log("oldExcel " + e.properties["delay"]);
-            //console.log("newExcel " + j.properties["delay"]);
-            //console.log(j.properties["CHANGE_OF_Variation"]);
+            //console.log("oldExcel " + e.properties["DELAY"]);
+            //console.log("newExcel " + j.properties["DELAY"]);
+            //console.log(j.properties["CHANGE_OF_DELAY"]);
             result.push(j);
           } else {
             result.push(j);
@@ -535,8 +540,8 @@ async function downloadUbian() {
           (item) =>
             item.properties.vehicleID === current.properties.vehicleID &&
             item.properties.destination === current.properties.destination &&
-            item.properties.from === current.properties.from &&
-            item.properties.via === current.properties.via
+            item.properties.From === current.properties.From &&
+            item.properties.Via === current.properties.Via
         );
         if (!x) {
           return acc.concat([current]);
@@ -582,7 +587,7 @@ async function downloadUbian() {
     });
 }
 
-setInterval(downloadUbian, 15000);
+//setInterval(downloadUbian, 15000);
 //downloadUbian();
 module.exports = {
   downloadUbian,

@@ -17,8 +17,8 @@
     "gps": "node ./Ulice_Presov/transformGPS.js",
     "cest": "node ./Cestovne_poriadky/cest.js",
     "prestupy": "node ./Cestovne_poriadky/prestupy.js",
-    "salesman": "node ./Salesman/salesman.js"
-
+    "salesman": "node ./Salesman/salesman.js",
+    "SadUb": "node ./DownloadWithGeoJSON/SadUb.js"
   },
   "author": "",
   "license": "ISC",

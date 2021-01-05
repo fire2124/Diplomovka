@@ -142,10 +142,10 @@ async function downloadExcel() {
             properties.BUS_STOP_SUB_NUM_2 = x.BUS_STOP_SUB_NUM_2;
             properties.PLANNED_ROAD = x.PLANNED_ROAD;
             properties.REAL_ROAD = x.REAL_ROAD;
-            properties.VARIATION = x.VARIATION;
+            properties.DELAY = x.VARIATION;
             properties.VEHICLE_NUMBER = x.VEHICLE_NUMBER;
-            if (x.CHANGE_OF_Variation)
-              properties.CHANGE_OF_Variation = x.CHANGE_OF_Variation;
+            if (x.CHANGE_OF_DELAY)
+              properties.CHANGE_OF_DELAY = x.CHANGE_OF_DELAY;
             if (x.Street) properties.Street = x.Street;
             properties.Order_In_Json_Id = ++count;
             properties.Type = "MHD";
@@ -169,7 +169,7 @@ async function downloadExcel() {
             d = firstJson;
           }
 
-          //adding Change of Variation
+          //adding Change of DELAY
           downloadResult.forEach((j) => {
             //currentExcel
             d.forEach((e) => {
@@ -179,48 +179,48 @@ async function downloadExcel() {
                 e.properties["DIRECTION"] === j.properties["DIRECTION"] &&
                 e.properties["PLANNED_START"] === j.properties["PLANNED_START"]
               ) {
-                j.properties["CHANGE_OF_Variation"] = Math.abs(
-                  e.properties["VARIATION"] - j.properties["VARIATION"]
+                j.properties["CHANGE_OF_DELAY"] = Math.abs(
+                  e.properties["DELAY"] - j.properties["DELAY"]
                 );
 
                 //new                               //old
                 if (
-                  j.properties["VARIATION"] < e.properties["VARIATION"] &&
-                  j.properties["CHANGE_OF_Variation"] > 0
+                  j.properties["DELAY"] < e.properties["DELAY"] &&
+                  j.properties["CHANGE_OF_DELAY"] > 0
                 ) {
-                  j.properties["CHANGE_OF_Variation"] = -j.properties[
-                    "CHANGE_OF_Variation"
+                  j.properties["CHANGE_OF_DELAY"] = -j.properties[
+                    "CHANGE_OF_DELAY"
                   ];
 
                   //new                               //old
                 } else if (
-                  j.properties["VARIATION"] > e.properties["VARIATION"] &&
-                  j.properties["CHANGE_OF_Variation"] > 0
+                  j.properties["DELAY"] > e.properties["DELAY"] &&
+                  j.properties["CHANGE_OF_DELAY"] > 0
                 ) {
-                  j.properties["CHANGE_OF_Variation"] =
-                    j.properties["CHANGE_OF_Variation"];
+                  j.properties["CHANGE_OF_DELAY"] =
+                    j.properties["CHANGE_OF_DELAY"];
 
                   //new                               //old
                 } else if (
-                  j.properties["VARIATION"] < e.properties["VARIATION"] &&
-                  j.properties["CHANGE_OF_Variation"] < 0
+                  j.properties["DELAY"] < e.properties["DELAY"] &&
+                  j.properties["CHANGE_OF_DELAY"] < 0
                 ) {
-                  j.properties["CHANGE_OF_Variation"] = -j.properties[
-                    "CHANGE_OF_Variation"
+                  j.properties["CHANGE_OF_DELAY"] = -j.properties[
+                    "CHANGE_OF_DELAY"
                   ];
 
                   //new                               //old
                 } else if (
-                  j.properties["VARIATION"] > e.properties["VARIATION"] &&
-                  j.properties["CHANGE_OF_Variation"] < 0
+                  j.properties["DELAY"] > e.properties["DELAY"] &&
+                  j.properties["CHANGE_OF_DELAY"] < 0
                 ) {
-                  j.properties["CHANGE_OF_Variation"] =
-                    j.properties["CHANGE_OF_Variation"];
+                  j.properties["CHANGE_OF_DELAY"] =
+                    j.properties["CHANGE_OF_DELAY"];
                 }
                 // console.log("----------------------------------")
-                // console.log("oldExcel "  + e.properties["VARIATION"])
-                // console.log("newExcel "  +j.properties["VARIATION"])
-                // console.log(j.properties["CHANGE_OF_Variation"])
+                // console.log("oldExcel "  + e.properties["DELAY"])
+                // console.log("newExcel "  +j.properties["DELAY"])
+                // console.log(j.properties["CHANGE_OF_DELAY"])
                 result.push(j);
               } else {
                 result.push(j);
