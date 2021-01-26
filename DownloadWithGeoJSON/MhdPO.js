@@ -13,9 +13,13 @@ const IconvLite = require("iconv-lite");
 const firstJsonUrl =
   "http://localhost:9500/api/v1/currentMhdPoBusses/firstJSON/1";
 const presovStreetUrl = "http://localhost:9500/api/v1/PresovStreets";
-const currentMhdPoBussesUrl =
-  "http://localhost:9500/api/v1/currentBst/";
+const presovStopsMHD = "http://localhost:9500/api/v1/PresovStops";
+
+//const firstJsonUrl = "http://localhost:9200/current_mhdpo/_doc/1"; // elastic
+//const presovStreetUrl = "http://localhost:9200/presov_streets/_doc/1";
+const currentMhdPoBussesUrl = "http://localhost:9500/api/v1/currentBst/";
 const currentMhdPoBussesUrlElastic = `http://127.0.0.1:9200/bst/_doc/`;
+const fs = require("fs");
 
 const csvHeaders = [
   "ROUTE_NUMBER",
@@ -67,8 +71,15 @@ const getStops = async () => {
 
 async function downloadExcel() {
   let firstJson; //downloadPreviousJson
-  firstJson = await axios.get(firstJsonUrl);
-  firstJson = firstJson.data;
+  let zastavkyGPS;
+  try {
+    firstJson = await axios.get(firstJsonUrl);
+    firstJson = firstJson.data;
+    zastavkyGPS = await axios.get(presovStopsMHD);
+    zastavkyGPS = zastavkyGPS.data;
+    //console.log(firstJson);
+  } catch {}
+
   getStops().then(async (response) => {
     csv({
       noheader: false,
@@ -98,45 +109,45 @@ async function downloadExcel() {
             properties.PLANNED_START = x.PLANNED_START;
             properties.DIRECTION = x.DIRECTION;
             properties.BUS_STOP_ORDER_NUM = x.BUS_STOP_ORDER_NUM;
-            properties.BUS_STOP_NAME_1 = x.BUS_STOP_NAME_1;
+            properties.Current_Stop = x.BUS_STOP_NAME_1;
             // kontrola ci sa nachadza " *"
-            if (properties.BUS_STOP_NAME_1.includes(" *")) {
-              properties.BUS_STOP_NAME_1 = properties.BUS_STOP_NAME_1.split(
+            if (properties.Current_Stop.includes(" *")) {
+              properties.Current_Stop = properties.Current_Stop.split(
                 " *"
               )[0];
               //kontrola medzier " "
-              if (properties.BUS_STOP_NAME_1.slice(-1) === " ") {
+              if (properties.Current_Stop.slice(-1) === " ") {
                 //console.log("StopName1");
-                properties.BUS_STOP_NAME_1 = properties.BUS_STOP_NAME_1.slice(
+                properties.Current_Stop = properties.Current_Stop.slice(
                   0,
                   -1
                 );
               }
-              //kontrola ak je properties.BUS_STOP_NAME_1 prazdne
-              if (properties.BUS_STOP_NAME_1 === "") {
-                properties.BUS_STOP_NAME_1 = x.BUS_STOP_NAME_1.split(" *")[0];
+              //kontrola ak je properties.Current_Stop prazdne
+              if (properties.Current_Stop === "") {
+                properties.Current_Stop = x.Current_Stop.split(" *")[0];
               }
             }
 
             properties.BUS_STOP_NUM_1 = x.BUS_STOP_NUM_1;
             properties.BUS_STOP_SUB_NUM_1 = x.BUS_STOP_SUB_NUM_1;
-            properties.BUS_STOP_NAME_2 = x.BUS_STOP_NAME_2;
+            properties.Next_Stop = x.BUS_STOP_NAME_2;
             properties.BUS_STOP_NUM_2 = x.BUS_STOP_NUM_2;
-            if (properties.BUS_STOP_NAME_2.includes(" *")) {
-              properties.BUS_STOP_NAME_2 = properties.BUS_STOP_NAME_2.split(
+            if (properties.Next_Stop.includes(" *")) {
+              properties.Next_Stop = properties.Next_Stop.split(
                 " *"
               )[0];
               //kontrola medzier " "
-              if (properties.BUS_STOP_NAME_2.slice(-1) === " ") {
+              if (properties.Next_Stop.slice(-1) === " ") {
                 //console.log("StopName2");
-                properties.BUS_STOP_NAME_2 = properties.BUS_STOP_NAME_2.slice(
+                properties.Next_Stop = properties.Next_Stop.slice(
                   0,
                   -1
                 );
               }
-              //kontrola ak je properties.BUS_STOP_NAME_2 prazdne
-              if (properties.BUS_STOP_NAME_2 === "") {
-                properties.BUS_STOP_NAME_2 = x.BUS_STOP_NAME_2.split(" *")[0];
+              //kontrola ak je properties.Next_Stop prazdne
+              if (properties.Next_Stop === "") {
+                properties.Next_Stop = x.Next_Stop.split(" *")[0];
               }
             }
             properties.BUS_STOP_SUB_NUM_2 = x.BUS_STOP_SUB_NUM_2;
@@ -152,8 +163,8 @@ async function downloadExcel() {
             properties.Current_Time = currentTime;
             coordinates[0] = x.LONGITUDE;
             coordinates[1] = x.LATITUDE;
-            geometry.coordinates = coordinates;
             geometry.type = "Point";
+            geometry.coordinates = coordinates;
             a.type = "Feature";
             a.geometry = geometry;
             a.properties = properties;
@@ -249,6 +260,7 @@ async function downloadExcel() {
           let streets = await axios.get(presovStreetUrl);
           filteredResult.map(async (zaznam) => {
             streets.data.features.forEach((ul) => {
+              // pridavanie ulic
               ul.geometry.coordinates.forEach((u) => {
                 u.map((x) => {
                   if (
@@ -262,18 +274,39 @@ async function downloadExcel() {
                 });
               });
             });
+            zastavkyGPS.forEach((e) => {
+              if (
+                e.geometry.coordinates[0].toFixed(3) ==
+                  zaznam.geometry.coordinates[0].toFixed(3) &&
+                e.geometry.coordinates[1].toFixed(3) ===
+                  zaznam.geometry.coordinates[1].toFixed(3)
+              ) {
+                let isOnStop = true;
+                zaznam.properties.isOnStop = isOnStop;
+              }
+              else{
+                let isOnStop = false;
+                zaznam.properties.isOnStop = isOnStop;
+              }
+            });
           });
-          
-            await axios.post(firstJsonUrl, filteredResult);
 
-            return await Promise.all(
-              filteredResult.map((zaznam) => {
-                console.log(zaznam);
-                axios.post(currentMhdPoBussesUrl, zaznam);
-                axios.post(currentMhdPoBussesUrlElastic, zaznam);
-              })
-            );
-          
+          //console.log(filteredResult);
+          try {
+            // fs.writeFileSync(
+            //   `./Data/MhdPO_json/MHD.json`,
+            //   JSON.stringify(filteredResult)
+            // );
+            await axios.post(firstJsonUrl, filteredResult);
+          } catch (error) {}
+
+          return await Promise.all(
+            filteredResult.map((zaznam) => {
+              console.log(zaznam);
+              //axios.post(currentMhdPoBussesUrl, zaznam);
+              axios.post(currentMhdPoBussesUrlElastic, zaznam);
+            })
+          );
         }
       });
   });

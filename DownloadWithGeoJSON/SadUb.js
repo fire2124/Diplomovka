@@ -17,7 +17,7 @@ const firstJsonUrl =
   "http://localhost:9500/api/v1/currentSadPoBusses/firstJSON/1";
 const currentSadPoUrl = "http://localhost:9500/api/v1/currentBst";
 const currentSadPoUrlElastic = `http://127.0.0.1:9200/bst/_doc/`;
-
+const current_stopsUrl = "http://localhost:9500/api/v1/SadStops";
 const configUbian = {
   method: "get",
   url:
@@ -77,7 +77,7 @@ async function downloadSadUb() {
         a.geometry = geometry;
 
         properties.ROUTE_NUMBER = x.timeTableTrip.timeTableLine.lineNumber;
-        properties.DELAY = x.delayMinutes * 60; // na sekundy;
+        //properties.DELAY = x.delayMinutes * 60; // na sekundy;
         properties.Type = "UBIAN";
         properties.From = x.timeTableTrip.From;
         properties.Via = x.timeTableTrip.Via;
@@ -112,9 +112,14 @@ async function downloadSadUb() {
   }
 
   let firstJson;
+  let current_stops;
   try {
     firstJson = await axios.get(firstJsonUrl);
     firstJson = firstJson.data;
+  } catch (error) {}
+  try {
+    current_stops = await axios.get(current_stopsUrl);
+    current_stops = current_stops.data;
   } catch (error) {}
 
   let json = await new Promise((resolve, reject) => {
@@ -553,7 +558,11 @@ async function downloadSadUb() {
   } else {
     zaznamy.map((x) => {
       down.map((v) => {
-        if (parseInt(x.Line) === v.properties.ROUTE_NUMBER) {
+        if (
+          parseInt(x.Line) === v.properties.ROUTE_NUMBER &&
+          x.Lat === v.geometry.coordinates[1] &&
+          x.Lng === v.geometry.coordinates[0]
+        ) {
           // console.log(v)
           // console.log(x)
           //to GeoJSON
@@ -568,7 +577,7 @@ async function downloadSadUb() {
           geometry.coordinates = coordinates;
           // type of Geometry
 
-          properties.ROUTE_NUMBER = x.Line;
+          properties.ROUTE_NUMBER = parseInt(x.Line);
           properties.Trip = x.Trip;
           properties.DELAY = x.Delay;
           properties.Dir = x.Dir;
@@ -678,7 +687,7 @@ async function downloadSadUb() {
   //console.log(filteredResult);
   // adding Street
   let streets = await axios.get(presovStreetsUrl);
-  filteredResult.map(async (zaznam) => {
+  filteredResult.map((zaznam) => {
     streets.data.features.forEach((ul) => {
       ul.geometry.coordinates.forEach((u) => {
         u.map((x) => {
@@ -693,7 +702,20 @@ async function downloadSadUb() {
         });
       });
     });
+    //adding Current Stops
+    current_stops.map((ul) => {
+      let x = ul.geometry.coordinates;
+      if (
+        x[0].toFixed(3) === zaznam.geometry.coordinates[0].toFixed(3) &&
+        x[1].toFixed(3) === zaznam.geometry.coordinates[1].toFixed(3)
+      ) {
+        let Current_Stop = ul.properties.name;
+        zaznam.properties.Current_Stop = Current_Stop;
+      }
+    });
   });
+
+  //console.log(filteredResult);
   try {
     await axios.post(firstJsonUrl, filteredResult);
   } catch (error) {}
@@ -702,15 +724,14 @@ async function downloadSadUb() {
     filteredResult.map((zaznam) => {
       console.log(zaznam);
       try {
-        axios.post(currentSadPoUrl, zaznam);
-        //axios.post(currentSadPoUrlElastic, zaznam);
+        //axios.post(currentSadPoUrl, zaznam);
+        axios.post(currentSadPoUrlElastic, zaznam);
       } catch (error) {}
     })
   );
 }
-
 setInterval(downloadSadUb, 15000);
-//downloadSadUb()
+//downloadSadUb();
 
 module.exports = {
   downloadSadUb,

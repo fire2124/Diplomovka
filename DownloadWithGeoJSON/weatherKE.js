@@ -78,7 +78,7 @@ async function downloadWeatherKE() {
 
     try {
       axios.post(firstJsonUrl, a);
-      axios.post(currentWeatherKeUrl, a);
+     // axios.post(currentWeatherKeUrl, a);
       axios.post(currentWeatherKeUrlElastic, a);
     } catch (err) {
       console.log(err);
@@ -93,7 +93,7 @@ async function downloadWeatherKE() {
 
       try {
         axios.post(firstJsonUrl, a);
-        axios.post(currentWeatherKeUrl, a);
+        //axios.post(currentWeatherKeUrl, a);
         axios.post(currentWeatherKeUrlElastic, a);
       } catch (error) {
         console.log(error);

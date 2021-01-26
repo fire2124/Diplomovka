@@ -1,0 +1,27 @@
+[
+  {
+    "type": "Feature",
+    "geometry": { "type": "Point","coordinates": [21.25114, 49.00871]  },
+    "properties": {
+      "ROUTE_NUMBER": 28,
+      "PLANNED_START": "13:19",
+      "DIRECTION": "P",
+      "BUS_STOP_ORDER_NUM": 10,
+      "BUS_STOP_NAME_1": "Dopravný podnik",
+      "BUS_STOP_NUM_1": 80,
+      "BUS_STOP_SUB_NUM_1": 1,
+      "BUS_STOP_NAME_2": "Rázcestie Kúty",
+      "BUS_STOP_NUM_2": 79,
+      "BUS_STOP_SUB_NUM_2": 1,
+      "PLANNED_ROAD": 563,
+      "REAL_ROAD": 484,
+      "DELAY": -114,
+      "VEHICLE_NUMBER": 3431,
+      "Order_In_Json_Id": 1,
+      "Type": "MHD",
+      "Current_Time": 1611146777724,
+      "CHANGE_OF_DELAY": 0,
+      "Street": "K Surdoku"
+    }
+  }
+]

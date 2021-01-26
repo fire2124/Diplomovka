@@ -55,7 +55,13 @@ async function downloadTrains() {
         properties.Dopravca = zaznam.Dopravca;
         properties.Angle = zaznam.Angle;
         properties.Order_In_Station = zaznam.OrderInStation;
-        properties.PotvrdenyOdj = zaznam.PotvrdenyOdj;
+        if(zaznam.PotvrdenyOdj == true) { // odisiel zo zastavky
+          properties.isOnStop = false;
+        }
+        else { // este je na zastavke
+          properties.isOnStop = true;
+        }
+        
         let resC = zaznam.Cas.split(" ");
         properties.CasDay = resC[0];
         properties.CasTime = resC[1];
@@ -194,7 +200,7 @@ async function downloadTrains() {
       return await Promise.all(
         filteredResult.map((item) => {
           axios.post(currentTrainsUrl, item);
-          axios.post(currentTrainsUrlElastic, item);
+        // axios.post(currentTrainsUrlElastic, item);
           console.log(item);
         })
       );
