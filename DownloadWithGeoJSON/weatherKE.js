@@ -7,16 +7,18 @@ const options = {
     "https://openweathermap.org/data/2.5/weather?id=724443&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02\n",
   headers: {},
 };
-const firstJsonUrl =
-  "http://localhost:9500/api/v1/currentWeatherKe/firstJSON/1";
-const currentWeatherKeUrl = "http://localhost:9500/api/v1/currentWeather/";
+// const firstJsonUrl =
+//   "http://localhost:9500/api/v1/currentWeatherKe/firstJSON/1";
+//const currentWeatherKeUrl = "http://localhost:9500/api/v1/currentWeather/";
+
+const firstJsonUrl = "http://127.0.0.1:9200/current_weather_ke/_doc/1";
 const currentWeatherKeUrlElastic = `http://127.0.0.1:9200/weather/_doc/`;
 
 // weather Kosice
 async function downloadWeatherKE() {
   let firstJson;
   firstJson = await axios.get(firstJsonUrl);
-  firstJson = firstJson.data;
+  firstJson = firstJson.data._source;
 
   let json = await new Promise((resolve, reject) => {
     request(options, function (error, response, body) {
@@ -24,8 +26,7 @@ async function downloadWeatherKE() {
       else resolve(body);
     });
   });
- 
-  
+
   let globalObject = JSON.parse(json);
   let time = new Date();
   let currentTime = time.getTime();
@@ -78,7 +79,6 @@ async function downloadWeatherKE() {
 
     try {
       axios.post(firstJsonUrl, a);
-     // axios.post(currentWeatherKeUrl, a);
       axios.post(currentWeatherKeUrlElastic, a);
     } catch (err) {
       console.log(err);
@@ -93,7 +93,6 @@ async function downloadWeatherKE() {
 
       try {
         axios.post(firstJsonUrl, a);
-        //axios.post(currentWeatherKeUrl, a);
         axios.post(currentWeatherKeUrlElastic, a);
       } catch (error) {
         console.log(error);

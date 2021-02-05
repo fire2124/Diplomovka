@@ -7,17 +7,17 @@ const options = {
     "https://openweathermap.org/data/2.5/weather?id=723819&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02\n",
   headers: {},
 };
-const firstJsonUrl =
-  "http://localhost:9500/api/v1/currentWeatherPo/firstJSON/1";
-const currentWeatherPoUrl = "http://localhost:9500/api/v1/currentWeather/";
-const currentWeatherPoUrlElastic = "http://127.0.0.1:9200/weather/_doc/";
+// const firstJsonUrl =
+//   "http://localhost:9500/api/v1/currentWeatherKe/firstJSON/1";
+//const currentWeatherKeUrl = "http://localhost:9500/api/v1/currentWeather/";
 
-
+const firstJsonUrl = "http://127.0.0.1:9200/current_weather_po/_doc/1";
+const currentWeatherPoUrlElastic = `http://127.0.0.1:9200/weather/_doc/`;
 
 async function downloadWeatherPO() {
   let firstJson;
   firstJson = await axios.get(firstJsonUrl);
-  firstJson = firstJson.data;
+  firstJson = firstJson.data._source;
 
   let json = await new Promise((resolve, reject) => {
     request(options, function (error, response, body) {
@@ -79,7 +79,6 @@ async function downloadWeatherPO() {
 
     try {
       axios.post(firstJsonUrl, a);
-     // axios.post(currentWeatherPoUrl, a);
       axios.post(currentWeatherPoUrlElastic, a);
     } catch (err) {
       console.log(err);
@@ -94,10 +93,8 @@ async function downloadWeatherPO() {
 
       try {
         axios.post(firstJsonUrl, a);
-       // axios.post(currentWeatherPoUrl, a);
         console.log(a)
         axios.post(currentWeatherPoUrlElastic, a)
-        
       } catch (error) {
         console.log(error);
       }

@@ -12,18 +12,22 @@ let options = {
   },
   json: true,
 };
-const presovStreetsUrl = "http://localhost:9500/api/v1/PresovStreets";
-const firstJsonUrl =
-  "http://localhost:9500/api/v1/currentSadPoBusses/firstJSON/1";
-const currentSadPoUrl = "http://localhost:9500/api/v1/currentBst";
-const currentSadPoUrlElastic = `http://127.0.0.1:9200/bst/_doc/`;
-const current_stopsUrl = "http://localhost:9500/api/v1/SadStops";
 const configUbian = {
   method: "get",
   url:
     "https://www.ubian.sk/navigation/vehicles/nearby?lat=48.99835545200854&lng=21.238180698603646&radius=50&cityID=",
   headers: {},
 };
+// const presovStreetsUrl = "http://localhost:9500/api/v1/PresovStreets";
+// const firstJsonUrl =
+//   "http://localhost:9500/api/v1/currentSadPoBusses/firstJSON/1";
+// const currentSadPoUrl = "http://localhost:9500/api/v1/currentBst";
+// const current_stopsUrl = "http://localhost:9500/api/v1/SadStops";
+
+const presovStreetsUrl = "http://localhost:9200/presov_streets/_doc/1"; // elastic
+const firstJsonUrl = "http://localhost:9200/current_sadpo/_doc/1"; // elastic
+const current_stopsUrl = "http://localhost:9200/sad_stops/_doc/1"; // elastic
+const currentSadPoUrlElastic = `http://localhost:9200/bst/_doc/`;
 
 async function downloadSadUb() {
   let down;
@@ -58,7 +62,7 @@ async function downloadSadUb() {
           i = ++i;
         }
       });
-      let downloadResult = [];
+      let downloadResultUbian = [];
       let time = new Date();
       let currentTime = time.getTime();
       let count = 0;
@@ -102,9 +106,9 @@ async function downloadSadUb() {
         if (x.CHANGE_OF_DELAY) properties.CHANGE_OF_DELAY = x.CHANGE_OF_DELAY;
 
         a.properties = properties;
-        downloadResult.push(a);
+        downloadResultUbian.push(a);
       });
-      return downloadResult;
+      return downloadResultUbian;
     });
     //console.log(down);
   } catch (error) {
@@ -115,11 +119,11 @@ async function downloadSadUb() {
   let current_stops;
   try {
     firstJson = await axios.get(firstJsonUrl);
-    firstJson = firstJson.data;
+    firstJson = firstJson.data._source.features;
   } catch (error) {}
   try {
     current_stops = await axios.get(current_stopsUrl);
-    current_stops = current_stops.data;
+    current_stops = current_stops.data._source.features;
   } catch (error) {}
 
   let json = await new Promise((resolve, reject) => {
@@ -687,8 +691,9 @@ async function downloadSadUb() {
   //console.log(filteredResult);
   // adding Street
   let streets = await axios.get(presovStreetsUrl);
+  streets = streets.data._source.features;
   filteredResult.map((zaznam) => {
-    streets.data.features.forEach((ul) => {
+    streets.forEach((ul) => {
       ul.geometry.coordinates.forEach((u) => {
         u.map((x) => {
           if (
@@ -715,10 +720,22 @@ async function downloadSadUb() {
     });
   });
 
+  let obj = {};
   //console.log(filteredResult);
   try {
-    await axios.post(firstJsonUrl, filteredResult);
-  } catch (error) {}
+    //zmena na collection -> to elastic
+    obj.type = "FeatureCollection";
+    obj.name = "Current_Sad";
+    obj.features = filteredResult;
+
+    // fs.writeFileSync(
+    //   `./Data/SadPO_json/Sad.json`,
+    //   JSON.stringify(obj)
+    // );
+    await axios.post(firstJsonUrl, obj);
+  } catch (error) {
+    console.log(error);
+  }
 
   return await Promise.all(
     filteredResult.map((zaznam) => {
@@ -726,7 +743,9 @@ async function downloadSadUb() {
       try {
         //axios.post(currentSadPoUrl, zaznam);
         axios.post(currentSadPoUrlElastic, zaznam);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     })
   );
 }

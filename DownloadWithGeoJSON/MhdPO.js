@@ -10,15 +10,17 @@ const OPTIONS = {
 const RESPONSE_ENCODING = "CP1250";
 const https = require("follow-redirects").https;
 const IconvLite = require("iconv-lite");
-const firstJsonUrl =
-  "http://localhost:9500/api/v1/currentMhdPoBusses/firstJSON/1";
-const presovStreetUrl = "http://localhost:9500/api/v1/PresovStreets";
-const presovStopsMHD = "http://localhost:9500/api/v1/PresovStops";
+// const firstJsonUrl =
+//   "http://localhost:9500/api/v1/currentMhdPoBusses/firstJSON/1"; // Mongo
+// const presovStreetUrl = "http://localhost:9500/api/v1/PresovStreets"; Mongo
+//const presovStopsMHD = "http://localhost:9500/api/v1/PresovStops"; Mongo
+//const currentMhdPoBussesUrl = "http://localhost:9500/api/v1/currentBst/";
 
-//const firstJsonUrl = "http://localhost:9200/current_mhdpo/_doc/1"; // elastic
-//const presovStreetUrl = "http://localhost:9200/presov_streets/_doc/1";
-const currentMhdPoBussesUrl = "http://localhost:9500/api/v1/currentBst/";
-const currentMhdPoBussesUrlElastic = `http://127.0.0.1:9200/bst/_doc/`;
+const firstJsonUrl = "http://127.0.0.1:9200/current_mhdpo/_doc/1"; // elastic
+const presovStreetUrl = "http://localhost:9200/presov_streets/_doc/1"; // elastic
+const currentMhdPoBussesUrlElastic = `http://127.0.0.1:9200/bst/_doc/`; // elastic
+const presovStopsMHD = "http://localhost:9200/presov_stops/_doc/1";
+
 const fs = require("fs");
 
 const csvHeaders = [
@@ -72,13 +74,28 @@ const getStops = async () => {
 async function downloadExcel() {
   let firstJson; //downloadPreviousJson
   let zastavkyGPS;
+  let streets;
   try {
     firstJson = await axios.get(firstJsonUrl);
-    firstJson = firstJson.data;
-    zastavkyGPS = await axios.get(presovStopsMHD);
-    zastavkyGPS = zastavkyGPS.data;
+    firstJson = firstJson.data._source.features;
     //console.log(firstJson);
-  } catch {}
+  } catch (err) {
+    console.log(err);
+  }
+
+  try {
+    zastavkyGPS = await axios.get(presovStopsMHD);
+    zastavkyGPS = zastavkyGPS.data._source.features;
+    //console.log(zastavkyGPS);
+  } catch (err) {
+    console.log(err);
+  }
+  try {
+    streets = await axios.get(presovStreetUrl);
+    streets = streets.data._source.features;
+  } catch (err) {
+    console.log(err);
+  }
 
   getStops().then(async (response) => {
     csv({
@@ -112,16 +129,11 @@ async function downloadExcel() {
             properties.Current_Stop = x.BUS_STOP_NAME_1;
             // kontrola ci sa nachadza " *"
             if (properties.Current_Stop.includes(" *")) {
-              properties.Current_Stop = properties.Current_Stop.split(
-                " *"
-              )[0];
+              properties.Current_Stop = properties.Current_Stop.split(" *")[0];
               //kontrola medzier " "
               if (properties.Current_Stop.slice(-1) === " ") {
                 //console.log("StopName1");
-                properties.Current_Stop = properties.Current_Stop.slice(
-                  0,
-                  -1
-                );
+                properties.Current_Stop = properties.Current_Stop.slice(0, -1);
               }
               //kontrola ak je properties.Current_Stop prazdne
               if (properties.Current_Stop === "") {
@@ -134,16 +146,11 @@ async function downloadExcel() {
             properties.Next_Stop = x.BUS_STOP_NAME_2;
             properties.BUS_STOP_NUM_2 = x.BUS_STOP_NUM_2;
             if (properties.Next_Stop.includes(" *")) {
-              properties.Next_Stop = properties.Next_Stop.split(
-                " *"
-              )[0];
+              properties.Next_Stop = properties.Next_Stop.split(" *")[0];
               //kontrola medzier " "
               if (properties.Next_Stop.slice(-1) === " ") {
                 //console.log("StopName2");
-                properties.Next_Stop = properties.Next_Stop.slice(
-                  0,
-                  -1
-                );
+                properties.Next_Stop = properties.Next_Stop.slice(0, -1);
               }
               //kontrola ak je properties.Next_Stop prazdne
               if (properties.Next_Stop === "") {
@@ -155,9 +162,10 @@ async function downloadExcel() {
             properties.REAL_ROAD = x.REAL_ROAD;
             properties.DELAY = x.VARIATION;
             properties.VEHICLE_NUMBER = x.VEHICLE_NUMBER;
-            if (x.CHANGE_OF_DELAY)
-              properties.CHANGE_OF_DELAY = x.CHANGE_OF_DELAY;
-            if (x.Street) properties.Street = x.Street;
+            //if (x.CHANGE_OF_DELAY)
+            properties.CHANGE_OF_DELAY = x.CHANGE_OF_DELAY;
+            //if (x.Street)
+            properties.Street = x.Street;
             properties.Order_In_Json_Id = ++count;
             properties.Type = "MHD";
             properties.Current_Time = currentTime;
@@ -170,6 +178,7 @@ async function downloadExcel() {
             a.properties = properties;
             downloadResult.push(a);
           });
+          // console.log(firstJson);
           if (firstJson == undefined || firstJson.length < 1) {
             //previosExcel
             firstJson = downloadResult; //currentExcel
@@ -257,9 +266,8 @@ async function downloadExcel() {
           }, []);
 
           // adding Street
-          let streets = await axios.get(presovStreetUrl);
           filteredResult.map(async (zaznam) => {
-            streets.data.features.forEach((ul) => {
+            streets.forEach((ul) => {
               // pridavanie ulic
               ul.geometry.coordinates.forEach((u) => {
                 u.map((x) => {
@@ -274,6 +282,7 @@ async function downloadExcel() {
                 });
               });
             });
+            //adding isOnStop
             zastavkyGPS.forEach((e) => {
               if (
                 e.geometry.coordinates[0].toFixed(3) ==
@@ -283,28 +292,39 @@ async function downloadExcel() {
               ) {
                 let isOnStop = true;
                 zaznam.properties.isOnStop = isOnStop;
-              }
-              else{
+              } else {
                 let isOnStop = false;
                 zaznam.properties.isOnStop = isOnStop;
               }
             });
           });
-
+          let obj = {};
           //console.log(filteredResult);
           try {
+            //zmena na collection -> to elastic
+            obj.type = "FeatureCollection";
+            obj.name = "Current_MHD";
+            obj.features = filteredResult;
+
             // fs.writeFileSync(
             //   `./Data/MhdPO_json/MHD.json`,
-            //   JSON.stringify(filteredResult)
+            //   JSON.stringify(obj)
             // );
-            await axios.post(firstJsonUrl, filteredResult);
-          } catch (error) {}
+            await axios.post(firstJsonUrl+"_update_by_query?conflicts=proceed", obj);
+          } catch (error) {
+            console.log(error);
+          }
 
           return await Promise.all(
             filteredResult.map((zaznam) => {
               console.log(zaznam);
               //axios.post(currentMhdPoBussesUrl, zaznam);
-              axios.post(currentMhdPoBussesUrlElastic, zaznam);
+              try {
+                axios.post(currentMhdPoBussesUrlElastic, zaznam);
+              } catch (error) {
+                console.log(error);
+              }
+    
             })
           );
         }

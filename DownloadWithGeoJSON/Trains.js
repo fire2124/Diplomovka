@@ -12,15 +12,18 @@ const options = {
   },
   json: true,
 };
-const firstJsonUrl = "http://localhost:9500/api/v1/currentTrains/firstJSON/1";
-const currentTrainsUrl = "http://localhost:9500/api/v1/currentBst/";
+const fs = require("fs");
+
+//const firstJsonUrl = "http://localhost:9500/api/v1/currentTrains/firstJSON/1";
+//const currentTrainsUrl = "http://localhost:9500/api/v1/currentBst/";
+const firstJsonUrl = "http://127.0.0.1:9200/current_trains/_doc/1";
 const currentTrainsUrlElastic = `http://127.0.0.1:9200/bst/_doc/`;
 
 async function downloadTrains() {
   let firstJson;
   firstJson = await axios.get(firstJsonUrl);
-  firstJson = firstJson.data;
-
+  firstJson = firstJson.data._source.features;
+  
   let json = await new Promise((resolve, reject) => {
     request(options, function (error, response, body) {
       if (error) reject(error);
@@ -45,8 +48,9 @@ async function downloadTrains() {
         a.type = "Feature";
         coordinates[0] = zaznam.Position[1];
         coordinates[1] = zaznam.Position[0];
+        geometry.type = "Point"
         geometry.coordinates = coordinates;
-        geometry.type = "Point";
+        
         a.geometry = geometry;
         properties.Nazov = zaznam.Nazov;
         properties.DELAY = zaznam.Meska * 60; // na sekundy;
@@ -63,9 +67,12 @@ async function downloadTrains() {
         }
         
         let resC = zaznam.Cas.split(" ");
+        if(resC[0]!= '---')
         properties.CasDay = resC[0];
+        if(resC[1]!= undefined)
         properties.CasTime = resC[1];
         let resCp = zaznam.CasPlan.split(" ");
+        
         properties.CasPlanDay = resCp[0];
         properties.CasPlanTime = resCp[1];
         let res = zaznam.Popis.split("->");
@@ -173,13 +180,26 @@ async function downloadTrains() {
       item.properties.Current_Time = currentTime;
     });
 
-    await axios.post(firstJsonUrl, filteredResult);
+    let obj = {};
+    //console.log(filteredResult);
+    try {
+      //zmena na collection -> to elastic
+      obj.type = "FeatureCollection";
+      obj.name = "Current_MHD";
+      obj.features = filteredResult;
+
+      // fs.writeFileSync(
+      //   `./Data/MhdPO_json/MHD.json`,
+      //   JSON.stringify(obj)
+      // );
+      await axios.post(firstJsonUrl, obj);
+    }catch(err){}
 
     return await Promise.all(
       filteredResult.map((item) => {
-        axios.post(currentTrainsUrl, item);
-        //axios.post(currentTrainsUrlElastic, item);
-        console.log(item);
+        //axios.post(currentTrainsUrl, item);
+        axios.post(currentTrainsUrlElastic, item);
+        //console.log(item);
       })
     );
   } else {
@@ -190,18 +210,27 @@ async function downloadTrains() {
     console.log("----------")
     console.log(_.isEqual(filteredResult, firstJson));
     console.log("Trains")
+    //console.log(_.difference(filteredResult, firstJson))
     if (_.isEqual(filteredResult, firstJson) === false) {
       filteredResult.map((item) => {
         item.properties.Current_Time = currentTime;
       });
-
-      await axios.post(firstJsonUrl, filteredResult);
+   
+    let obj = {};
+    //console.log(filteredResult);
+    
+      //zmena na collection -> to elastic
+      obj.type = "FeatureCollection";
+      obj.name = "Current_Train";
+      obj.features = filteredResult;
+      await axios.post(firstJsonUrl, obj);
+    
 
       return await Promise.all(
         filteredResult.map((item) => {
-          axios.post(currentTrainsUrl, item);
-        // axios.post(currentTrainsUrlElastic, item);
-          console.log(item);
+          //axios.post(currentTrainsUrl, item);
+         axios.post(currentTrainsUrlElastic, item);
+         //console.log(item);
         })
       );
     }
