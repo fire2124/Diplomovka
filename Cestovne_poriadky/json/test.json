@@ -1,4 +1,0 @@
-function() {
-        let args = (arguments.length === 1 ? [arguments[0]] : Array.apply(null, arguments));
-        return read(mat, args);
-    }

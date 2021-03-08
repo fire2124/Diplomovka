@@ -99,7 +99,7 @@ async function downloadTrains() {
   zaznamy.forEach((j) => {//currentExcel
     d.forEach((e) => {// previosExcel
       if (
-        e.properties["Nazov"] === j.properties["Nazov"] &&
+        e.properties["ROUTE_NUMBER"] === j.properties["ROUTE_NUMBER"] &&
         e.properties["From"] === j.properties["From"] &&
         e.properties["To"] === j.properties["To"]
       ) {
@@ -156,7 +156,7 @@ async function downloadTrains() {
   let filteredResult = result.reduce((acc, current) => {
     const x = acc.find(
       (item) =>
-        item.properties.Nazov === current.properties.Nazov &&
+        item.properties.ROUTE_NUMBER === current.properties.ROUTE_NUMBER &&
         item.properties.From === current.properties.From &&
         item.properties.To === current.properties.To &&
         item.properties.Dopravca === current.properties.Dopravca

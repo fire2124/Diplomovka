@@ -1,13 +1,28 @@
 const axios = require("axios");
 const csv = require("csvtojson");
 const fs = require("fs");
+const request = require('requestretry');
 const OPTIONS = {
   method: "GET",
   hostname: "egov.presov.sk",
   path: "/geodatakatalog/dpmp.csv",
   headers: {},
   maxRedirects: 0,
+  connection: 'keep-alive'
 };
+const { getDistance } = require('geolib')
+
+const OPTIONS2 = {
+  method: "GET",
+  url: "https://egov.presov.sk/geodatakatalog/dpmp.csv",
+  headers: {},
+  maxRedirects: 0,
+  connection: 'keep-alive',
+  maxAttempts: 5,   // (default) try 5 times
+  retryDelay: 5000,  // (default) wait for 5s before trying again
+  retryStrategy: request.RetryStrategies.HTTPOrNetworkError
+};
+
 const RESPONSE_ENCODING = "CP1250";
 const https = require("follow-redirects").https;
 const IconvLite = require("iconv-lite");
@@ -42,6 +57,29 @@ const csvHeaders = [
   "VEHICLE_NUMBER",
   "DATE_TIME",
 ];
+const Sentry = require("@sentry/node");
+// or use es6 import statements
+// import * as Sentry from '@sentry/node';
+
+const Tracing = require("@sentry/tracing");
+// or use es6 import statements
+// import * as Tracing from '@sentry/tracing';
+
+Sentry.init({
+  dsn: "https://25cb4963ff9b4bc6bab0de0aa7abf202@o368587.ingest.sentry.io/5667034",
+
+  // We recommend adjusting this value in production, or using tracesSampler
+  // for finer control
+  tracesSampleRate: 1.0,
+});
+
+const transaction = Sentry.startTransaction({
+  op: "test",
+  name: "My First Test Transaction",
+});
+
+
+
 const getStops = async () => {
   return new Promise((resolve, reject) => {
     const req = https.request(OPTIONS, (res) => {
@@ -59,21 +97,26 @@ const getStops = async () => {
           );
           resolve(body.toString());
         } catch (e) {
+          Sentry.captureException(e);
           reject(e);
         }
       });
 
       res.on("error", (error) => {
-        if (err.message.code === 'ETIMEDOUT')
-          reject(error);
-        else {
-          reject(error);
-        }
+        reject(error);
+        //hodenie chyby
+        console.log("Error: Unable to get " + OPTIONS.hostname, "#ff0000");
+        console.log(error, "#ff0000");
+        callback(null);
       })
     });
     req.end();
   });
+
 };
+
+
+
 
 async function downloadMhdPO() {
   let firstJson; //downloadPreviousJson
@@ -251,8 +294,7 @@ async function downloadMhdPO() {
           }, []);
 
           // adding Street
-
-          filteredResult.map(async (zaznam) => {
+          filteredResult.map(async (zaznam) => { // autobus
             streets.features.forEach((ul) => {
               // pridavanie ulic
               ul.geometry.coordinates.forEach((u) => {
@@ -269,20 +311,29 @@ async function downloadMhdPO() {
               });
             });
             //adding isOnStop
+            let distances = []
+            let isOnStop
             zastavkyGPS.forEach((e) => {
-              if (
-                e.geometry.coordinates[0].toFixed(3) ==
-                zaznam.geometry.coordinates[0].toFixed(3) &&
-                e.geometry.coordinates[1].toFixed(3) ===
-                zaznam.geometry.coordinates[1].toFixed(3)
-              ) {
-                let isOnStop = true;
-                zaznam.properties.isOnStop = isOnStop;
-              } else {
-                let isOnStop = false;
-                zaznam.properties.isOnStop = isOnStop;
+              let distance = getDistance({ // vzdialenost zastavky od autobusu
+                latitude: e.geometry.coordinates[1],
+                longitude: e.geometry.coordinates[0]
+              },
+                {
+                  latitude: zaznam.geometry.coordinates[1],
+                  longitude: zaznam.geometry.coordinates[0]
+                }, accuracy = 1) // v m
+              if (distance < 10) {
+                //console.log(distance)
+                distances.push(distance)
               }
             });
+            //console.log(distances.length)
+            if (distances.length > 0)
+              isOnStop = true;
+            else
+              isOnStop = false;
+
+            zaznam.properties.isOnStop = isOnStop;
           });
 
           //console.log(filteredResult);
@@ -294,7 +345,7 @@ async function downloadMhdPO() {
           try {
             await axios.post(firstJsonUrl, filteredResult);
           } catch (error) {
-
+            Sentry.captureException(error);
           }
 
 
@@ -305,12 +356,15 @@ async function downloadMhdPO() {
               //axios.post(currentMhdPoBussesUrl, zaznam);
               try {
                 axios.post(currentMhdPoBussesUrlElastic, zaznam);
-              } catch (error) { }
+              } catch (error) {
+                Sentry.captureException(error);
+              }
             })
           );
         }
       });
-  });
+  }).catch(e => { Sentry.captureException(e); });
+  transaction.finish();
 }
 
 setInterval(downloadMhdPO, 15000);

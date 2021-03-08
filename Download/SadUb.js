@@ -1,5 +1,7 @@
 const axios = require("axios");
 let request = require("request");
+const { getDistance } = require('geolib')
+
 let options = {
   method: "POST",
   url: "https://www.dispecing.info/TDWebAPI/api/GetOnlineData",
@@ -24,7 +26,7 @@ const firstJsonUrl =
 const currentSadPoUrlElastic = `http://127.0.0.1:9200/bst/_doc/`;
 //static
 const current_Stops_Sad = require('../Data/static/Zas_SAD')
-const presovStreets =  require('../Data/static/uliceFinal')
+const presovStreets = require('../Data/static/uliceFinal')
 const current_stops = JSON.parse(JSON.stringify(current_Stops_Sad))
 const streets = JSON.parse(JSON.stringify(presovStreets));
 
@@ -115,14 +117,14 @@ async function downloadSadUb() {
   }
 
   let firstJson;
- 
+
   try {
     firstJson = await axios.get(firstJsonUrl);
     firstJson = firstJson.data;
-  } catch (error) {}
-  
-    
- 
+  } catch (error) { }
+
+
+
 
   let json = await new Promise((resolve, reject) => {
     request(options, function (error, response, body) {
@@ -706,20 +708,42 @@ async function downloadSadUb() {
     //adding Current Stops
     current_stops.map((ul) => {
       let x = ul.geometry.coordinates;
-      if (
-        x[0].toFixed(3) === zaznam.geometry.coordinates[0].toFixed(3) &&
-        x[1].toFixed(3) === zaznam.geometry.coordinates[1].toFixed(3)
-      ) {
-        let Current_Stop = ul.properties.name;
-        zaznam.properties.Current_Stop = Current_Stop;
+      // if (
+      //   x[0].toFixed(3) === zaznam.geometry.coordinates[0].toFixed(3) &&
+      //   x[1].toFixed(3) === zaznam.geometry.coordinates[1].toFixed(3)
+      // ) {
+      //   let Current_Stop = ul.properties.name;
+      //   let Current_Stop_ID = ul.properties.id;
+
+      //   zaznam.properties.Current_Stop = Current_Stop;
+      //   zaznam.properties.Current_Stop_ID = Current_Stop_ID;
+      // }
+
+      if (zaznam.properties.isOnStop === true) {
+        let distance = getDistance({ // vzdialenost zastavky od autobusu
+          latitude: x[1],
+          longitude: x[0]
+        },
+          {
+            latitude: zaznam.geometry.coordinates[1],
+            longitude: zaznam.geometry.coordinates[0]
+          }, accuracy = 1) // v m
+        if (distance <= 40) {
+          //console.log(distance)
+          let Current_Stop = ul.properties.name;
+          let Current_Stop_ID = ul.properties.id;
+          zaznam.properties.Current_Stop = Current_Stop;
+          zaznam.properties.Current_Stop_ID = Current_Stop_ID;
+        }
       }
+
     });
   });
 
   //console.log(filteredResult);
   try {
     await axios.post(firstJsonUrl, filteredResult);
-  } catch (error) {}
+  } catch (error) { }
 
   return await Promise.all(
     filteredResult.map((zaznam) => {
@@ -727,7 +751,7 @@ async function downloadSadUb() {
       try {
         //axios.post(currentSadPoUrl, zaznam);
         axios.post(currentSadPoUrlElastic, zaznam);
-      } catch (error) {}
+      } catch (error) { }
     })
   );
 }
