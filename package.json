@@ -26,7 +26,7 @@
     "@supercharge/collections": "^3.0.0",
     "array-unique": "^0.3.2",
     "autodetect-decoder-stream": "^1.0.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "compute-pcorr": "^1.0.0",
     "csv-mapper-lite": "^1.0.6",
