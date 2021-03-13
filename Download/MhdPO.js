@@ -1,7 +1,7 @@
 const axios = require("axios");
 const csv = require("csvtojson");
 const fs = require("fs");
-const request = require('requestretry');
+const { getDistance } = require('geolib')
 const OPTIONS = {
   method: "GET",
   hostname: "egov.presov.sk",
@@ -10,31 +10,18 @@ const OPTIONS = {
   maxRedirects: 0,
   connection: 'keep-alive'
 };
-const { getDistance } = require('geolib')
-
-const OPTIONS2 = {
-  method: "GET",
-  url: "https://egov.presov.sk/geodatakatalog/dpmp.csv",
-  headers: {},
-  maxRedirects: 0,
-  connection: 'keep-alive',
-  maxAttempts: 5,   // (default) try 5 times
-  retryDelay: 5000,  // (default) wait for 5s before trying again
-  retryStrategy: request.RetryStrategies.HTTPOrNetworkError
-};
-
 const RESPONSE_ENCODING = "CP1250";
 const https = require("follow-redirects").https;
 const IconvLite = require("iconv-lite");
+const { apiBstUrl } = require( "../config.json");
 //static
 const presovStreets = require("../Data/static/uliceFinal");
 const presovStopsMHD = require("../Data/static/mhd_Stops");
 const zastavkyGPS = presovStopsMHD.features
 const streets = JSON.parse(JSON.stringify(presovStreets));
 //dynamic
-//const firstJsonUrl = "http://localhost:9200/current_mhdpo/_doc/1"; // elastic
-//const presovStreetUrl = "http://localhost:9200/presov_streets/_doc/1";
-const currentMhdPoBussesUrlElastic = `http://127.0.0.1:9200/bst/_doc/`;
+const currentMhdPoBussesUrlElastic = apiBstUrl;
+
 const firstJsonUrl =
   "http://localhost:9500/api/v1/currentMhdPoBusses/firstJSON/1";
 
@@ -60,10 +47,6 @@ const csvHeaders = [
 const Sentry = require("@sentry/node");
 // or use es6 import statements
 // import * as Sentry from '@sentry/node';
-
-const Tracing = require("@sentry/tracing");
-// or use es6 import statements
-// import * as Tracing from '@sentry/tracing';
 
 Sentry.init({
   dsn: "https://25cb4963ff9b4bc6bab0de0aa7abf202@o368587.ingest.sentry.io/5667034",

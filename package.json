@@ -11,7 +11,7 @@
     "weatherKE": "node ./Download/weatherKE.js",
     "zas": "node ./Zastavky_Presov/zastavky.js",
     "zas2": "node ./Zastavky_SAD/zastavkySad.js",
-    "zas3": "node ./zastavky.js",
+    "zas3": "node ./Zastavky_SAD/zastavky.js",
     "transform": "node ./Ulice_Presov/transformGPS.js"
   },
   "author": "",

@@ -1,0 +1,5 @@
+{
+    "apiBstUrl": "http://127.0.0.1:9200/bst/_doc/",
+    "apiTraffic_situationUrl": "http://127.0.0.1:9200/traffic_situation/_doc/",
+    "apiWeatherUrl": "http://127.0.0.1:9200/weather/_doc/"
+}

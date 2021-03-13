@@ -1,7 +1,7 @@
-const fetch = require("node-fetch");
 const axios = require("axios");
 const request = require("request");
 const _ = require("lodash");
+const { apiTraffic_situationUrl } = require( "../config.json");
 
 const options = {
   method: "GET",
@@ -12,7 +12,7 @@ const options = {
   },
 };
 const firstJsonUrl = `http://localhost:9500/api/v1/currentTraffic/firstJSON/1`;
-const currentTrafficUrlElastic = `http://127.0.0.1:9200/traffic_situation/_doc/`;
+const currentTrafficUrlElastic = apiTraffic_situationUrl;
 
 async function downloadTrafficSituation() {
   let firstJson;
@@ -25,13 +25,10 @@ async function downloadTrafficSituation() {
       else resolve(body);
     });
   });
-  const date = new Date();
-  const imageDate = Date.parse(date);
   let bodyFinal = JSON.parse(json);
   let time = new Date();
   let currentTime = time.getTime();
   bodyFinal = bodyFinal.situations;
-  let count = 0;
 
   const zaznamy = bodyFinal
     .map((element) => {

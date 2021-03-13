@@ -1,6 +1,8 @@
 const axios = require("axios");
 const request = require("request");
 const _ = require("lodash");
+const { apiWeatherUrl } = require( "../config.json");
+
 const options = {
   method: "GET",
   url:
@@ -9,7 +11,7 @@ const options = {
 };
 const firstJsonUrl =
   "http://localhost:9500/api/v1/currentWeatherKe/firstJSON/1";
-const currentWeatherKeUrlElastic = `http://127.0.0.1:9200/weather/_doc/`;
+const currentWeatherKeUrlElastic = apiWeatherUrl;
 
 // weather Kosice
 async function downloadWeatherKE() {

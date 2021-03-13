@@ -1,6 +1,8 @@
 const axios = require("axios");
 const request = require("request");
 const _ = require("lodash");
+const { apiBstUrl } = require( "../config.json");
+
 const options = {
   method: "POST",
   url: "http://mapa.zsr.sk/json.rpc",
@@ -13,7 +15,9 @@ const options = {
   json: true,
 };
 const firstJsonUrl = "http://localhost:9500/api/v1/currentTrains/firstJSON/1";
-const currentTrainsUrlElastic = `http://127.0.0.1:9200/bst/_doc/`;
+//const currentTrainsUrlElastic = `http://127.0.0.1:9200/bst/_doc/`;
+const currentTrainsUrlElastic = apiBstUrl;
+
 
 async function downloadTrains() {
   let firstJson;

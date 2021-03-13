@@ -1,8 +1,18 @@
 const axios = require("axios");
-let request = require("request");
+const request = require("request");
 const { getDistance } = require('geolib')
+const { apiBstUrl } = require( "../config.json");
+const firstJsonUrl =
+  "http://localhost:9500/api/v1/currentSadPoBusses/firstJSON/1";
+const currentSadPoUrlElastic = apiBstUrl;
 
-let options = {
+//static
+const current_Stops_Sad = require('../Data/static/Zas_SAD')
+const presovStreets = require('../Data/static/uliceFinal')
+const current_stops = JSON.parse(JSON.stringify(current_Stops_Sad))
+const streets = JSON.parse(JSON.stringify(presovStreets));
+
+const options = {
   method: "POST",
   url: "https://www.dispecing.info/TDWebAPI/api/GetOnlineData",
   headers: {
@@ -21,14 +31,7 @@ const configUbian = {
   headers: {},
 };
 
-const firstJsonUrl =
-  "http://localhost:9500/api/v1/currentSadPoBusses/firstJSON/1";
-const currentSadPoUrlElastic = `http://127.0.0.1:9200/bst/_doc/`;
-//static
-const current_Stops_Sad = require('../Data/static/Zas_SAD')
-const presovStreets = require('../Data/static/uliceFinal')
-const current_stops = JSON.parse(JSON.stringify(current_Stops_Sad))
-const streets = JSON.parse(JSON.stringify(presovStreets));
+
 
 async function downloadSadUb() {
   let down;

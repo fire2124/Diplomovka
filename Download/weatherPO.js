@@ -1,6 +1,8 @@
 const axios = require("axios");
 const request = require("request");
 const _ = require("lodash");
+const { apiWeatherUrl } = require( "../config.json");
+
 const options = {
   method: "GET",
   url:
@@ -9,7 +11,8 @@ const options = {
 };
 const firstJsonUrl =
   "http://localhost:9500/api/v1/currentWeatherPo/firstJSON/1";
-const currentWeatherPoUrlElastic = "http://127.0.0.1:9200/weather/_doc/";
+const currentWeatherPoUrlElastic = apiWeatherUrl;
+
 
 async function downloadWeatherPO() {
   let firstJson;

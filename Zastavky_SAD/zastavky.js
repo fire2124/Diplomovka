@@ -1,6 +1,5 @@
 const fs = require("fs");
-const date = new Date();
-const imageDate = Date.parse(date);
+
 const Collect = require("@supercharge/collections");
 const proj4 = require("proj4");
 let firstProjection = `PROJCS["WGS 84 / Pseudo-Mercator",
@@ -28,84 +27,120 @@ AXIS["Y",NORTH]]
 `;
 var secondProjection = "+proj=longlat +datum=WGS84 +no_defs ";
 
-if (!fs.existsSync("Zastavky_Presov")) {
-  fs.mkdirSync("Zastavky_Presov");
-}
 const readFiles = require("read-files-promise");
+const { getDistance } = require('geolib')
 
-readFiles(["./zastavky_SAD.json"], { encoding: "utf8" }).then(
-  async (buffers) => {
-    let data;
-    let array = [];
-    buffers.forEach((e) => {
-      data = JSON.parse(e);
-      data = data.features;
-      let i = 0;
-      data.map((e) => {
-        //transform GPS
-        if(e.geometry){
-          let coordinatesOld = e.geometry.coordinates;
-          if(coordinatesOld != null){
-            
-            let array2 = [];
-            let gps = proj4(firstProjection).inverse(coordinatesOld);
-            array2.push(gps[0], gps[1]);
-            
-            let geometry = {};
-            let coordinates = [];
-            geometry.coordinates = array2;
-            (geometry.type = `${e.geometry.type}`), (e.geometry = geometry);
-            //delete
-            delete e.id;
-            delete e.geometry_name;
-            delete e.properties.existing;
-            delete e.properties.ad_table;
-            delete e.properties.bike_rack;
-            delete e.properties.bin;
-            delete e.properties.lights;
-            delete e.properties.bench;
-            delete e.properties.image5;
-            delete e.properties.image4;
-            delete e.properties.image3;
-            delete e.properties.image2;
-            delete e.properties.image1;
-            delete e.properties.note;
-            delete e.properties.parking;
-            delete e.properties.elevation;
-            delete e.properties.extravilan;
-            delete e.properties.beaten_path;
-            delete e.properties.gravel_path;
-            delete e.properties.paved_path;
-            delete e.properties.cyclo_path;
-            delete e.properties.dirt_road;
-            delete e.properties.mhd_mode;
-            delete e.properties.bus_stop_space;
-            delete e.properties.bus_stop_edge;
-            delete e.properties.hygienie;
-            delete e.properties.technical_con;
-            delete e.properties.hor_signs;
-            delete e.properties.shelter;
-            delete e.properties.paved_road;
-            delete e.properties.equipment;
-            delete e.properties.validate;
-            delete e.properties.fid;
-            delete e.properties.validate;
-            delete e.properties.bus_schedule;
-            delete e.properties.code;
-            let id = ++i;
-    
-            e.properties.id = id;
-            array.push(e);}
-          else return
-        }
-        
-        
-      });
-    });
-    console.log(array);
-    fs.writeFileSync(`./Zas_SAD.json`, JSON.stringify(array));
+let data = require("../Zastavky_SAD/Zas_SAD.json")
+
+console.log(data)
+
+let finalArray = []
+data.map(e => {
+  let distance = getDistance({ // vzdialenost zastavky od autobusu
+    latitude: e.geometry.coordinates[1],
+    longitude: e.geometry.coordinates[0]
+  },
+    {
+      latitude: 48.997341,
+      longitude: 21.240838
+    }, accuracy = 1) // v m
+  if (distance <= 10000) {
+    //console.log(distance)
+    finalArray.push(e)
   }
-);
+})
+
+fs.writeFileSync(`./Zastavky_SAD/Zas_SAD_10km.json`, JSON.stringify(finalArray));
+
+//   async (buffers) => {
+//     let data;
+//     let array = [];
+
+//     buffers.forEach((e) => {
+//       data = JSON.parse(e);
+//       data = data.features;
+//       console.log(data)
+//       let i = 0;
+
+//       data.map((e) => {
+//         //transform GPS
+//         if(e.geometry){
+//           let coordinatesOld = e.geometry.coordinates;
+//           if(coordinatesOld != null){
+
+//             let array2 = [];
+//             let gps = proj4(firstProjection).inverse(coordinatesOld);
+//             array2.push(gps[0], gps[1]);
+
+//             let geometry = {};
+//             let coordinates = [];
+//             geometry.coordinates = array2;
+//             (geometry.type = `${e.geometry.type}`), (e.geometry = geometry);
+//             //delete
+//             delete e.id;
+//             delete e.geometry_name;
+//             delete e.properties.existing;
+//             delete e.properties.ad_table;
+//             delete e.properties.bike_rack;
+//             delete e.properties.bin;
+//             delete e.properties.lights;
+//             delete e.properties.bench;
+//             delete e.properties.image5;
+//             delete e.properties.image4;
+//             delete e.properties.image3;
+//             delete e.properties.image2;
+//             delete e.properties.image1;
+//             delete e.properties.note;
+//             delete e.properties.parking;
+//             delete e.properties.elevation;
+//             delete e.properties.extravilan;
+//             delete e.properties.beaten_path;
+//             delete e.properties.gravel_path;
+//             delete e.properties.paved_path;
+//             delete e.properties.cyclo_path;
+//             delete e.properties.dirt_road;
+//             delete e.properties.mhd_mode;
+//             delete e.properties.bus_stop_space;
+//             delete e.properties.bus_stop_edge;
+//             delete e.properties.hygienie;
+//             delete e.properties.technical_con;
+//             delete e.properties.hor_signs;
+//             delete e.properties.shelter;
+//             delete e.properties.paved_road;
+//             delete e.properties.equipment;
+//             delete e.properties.validate;
+//             delete e.properties.fid;
+//             delete e.properties.validate;
+//             delete e.properties.bus_schedule;
+//             delete e.properties.code;
+//             let id = ++i;
+
+//             e.properties.id = id;
+//             array.push(e);}
+//           else return
+//         }
+//       });
+//     });
+//     console.log(array);
+//     let finalArray = []
+//     array.map(e=>{
+//       let distance = getDistance({ // vzdialenost zastavky od autobusu
+//         latitude: e.geometry.coordinates[1],
+//         longitude: e.geometry.coordinates[0]
+//       },
+//         {
+//           latitude: 48.997341,
+//           longitude: 21.240838
+//         }, accuracy = 1) // v m
+//       if (distance <= 10000) {
+//         //console.log(distance)
+//         finalArray.push(e)
+//       }
+//     })
+
+//     fs.writeFileSync(`./Zas_SAD_10km.json`, JSON.stringify(finalArray));
+//   }
+// );
 // const unique = [...new Set(array)];
 
 //   i = 0;
