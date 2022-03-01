@@ -51,7 +51,7 @@
     "read-files-promise": "^1.1.1",
     "read-multiple-files": "^3.0.0",
     "request": "^2.88.0",
-    "requestretry": "^5.0.0",
+    "requestretry": "^7.0.0",
     "sqlite": "^4.0.19",
     "sqlite3": "^5.0.1",
     "start": "^5.1.0",
